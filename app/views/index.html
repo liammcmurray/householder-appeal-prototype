@@ -1,7 +1,7 @@
-{% extends "layout.html" %}
+{% extends "layout-no-back.html" %}
 
 {% block pageTitle %}
-  Task list
+  Please complete | Appeal a planning decision
 {% endblock %}
 
 {% block content %}
@@ -11,6 +11,7 @@
       <h1 class="govuk-heading-xl">
         Appeal a planning decision
       </h1>
+      <p>A householder appeal currently has to be received by the Planning Inspectorate within 12 weeks of the date of the decision. You will lose your right of appeal if you do not submit it within this timeframe.</p>
 
       <ol class="app-task-list">
         <li>
@@ -20,21 +21,21 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="" aria-describedby="">
+                <a href="your-details" aria-describedby="">
                   Your details
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="" aria-describedby="">
+                <a href="company-details" aria-describedby="">
                   Company details
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="" aria-describedby="">
+                <a href="agent-details" aria-describedby="">
                   Agent details
                 </a>
               </span>
@@ -49,15 +50,15 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
-                  Upload the decision notice
+                <a href="lpa-details">
+                  Local Planning Authority details
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
-                  Local Planning Authority details
+                <a href="upload-decision">
+                  Upload the decision notice
                 </a>
               </span>
             </li>
@@ -71,15 +72,22 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
-                  Upload your original application
+                <a href="application-date">
+                  Date of original application
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
-                  Any changes to your application
+                <a href="upload-application">
+                  Upload the original application
+                </a>
+              </span>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="upload-application-changes">
+                  Any changes to the application
                 </a>
               </span>
             </li>
@@ -92,28 +100,28 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="site-location">
                   Site location
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="site-access">
                   Access to site
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="site-ownership">
                   Site ownership
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="notify">
                   Notification of joint owners or tenants
                 </a>
               </span>
@@ -127,14 +135,14 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="grounds-of-appeal">
                   Upload grounds of appeal
                 </a>
               </span>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="other-appeals">
                   Details of other relevant appeals
                 </a>
               </span>
@@ -148,7 +156,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="#">
+                <a href="check-answers">
                   Check your answers
                 </a>
               </span>

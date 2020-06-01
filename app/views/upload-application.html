@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload the original application
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="index" method="">
+      <span class="govuk-caption-xl">About the original application</span>
+      <h1 class="govuk-heading-xl">
+        Upload the original application
+      </h1>
+      <p>Documents submitted may be no bigger than 15MB each.</p>
+
+<div class="govuk-inset-text">
+We accept the following file formats:
+
+.pdf
+.doc or .docx
+.tif or .tiff
+.jpg or .jpeg
+.png
+.zip
+</div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
