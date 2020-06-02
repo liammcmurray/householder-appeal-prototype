@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Upload the original application
+  Upload the original planning application
 {% endblock %}
 
 {% block content %}
@@ -9,29 +9,32 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="index" method="">
-      <span class="govuk-caption-xl">About the original application</span>
+      <span class="govuk-caption-xl">About the original planning application</span>
       <h1 class="govuk-heading-xl">
-        Upload the original application
+        Upload the application
       </h1>
-      <p>Documents submitted may be no bigger than 15MB each.</p>
-
-<div class="govuk-inset-text">
-We accept the following file formats:
-
-.pdf
-.doc or .docx
-.tif or .tiff
-.jpg or .jpeg
-.png
-.zip
-</div>
-
-        <div class="govuk-form-group">
+      
+<div class="govuk-form-group">
           <label class="govuk-label" for="file-upload-1">
             Upload a file
           </label>
           <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
         </div>
+
+<div class="govuk-inset-text">
+
+We accept the following file formats:
+<ul>
+<li>.pdf</li>
+<li>.doc or .docx</li>
+<li>.tif or .tiff</li>
+<li>.jpg or .jpeg</li>
+<li>.png</li>
+<li>.zip</li>
+</ul>
+</div>
+<p>Document cannot be larger than 15MB.</p>
+        
         <button class="govuk-button" data-module="govuk-button">
             Save and continue
         </button>

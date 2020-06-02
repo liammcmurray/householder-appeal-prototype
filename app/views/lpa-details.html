@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Local Planning authoirty details
+  Local Planning authority details
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
       <form action="lpa-details-decision" method="">
         <span class="govuk-caption-xl">About the relevant Local Planning Authority</span>
         <h1 class="govuk-heading-xl">
-          Local Planning authoirty details
+          LPA details
         </h1>
         <div class="govuk-form-group">
           <label class="govuk-label" for="event-name">
@@ -22,8 +22,11 @@
 
         <div class="govuk-form-group">
           <label class="govuk-label" for="event-name">
-            LPA reference number
+            Planning application number
           </label>
+          <span id="event-name-hint" class="govuk-hint">
+            You can find this on the LPA decision notice.
+          </span>
           <input class="govuk-input govuk-!-width-one-half" id="event-name" name="event-name" type="text">
         </div>
         <button class="govuk-button" data-module="govuk-button">
