@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="index" method="post" novalidate>
+      <span class="govuk-caption-xl">About the site</span>
+      <h1 class="govuk-heading-xl">
+        Site location
+      </h1>
+      <h2 class="govuk-heading-m">what's the site address? (postcode lookup)</h2>
+
+      <a href="#normal">Enter address manually</a>
+
+<p>green belt?</p>
+
+
+      <div class="govuk-form-group">
+        
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}
