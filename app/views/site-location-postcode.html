@@ -13,19 +13,18 @@
         Site location
       </h1>
       <h2 class="govuk-heading-l">What's the site address?</h2>
-      <form action="site-location-postcode" method="post" novalidate>
+      <form action="site-access" method="post" novalidate>
       <fieldset class="govuk-fieldset govuk-!-padding-bottom-6">
         <legend class="govuk-visually-hidden">Postcode lookup</legend>
+        <p>Postcode: <strong>SW1P 4DF</strong> <a href="site-location">change</a>
+
         <div class="govuk-form-group">
-          <label for="postcode" class="gem-c-label govuk-label">Enter a postcode</label>
-          <div id="hint-8487bd24" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
-            For example SW1A 2AA
-          </div>
-          <input name="postcode" class="govuk-input govuk-input--width-10" id="postcode" type="text" aria-describedby="hint-8487bd24">
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="published">1 address found</option>
+            <option value="published">Buckingham Palace, London</option>
+          </select>
         </div>
-        <button class="govuk-button" type="submit">Find</button>
-      </fieldset>
-    </form>
+
       <div class="govuk-form-group">
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
@@ -67,18 +66,22 @@
                 </label>
                 <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
               </div>
-              <div class="govuk-form-group">
-                <form action="site-access" method="post" novalidate>
-                  <button class="govuk-button" data-module="govuk-button">
-                    Save and continue
-                  </button>
-                </form>
-              </div>
             </fieldset>
 
           </div>
         </details>
       </div>
+      </fieldset>
+      
+
+      <div class="govuk-form-group">
+        
+      </div>
+      <form action="site-location-green-belt" method="post" novalidate>
+      <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </form>
     </div>
   </div>
 

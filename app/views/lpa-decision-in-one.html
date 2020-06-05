@@ -8,31 +8,16 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="lpa-decision-check" method="post" novalidate>
+      <form action="index" method="post" novalidate>
         <span class="govuk-caption-xl">About the relevant Local Planning Authority</span>
         <h1 class="govuk-heading-xl">
           Upload the decision notice
         </h1>
 
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                Did the LPA issue a decision?
-              </h1>
-            </legend>
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="lpa-decision-yes" name="lpa-decision" type="radio" value="yes" data-aria-controls="conditional-lpa-decision-conditional">
-                <label class="govuk-label govuk-radios__label" for="lpa-decision-yes">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-lpa-decision-conditional">
-              <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
                   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                    <h4 class="govuk-heading-s">Date of the decision</h4>
+                    <h1 class="govuk-heading-l">Date of the decision</h4>
                   </legend>
                   <span id="passport-issued-hint" class="govuk-hint">
                     For example, 20 11 2007
@@ -64,19 +49,18 @@
                     </div>
                   </div>
                 </fieldset>
-              </div>
-            </div>
-
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="lpa-decision-no" name="lpa-decision" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="lpa-decision-no">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
+</div>
+<div class="govuk-form-group">
+<h2 class="govuk-heading-l">
+        Upload the application
+      </h1>
+      
+<div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>        
          <div class="govuk-form-group">
           <button class="govuk-button" data-module="govuk-button">
             Save and continue

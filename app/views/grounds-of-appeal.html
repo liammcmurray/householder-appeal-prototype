@@ -8,20 +8,50 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="index" method="post" novalidate>
-      <span class="govuk-caption-xl">Your appeal</span>
-      <h1 class="govuk-heading-xl">
-        Upload grounds of appeal
-      </h1>
-      <p>Intro.</p>
+      <form action="supporting-documents" method="post" novalidate>
+        <span class="govuk-caption-xl">Your appeal</span>
+        <h1 class="govuk-heading-xl">
+          Upload grounds of appeal statement
+        </h1>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+            Once you submit your appeal, you cannot amend your grounds of appeal statement.
+          </strong>
+        </div>
+ 
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help writing your statement
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Your grounds of appeal should respond directly to the reasons for refusal set out in the LPA’s decision notice.</p>
+            <p>The Inspector will look at the planning merits of your proposed householder development afresh, so there is no need to give a detailed history of the application, such as discussions with LPA officers. For appeals against the refusal of prior approval, the Inspector will take account of any objections raised by neighbours during the consultation period (a minimum of 21 days) and will make a decision about whether the impact on the amenity of all adjoining properties is acceptable.</p>
+            <p>Do not repeat the LPA’s reasons for refusal, but include a clear explanation of why you disagree with each of them. It is not enough to say that you do not accept them – this will not help the Inspector decide your appeal. You should avoid repetition and information which does not relate to the issues involved. The grounds of appeal should be clear and concise and should not normally exceed 3,000 words.</p>
+            <p>The reason(s) for refusal will refer to policies in the Development Plan and/or supplementary planning documents as found in the Local Development Framework. Do not describe any local policies in full. Simply give the number and the name of the relevant development plan or supplementary planning document. The LPA will provide the detail for the Inspector.</p>
+            <p>If you consider it essential to provide email trails to support your grounds of appeal, you should carefully edit the emails to remove repetition so that the key points can be clearly picked up. Where the effect on the neighbours is a reason for refusal, with their agreement to access, you should include measurements (in metric units) of the distances between your and your neighbours’ properties, particularly the distances to any of their windows. If your neighbours do not allow you access to their property you should provide approximate measurements.</p>
+            <p>You may include details of similar developments in the immediate area if you think these are relevant to what you are proposing. You should identify them on a street map and supply their addresses and, where possible, photographs of them. Where you are aware of the history of any such development you should set it out briefly in your grounds of appeal. It will be helpful to reference previous LPA or appeal decisions relevant to the site.</p>
+            <p>If you are aware of any appeals made by other people relating to the site or for nearby sites, please provide details – including the appeal reference number or the site address. If you think there are other relevant policies, not referred to in the LPA’s decision but on which you intend to rely, you should attach the relevant extracts to your appeal. You should indicate their status, i.e. whether they have been adopted by the LPA and, where appropriate, whether they have been saved by a direction of the Secretary of State and form part of the Local Development Framework.</p>
+            <p>There is no need to set out national policy (such as the National Planning Policy Framework) as Inspectors have access to these documents. However, you should refer to any paragraphs by number that you think are relevant.</p>
+          </div>
+        </details>
 
-      <div class="govuk-form-group">
-        
-      </div>
-      <button class="govuk-button" data-module="govuk-button">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
-        </form>
+        </div>
+      </form>
     </div>
   </div>
 
