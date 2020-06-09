@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="index" method="post" novalidate>
+      <span class="govuk-caption-xl">About the site</span>
+      <h1 class="govuk-heading-xl">
+        Agricultural holding
+      </h1>
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            If the site is part of an agricultural holding you need to tell us who the owners are, and confirm that you have given them 21 days notice of your appeal, or will do so today.
+          </strong>
+        </div>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="file-upload-1">
+            Provide a list of all site owners and the date they were notified. That date can be today.
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+          <div class="govuk-form-group">
+            <button class="govuk-button" data-module="govuk-button">
+                Save and continue
+              </button>
+          </div>
+      
+        </form>
+    </div>
+  </div>
+
+{% endblock %}
