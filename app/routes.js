@@ -13,7 +13,7 @@ router.post('/lpa-decision-check', function (req, res) {
   let lpa = req.session.data['lpa-decision']
 
   if (lpa === 'no') {
-    res.redirect('/index')
+    res.redirect('/lpa-details-decision-error')
   } else {
     res.redirect('/upload-decision')
   }

@@ -8,41 +8,42 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="index" method="post" novalidate>
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h2 class="govuk-heading-l">Is the appeal site within a Green Belt?</h2>
-    </legend>
-    <span id="changed-name-hint" class="govuk-hint">
-      tbc
-    </span>
-    <div class="govuk-radios govuk-radios--inline">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="changed-name">
-          Yes
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-        <label class="govuk-label govuk-radios__label" for="changed-name-2">
-          No
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
-
-
-      <div class="govuk-form-group">
-        
-      </div>
-      <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-          </button>
-        </form>
+      <span class="govuk-caption-xl">About the site</span>
+      <h1 class="govuk-heading-xl">
+        Site location
+      </h1>
+      <form action="site-access" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h3 class="govuk-heading-m">Is the appeal site within a Green Belt?</h3>
+            </legend>
+            <p>If you do not know, contact your Local Planning Office.</p>
+<!--            <span id="changed-name-hint" class="govuk-hint">
+              You 
+            </span>-->
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="changed-name">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+        </div>
+      </form>
     </div>
   </div>
 
