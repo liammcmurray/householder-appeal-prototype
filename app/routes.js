@@ -41,6 +41,20 @@ router.post('/agricultural-check', function (req, res) {
   let holding = req.session.data['agri-holding']
 
   if (holding === 'yes') {
+    res.redirect('/agricultural-ownership')
+  } else {
+    res.redirect('/index')
+  }
+})
+
+router.post('/agricultural-ownership-check', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let holding2 = req.session.data['agri-holding-2']
+
+  if (holding2 === 'no') {
     res.redirect('/notification-agriculture')
   } else {
     res.redirect('/index')
