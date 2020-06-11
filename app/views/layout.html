@@ -69,19 +69,41 @@
 {% if useAutoStoreData %}
   {% block footer %}
     {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "https://govuk-prototype-kit.herokuapp.com/",
-            text: "GOV.UK Prototype Kit " + releaseVersion
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
-        ]
-      }
-    }) }}
+  navigation: [
+    {
+      title: "Contact the Planning Inspectorate",
+      columns: 2,
+      items: [
+        {
+          href: "tel:03034445000",
+          text: "Customer Support: England 0303 444 5000"
+        },
+        {
+          href: "mailto:enquiries@pins.gsi.gov.uk",
+          text: "enquiries@pins.gsi.gov.uk"
+        }
+      ]
+    },
+    {
+      title: "Service information",
+      items: [
+        {
+          href: "#1",
+          text: "Terms and conditions"
+        },
+        {
+          href: "#2",
+          text: "Privacy and cookies"
+        },
+        {
+          href: "#3",
+          text: "Accessibility"
+        }
+      ]
+    }
+  ]
+}) }}
+
   {% endblock %}
 {% endif %}
 
