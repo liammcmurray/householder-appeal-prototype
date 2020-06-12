@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="site-access-restricted" method="post" novalidate>
+      <form action="site-access-safety" method="post" novalidate>
         <span class="govuk-caption-xl">About the site</span>
         <h1 class="govuk-heading-xl">
           Access to site
@@ -16,23 +16,15 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h3 class="govuk-heading-m">Can the whole site be seen from public land?</h3>
+              <h3 class="govuk-heading-m">Can the whole site be seen from a public road?</h3>
             </legend>
             <p>This will help us plan the site visit.</p>
-            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes
                 </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-email">
-                    Describe how the site can be viewed from public land.
-                  </label>
-                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-                </div>
               </div>
               
               <div class="govuk-radios__item">
