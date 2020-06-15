@@ -29,7 +29,7 @@ router.post('/site-ownership-check', function (req, res) {
   if (owner === 'no') {
     res.redirect('/site-ownership-certb')
   } else {
-    res.redirect('/index')
+    res.redirect('/notification')
   }
 })
 
