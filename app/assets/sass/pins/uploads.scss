@@ -1,0 +1,8 @@
+.upload {
+	background-color: govuk-colour("light-grey");
+	border: dashed 2px govuk-colour("black");
+	padding: 3em;
+	 &:focus {
+	padding: 3em;
+	}
+}
