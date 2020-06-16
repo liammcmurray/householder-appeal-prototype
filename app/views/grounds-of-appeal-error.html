@@ -8,7 +8,21 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="supporting-documents" method="post" novalidate>
+
+      <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+        <h2 class="govuk-error-summary__title" id="error-summary-title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#sensitive-check-error">You cannot provide a statement that includes sensitive information</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <form action="grounds-check" method="post" novalidate>
         <span class="govuk-caption-xl">Your appeal</span>
         <h1 class="govuk-heading-xl">
           Upload grounds of appeal statement
@@ -85,11 +99,15 @@
 
 
 
-        <div class="govuk-form-group">
+        <div class="govuk-form-group govuk-form-group--error">
             <div class="govuk-checkboxes">
+              <span id="sensitive-check-error" class="govuk-error-message">
+                <span class="govuk-visually-hidden">Error:</span> You cannot provide a statement that includes sensitive information
+              </span>
               <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                <label class="govuk-label govuk-checkboxes__label" for="waste">
+
+                <input class="govuk-checkboxes__input govuk-input--error" id="sense-check" name="sense-check" type="checkbox">
+                <label class="govuk-label govuk-checkboxes__label" for="sense-check">
                   I confirm that I have not included sensitive information in my grounds of appeal statement.
                 </label>
               </div>

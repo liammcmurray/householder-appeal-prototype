@@ -61,6 +61,23 @@ router.post('/agricultural-ownership-check', function (req, res) {
   }
 })
 
+
+router.post('/grounds-check', function (req, res) {
+  // Get the answer from session data
+  // The name between the quotes is the same as the 'name' attribute on the input elements
+  // However in JavaScript we can't use hyphens in variable names
+
+  let sense = req.session.data['sense-check']
+
+  if (sense === 'on') {
+    res.redirect('/supporting-documents')
+  } else {
+    res.redirect('/grounds-of-appeal-error')
+  }
+})
+
+
+
 router.post('/submission-check', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
@@ -68,9 +85,9 @@ router.post('/submission-check', function (req, res) {
 
   let agreed = req.session.data['appellant-confirmation']
 
-  if (agreed === 'no') {
-    res.redirect('/submission-error')
-  } else {
+  if (agreed === 'on') {
     res.redirect('/confirmation')
+  } else {
+    res.redirect('/submission-error')
   }
 })
