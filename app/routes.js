@@ -53,7 +53,7 @@ router.post('/agricultural-ownership-check', function (req, res) {
 router.post('/grounds-check', function (req, res) {
   let sense = req.session.data['sense-check']
 
-  if (sense[0] === 'on') {
+  if (Array.isArray(sense) && sense[0] === 'on') {
     res.redirect('/supporting-documents')
   } else {
     res.redirect('/grounds-of-appeal-error')
@@ -65,7 +65,7 @@ router.post('/grounds-check', function (req, res) {
 router.post('/submission-check', function (req, res) {
   let agreed = req.session.data['appellant-confirmation']
 
-  if (agreed[0] === 'on') {
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
     res.redirect('/confirmation')
   } else {
     res.redirect('/submission-error')
