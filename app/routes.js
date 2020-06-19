@@ -20,10 +20,6 @@ router.post('/lpa-decision-check', function (req, res) {
 })
 
 router.post('/site-ownership-check', function (req, res) {
-  // Get the answer from session data
-  // The name between the quotes is the same as the 'name' attribute on the input elements
-  // However in JavaScript we can't use hyphens in variable names
-
   let owner = req.session.data['site-owner-names']
 
   if (owner === 'no') {
@@ -34,10 +30,6 @@ router.post('/site-ownership-check', function (req, res) {
 })
 
 router.post('/agricultural-check', function (req, res) {
-  // Get the answer from session data
-  // The name between the quotes is the same as the 'name' attribute on the input elements
-  // However in JavaScript we can't use hyphens in variable names
-
   let holding = req.session.data['agri-holding']
 
   if (holding === 'yes') {
@@ -48,10 +40,6 @@ router.post('/agricultural-check', function (req, res) {
 })
 
 router.post('/agricultural-ownership-check', function (req, res) {
-  // Get the answer from session data
-  // The name between the quotes is the same as the 'name' attribute on the input elements
-  // However in JavaScript we can't use hyphens in variable names
-
   let holding2 = req.session.data['agri-holding-2']
 
   if (holding2 === 'no') {
@@ -63,13 +51,9 @@ router.post('/agricultural-ownership-check', function (req, res) {
 
 
 router.post('/grounds-check', function (req, res) {
-  // Get the answer from session data
-  // The name between the quotes is the same as the 'name' attribute on the input elements
-  // However in JavaScript we can't use hyphens in variable names
-
   let sense = req.session.data['sense-check']
 
-  if (sense === 'on') {
+  if (Array.isArray(sense) && sense[0] === 'on') {
     res.redirect('/supporting-documents')
   } else {
     res.redirect('/grounds-of-appeal-error')
@@ -79,13 +63,9 @@ router.post('/grounds-check', function (req, res) {
 
 
 router.post('/submission-check', function (req, res) {
-  // Get the answer from session data
-  // The name between the quotes is the same as the 'name' attribute on the input elements
-  // However in JavaScript we can't use hyphens in variable names
-
   let agreed = req.session.data['appellant-confirmation']
 
-  if (agreed === 'on') {
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
     res.redirect('/confirmation')
   } else {
     res.redirect('/submission-error')
