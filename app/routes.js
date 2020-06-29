@@ -74,11 +74,57 @@ router.post('/submission-check', function (req, res) {
 
 // ELIGIBILITY
 
-router.post('/eligibility-decision', function (req, res) {
+router.post('/applicant-eligibility', function (req, res) {
+  let hasapplicant = req.session.data['how-contacted']
+
+  if (hasapplicant === 'out') {
+    res.redirect('/v1/eligibility/applicant-out')
+  } else {
+    res.redirect('/v1/eligibility/consent')
+  }
+})
+
+router.post('/consent-eligibility', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/v1/eligibility/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/v1/eligibility/out')
+  } else {
+    res.redirect('/v1/eligibility/consent-error')
+  }
+})
+
+router.post('/listed-eligibility', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'yes') {
+    res.redirect('/v1/eligibility/enforcement')
+  } else if (haslisted === 'no') {
+    res.redirect('/v1/eligibility/out')
+  } else {
+    res.redirect('/v1/eligibility/listed-error')
+  }
+})
+
+router.post('/enforcement-eligibility', function (req, res) {
+  let haslisted = req.session.data['enforcement']
+
+  if (hasenforcement === 'yes') {
+    res.redirect('/v1/eligibility/decision-date')
+  } else if (hasenforcement === 'no') {
+    res.redirect('/v1/eligibility/out')
+  } else {
+    res.redirect('/v1/eligibility/listed-error')
+  }
+})
+
+router.post('/decision-eligibility', function (req, res) {
   let date = req.session.data['decision-date-year']
 
   if (date === '2020') {
-    res.redirect('/v1/eligibility/applicant')
+    res.redirect('/v1/eligibility/consent')
   } else if (date === '2019') {
     res.redirect('/v1/eligibility/decision-date-out')
   } else {

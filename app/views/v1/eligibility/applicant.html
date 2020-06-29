@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="consent" method="post" novalidate>
+      <form action="/applicant-eligibility" method="post" novalidate>
         <span class="govuk-caption-xl">Before you start</span>
         <h1 class="govuk-heading-xl">
           What are you appealing against?
@@ -36,6 +36,16 @@
                 I'm appealing on someone's behalf and have their permission
               </label>
             </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="how-contacted-conditional-3" name="how-contacted" type="radio" value="out" data-aria-controls="conditional-how-contacted-conditional-3">
+              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-3">
+                None of the above
+              </label>
+            </div>
+
           </div>
         </div>
 
