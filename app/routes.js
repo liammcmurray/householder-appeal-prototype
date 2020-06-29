@@ -5,6 +5,9 @@ const router = express.Router()
 
 module.exports = router
 
+
+// V1
+
 router.post('/lpa-decision-check', function (req, res) {
   // Get the answer from session data
   // The name between the quotes is the same as the 'name' attribute on the input elements
@@ -23,9 +26,9 @@ router.post('/site-ownership-check', function (req, res) {
   let owner = req.session.data['site-owner-names']
 
   if (owner === 'no') {
-    res.redirect('/site-ownership-certb')
+    res.redirect('/v1/site-ownership-certb')
   } else {
-    res.redirect('/notification')
+    res.redirect('/v1/notification')
   }
 })
 
@@ -33,9 +36,9 @@ router.post('/agricultural-check', function (req, res) {
   let holding = req.session.data['agri-holding']
 
   if (holding === 'yes') {
-    res.redirect('/agricultural-ownership')
+    res.redirect('/v1/agricultural-ownership')
   } else {
-    res.redirect('/index')
+    res.redirect('/v1/index')
   }
 })
 
@@ -43,31 +46,42 @@ router.post('/agricultural-ownership-check', function (req, res) {
   let holding2 = req.session.data['agri-holding-2']
 
   if (holding2 === 'no') {
-    res.redirect('/notification-agriculture')
+    res.redirect('/v1/notification-agriculture')
   } else {
-    res.redirect('/index')
+    res.redirect('/v1/index')
   }
 })
-
 
 router.post('/grounds-check', function (req, res) {
   let sense = req.session.data['sense-check']
 
   if (Array.isArray(sense) && sense[0] === 'on') {
-    res.redirect('/supporting-documents')
+    res.redirect('/v1/supporting-documents')
   } else {
-    res.redirect('/grounds-of-appeal-error')
+    res.redirect('/v1/grounds-of-appeal-error')
   }
 })
-
-
 
 router.post('/submission-check', function (req, res) {
   let agreed = req.session.data['appellant-confirmation']
 
   if (Array.isArray(agreed) && agreed[0] === 'on') {
-    res.redirect('/confirmation')
+    res.redirect('/v1/confirmation')
   } else {
-    res.redirect('/submission-error')
+    res.redirect('/v1/submission-error')
+  }
+})
+
+// ELIGIBILITY
+
+router.post('/eligibility-decision', function (req, res) {
+  let date = req.session.data['decision-date-year']
+
+  if (date === '2020') {
+    res.redirect('/v1/eligibility/applicant')
+  } else if (date === '2019') {
+    res.redirect('/v1/eligibility/decision-date-out')
+  } else {
+    res.redirect('/v1/eligibility/decision-date-error')
   }
 })
