@@ -80,7 +80,7 @@ router.post('/applicant-eligibility', function (req, res) {
   if (hasapplicant === 'out') {
     res.redirect('/v1/eligibility/applicant-out')
   } else {
-    res.redirect('/v1/eligibility/consent')
+    res.redirect('/v1/eligibility/decision-date')
   }
 })
 
@@ -99,9 +99,9 @@ router.post('/consent-eligibility', function (req, res) {
 router.post('/listed-eligibility', function (req, res) {
   let haslisted = req.session.data['listed-building']
 
-  if (haslisted === 'yes') {
+  if (haslisted === 'no') {
     res.redirect('/v1/eligibility/enforcement')
-  } else if (haslisted === 'no') {
+  } else if (haslisted === 'yes') {
     res.redirect('/v1/eligibility/out')
   } else {
     res.redirect('/v1/eligibility/listed-error')
@@ -109,14 +109,14 @@ router.post('/listed-eligibility', function (req, res) {
 })
 
 router.post('/enforcement-eligibility', function (req, res) {
-  let haslisted = req.session.data['enforcement']
+  let hasenforcement = req.session.data['enforcement']
 
-  if (hasenforcement === 'yes') {
-    res.redirect('/v1/eligibility/decision-date')
-  } else if (hasenforcement === 'no') {
+  if (hasenforcement === 'no') {
+    res.redirect('/v1/eligibility/appeal-statement')
+  } else if (hasenforcement === 'yes') {
     res.redirect('/v1/eligibility/out')
   } else {
-    res.redirect('/v1/eligibility/listed-error')
+    res.redirect('/v1/eligibility/enforcement-error')
   }
 })
 
