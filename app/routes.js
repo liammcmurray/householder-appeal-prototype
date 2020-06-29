@@ -77,10 +77,16 @@ router.post('/submission-check', function (req, res) {
 router.post('/applicant-eligibility', function (req, res) {
   let hasapplicant = req.session.data['how-contacted']
 
-  if (hasapplicant === 'out') {
+  if (hasapplicant === 'me') {
+    res.redirect('/v1/eligibility/decision-date')
+  } else if (hasapplicant === 'company') {
+    res.redirect('/v1/eligibility/decision-date')
+  } else if (hasapplicant === 'agent') {
+    res.redirect('/v1/eligibility/decision-date')
+  } else if (hasapplicant === 'out') {
     res.redirect('/v1/eligibility/applicant-out')
   } else {
-    res.redirect('/v1/eligibility/decision-date')
+    res.redirect('/v1/eligibility/applicant-error')
   }
 })
 
