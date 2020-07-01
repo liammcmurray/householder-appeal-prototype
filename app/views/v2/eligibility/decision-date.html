@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Local Planning authority details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/decision-eligibility" method="post" novalidate>
+        <span class="govuk-caption-xl">Before you start</span>
+        <h1 class="govuk-heading-xl">
+          What's the date on your decision notice from the Local Planning Authority?
+        </h1>
+
+        <div class="govuk-form-group">
+
+          <div class="govuk-date-input" id="decision-date">
+             <span id="passport-issued-hint" class="govuk-hint">
+                    For example, 20 04 2020
+                  </span>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="decision-date-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="decision-date-day" name="decision-date-day" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="decision-date-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="decision-date-month" name="decision-date-month" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="decision-date-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="decision-date-year" name="decision-date-year" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

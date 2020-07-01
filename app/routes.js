@@ -22,23 +22,13 @@ router.post('/lpa-decision-check', function (req, res) {
   }
 })
 
-router.post('/site-ownership-check', function (req, res) {
-  let owner = req.session.data['site-owner-names']
-
-  if (owner === 'no') {
-    res.redirect('/v1/site-ownership-certb')
-  } else {
-    res.redirect('/v1/notification')
-  }
-})
-
 router.post('/agricultural-check', function (req, res) {
   let holding = req.session.data['agri-holding']
 
   if (holding === 'yes') {
     res.redirect('/v1/agricultural-ownership')
   } else {
-    res.redirect('/v1/index')
+    res.redirect('/v1/task-list')
   }
 })
 
@@ -48,7 +38,7 @@ router.post('/agricultural-ownership-check', function (req, res) {
   if (holding2 === 'no') {
     res.redirect('/v1/notification-agriculture')
   } else {
-    res.redirect('/v1/index')
+    res.redirect('/v1/task-list')
   }
 })
 
@@ -135,5 +125,58 @@ router.post('/decision-eligibility', function (req, res) {
     res.redirect('/v1/eligibility/decision-date-out')
   } else {
     res.redirect('/v1/eligibility/decision-date-error')
+  }
+})
+
+
+// V2
+
+router.post('/site-ownership-check-v2', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/v2/site-ownership-certb')
+  } else {
+    res.redirect('/v2/notification')
+  }
+})
+
+router.post('/grounds-check-v2', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/v2/supporting-documents')
+  } else {
+    res.redirect('/v2/grounds-of-appeal-error')
+  }
+})
+
+router.post('/submission-check-v2', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/v2/confirmation')
+  } else {
+    res.redirect('/v2/submission-error')
+  }
+})
+
+router.post('/agricultural-check-v2', function (req, res) {
+  let holding = req.session.data['agri-holding']
+
+  if (holding === 'yes') {
+    res.redirect('/v2/agricultural-ownership')
+  } else {
+    res.redirect('/v2/task-list-34complete')
+  }
+})
+
+router.post('/agricultural-ownership-check-v2', function (req, res) {
+  let holding2 = req.session.data['agri-holding-2']
+
+  if (holding2 === 'no') {
+    res.redirect('/v2/notification-agriculture')
+  } else {
+    res.redirect('/v2/task-list-34complete')
   }
 })
