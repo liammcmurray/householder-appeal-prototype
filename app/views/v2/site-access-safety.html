@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="site-access-visit" method="post" novalidate>
+        <span class="govuk-caption-xl">About the site</span>
+        <h1 class="govuk-heading-xl">
+          Access to site
+        </h1>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h3 class="govuk-heading-m">Are there any health and safety issues on the site?</h3>
+            </legend>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                   List of health and safety concerns
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <ul>
+                  <li>There are animals (for example pets or livestock) at the site</li>
+                  <li>The site is in an area likely to have poor mobile phone signal</li>
+                  <li>The site isn't accessible for people with limited mobility</li>
+                  <li>There is overgrown vegetation that could restrict access to the site</li>
+                  <li>The Inspector will need to wear personal protective equipment (PPE)</li>
+                  <li>There are building works or other operations taking place on the site</li>
+                  <li>There are site-specific safety arrangements in place</li>
+                  <li>There are areas on the site that require specialist equipment or training for access, for example heights or confined spaces</li>
+                  <li>It will be necessary to view the site from a height, for example a roof or balcony</li>
+                  <li>There is risk of exposure to chemicals, asbestos or radiation</li>
+                  <li>There are unmarked changes in level or missing fittings</li>
+              </div>
+            </details>
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="contact-by-email">
+                    Tell us about any health and safety concerns
+                  </label>
+                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                </div>
+              </div>
+              
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

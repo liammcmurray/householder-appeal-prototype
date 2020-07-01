@@ -137,3 +137,27 @@ router.post('/decision-eligibility', function (req, res) {
     res.redirect('/v1/eligibility/decision-date-error')
   }
 })
+
+
+// V2
+
+router.post('/grounds-check-v2', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/v2/supporting-documents')
+  } else {
+    res.redirect('/v2/grounds-of-appeal-error')
+  }
+})
+
+router.post('/submission-check-v2', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/v2/confirmation')
+  } else {
+    res.redirect('/v2/submission-error')
+  }
+})
+
