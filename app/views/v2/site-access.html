@@ -16,23 +16,35 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h3 class="govuk-heading-m">Can the whole appeal site be seen from a publicly accessible road or is access restricted, for example in a garden?​</h3>
+              <h3 class="govuk-heading-m">Would an Inspector be able to see the whole appeal site from a public road?</h3>
             </legend>
             <p>This will help us plan the site visit.</p>
-            <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes
                 </label>
               </div>
               
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                  No
-                </label>
-              </div>
+              <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="no" data-aria-controls="conditional-how-contacted-conditional">
+                  <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                    No, access is restricted
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+                  <div class="govuk-form-group">
+                    <span id="how-contacted-conditional-hint" class="govuk-hint">
+                      Tell us how access is restricted.
+                    </span>
+                    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                  </div>
+
+                </div>
+
+
             </div>
           </fieldset>
         </div>

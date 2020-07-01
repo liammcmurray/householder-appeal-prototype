@@ -21,6 +21,7 @@
           </legend>
           
            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
@@ -42,6 +43,18 @@
                 No
               </label>
             </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional-2">
+               <div class="govuk-form-group">
+                <span id="more-detail-hint" class="govuk-hint">
+                  Tell us why you think a site visit is not needed as part of this appeal.​
+                </span>
+               <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+              </div>
+
+            </div>
+
+
+
           </div>
   
         </fieldset>
