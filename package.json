@@ -41,8 +41,10 @@
     "notifications-node-client": "^4.7.2",
     "nunjucks": "^3.2.1",
     "portscanner": "^2.1.1",
+    "postcss": "^7.0.32",
     "prompt": "^1.0.0",
     "require-dir": "^1.0.0",
+    "stylelint": "^13.6.1",
     "sync-request": "^6.0.0",
     "universal-analytics": "^0.4.16",
     "uuid": "^7.0.3"
