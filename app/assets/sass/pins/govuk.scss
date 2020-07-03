@@ -1,28 +1,9 @@
-.govuk-header {
-  border-bottom: solid 10px #fff500;
-}
-
-.govuk-header__container {
-  border-bottom: 0;
-  margin-bottom: 0;
-}
-
-.govspeak-covid-banner {
-  background: govuk-colour('black');
-  padding: 20px 0;
-  margin-bottom: -40px;
-
-  p,
-  a {
-    color: govuk-colour('white');
-	}
-
-  a {
-    border-right: solid 1px govuk-colour('white');
-    font-weight: 800;
-    margin-right: .5em;
-    padding-right: .5em;
-	}
+/* Actually just figure fixing first */
+figure {
+  margin: 0;
+  img {
+    width: 70%;
+  }
 }
 
 .govuk-guidance-header-margin {
@@ -36,6 +17,7 @@
 .gem-c-contents-list {
   background: #fff;
   box-shadow: 0 20px 15px -10px #fff;
+  font-family: "nta", Arial, sans-serif;
   margin: 0 0 20px;
   position: relative;
   z-index: 1;
@@ -43,7 +25,6 @@
 
 .gem-c-contents-list__title {
   color: #0b0c0c;
-  font-family: 'nta', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
@@ -53,7 +34,6 @@
 .gem-c-contents-list__list,
 .gem-c-contents-list__nested-list {
   color: #0b0c0c;
-  font-family: 'nta', Arial, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
