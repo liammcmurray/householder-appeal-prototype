@@ -9,20 +9,22 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="task-list" method="post" novalidate>
-      <span class="govuk-caption-xl">About the relevant Local Planning Authority</span>
+      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the relevant Local Planning Authority</span>
       <h1 class="govuk-heading-xl">
         Upload the decision notice
       </h1>
       <p>This is the letter sent by the Local Planning Authority telling you about the decision on your original planning application.</p>
         <div class="govuk-form-group">
-          <label class="govuk-heading-m" for="file-upload-1">
+          <label class="govuk-heading-m" for="decision-notice">
             Upload a file
           </label>
-          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+          <input value="{{ data['decision-notice'] }}" class="govuk-file-upload" id="decision-notice" name="decision-notice" type="file">
         </div>
         <button class="govuk-button" data-module="govuk-button">
             Save and continue
         </button>
+        <input type="hidden" name="decision-notice-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="decision-notice-completedText" value="Completed">
       </form>
     </div>
   </div>

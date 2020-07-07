@@ -22,11 +22,11 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v2/your-relationship" aria-describedby="">
+                <a href="/v2/your-details" aria-describedby="your-details-status">
                   Your details
                 </a>
               </span>
-               <strong class="{{data['yourdetails-completed']}}" >{{data['yourdetails-completedText']}}</strong>
+               <strong name="your-details-status" class="{{data['your-details-completed']}}" >{{data['your-details-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -42,7 +42,7 @@
                   Local Planning Authority (LPA) details
                 </a>
               </span>
-              <strong class="{{data['lpadetails-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="lpa-details-status" class="{{data['lpadetails-completed']}}" >{{data['lpadetails-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -50,7 +50,7 @@
                   Upload the decision notice
                 </a>
               </span>
-              <strong class="{{data['decisionnotice-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="deciison-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -66,7 +66,7 @@
                   Name on original planning application
                 </a>
               </span>
-              <strong class="{{data['applicationname-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['appellant-name-completed']}}" >{{data['appellant-name-completedText']}}</strong>
             </li>       
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -74,7 +74,7 @@
                   Date you applied for planning permission
                 </a>
               </span>
-              <strong class="{{data['applicationdate-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['planning-permission-completed']}}" >{{data['planning-permission-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -82,7 +82,7 @@
                   Upload the application form
                 </a>
               </span>
-              <strong class="{{data['uploadapplication-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['application-upload-completed']}}" >{{data['application-upload-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -90,7 +90,7 @@
                   The description of the development
                 </a>
               </span>
-              <strong class="{{data['description-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['development-description-completed']}}" >{{data['development-description-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -105,7 +105,7 @@
                   Site location
                 </a>
               </span>
-              <strong class="{{data['sitelocation-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -113,7 +113,7 @@
                   Access to site
                 </a>
               </span>
-              <strong class="{{data['siteaccess-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -121,7 +121,7 @@
                   Site ownership
                 </a>
               </span>
-              <strong class="{{data['siteownership-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -129,7 +129,7 @@
                   Agricultural holding
                 </a>
               </span>
-              <strong class="{{data['agricultural-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -144,7 +144,7 @@
                   Your appeal statement
                 </a>
               </span>
-              <strong class="{{data['grounds-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -152,7 +152,7 @@
                  Upload documents to support your appeal
                 </a>
               </span>
-              <strong class="{{data['supporting-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -160,7 +160,7 @@
                   Other relevant appeals
                 </a>
               </span>
-              <strong class="{{data['otherappeals-completed']}}" >{{data['completedText']}}</strong>
+              <strong name="your-details-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
             </li>
           </ul>
         </li>

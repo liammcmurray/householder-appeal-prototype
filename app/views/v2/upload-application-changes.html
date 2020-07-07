@@ -8,8 +8,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="task-list-3complete" method="post" novalidate>
-      <span class="govuk-caption-xl">About the original planning application</span>
+      <form action="task-list" method="post" novalidate>
+      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
       <h1 class="govuk-heading-xl">
         The description of the development
       </h1>
@@ -18,29 +18,28 @@
           <h3 class="govuk-heading-m"><label class="govuk-label govuk-label--m" for="more-detail">Have you agreed to change the description of the development since you submitted your original application?​</label></h3>
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+              <input class="govuk-radios__input" id="development-conditional" name="development" type="radio" value="yes" data-aria-controls="conditional-development-conditional">
+              <label class="govuk-label govuk-radios__label" for="development-conditional">
                 Yes
               </label>
             </div>
-            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-development-conditional">
                <div class="govuk-form-group">
                 <span id="more-detail-hint" class="govuk-hint">
                   Tell us about these changes.
                 </span>
-               <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
-                <div class="govuk-form-group">
-                <label class="govuk-heading-s" for="file-upload-1">
-                  Upload a copy of the LPA's agreement to the change
-                </label>
-                <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+                 <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                  <div class="govuk-form-group">
+                  <label class="govuk-heading-s" for="upload-evidence">
+                    Upload a copy of the LPA's agreement to the change
+                  </label>
+                  <input value="{{ data['development-description'] }}" class="govuk-file-upload" id="upload-evidence" name="upload-evidence" type="file">
+                </div>
               </div>
-              </div>
-
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+              <input class="govuk-radios__input" id="development-conditional-2" name="development" type="radio" value="no" data-aria-controls="conditional-development-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="development-conditional-2">
                 No
               </label>
             </div>
@@ -50,6 +49,8 @@
         <button class="govuk-button" data-module="govuk-button">
             Save and continue
         </button>
+        <input type="hidden" name="development-description-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="development-description-completedText" value="Completed">
       </form>
     </div>
   </div>
