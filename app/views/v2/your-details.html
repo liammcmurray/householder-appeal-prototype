@@ -18,19 +18,23 @@
           <label class="govuk-label" for="appellant-name">
             Your name
           </label>
-          <input class="govuk-input" id="appellant-name" name="appellant-name" type="text">
+          <input class="govuk-input" id="appellant-name" name="appellant-name" value="{{ data['appellant-name'] }}" type="text">
         </div>
         <div class="govuk-form-group">
           <label class="govuk-label" for="appellant-email">
             Your email
           </label>
-          <input class="govuk-input" id="appellant-email" name="appellant-email" type="text">
+          <input class="govuk-input" id="appellant-email" name="appellant-email" value="{{ data['appellant-email'] }}" type="text">
         </div>
         <div class="govuk-form-group">
           <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
         </div>
+
+
+        <input type="hidden" name="yourdetails-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="yourdetails-completedText" value="Completed">
       </form>
     </div>
   </div>
