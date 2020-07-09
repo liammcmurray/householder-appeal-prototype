@@ -11,7 +11,7 @@
       <form action="/agricultural-check-v2" method="post" novalidate>
       <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the site</span>
       <h1 class="govuk-heading-xl">
-        Agricultural holding
+        Agricultural holding {{ data['site-ownership'] }}
       </h1>
       <p>This is where most of the land is used for commercial farming or horticulture.​</p>
       <div class="govuk-form-group">
@@ -43,7 +43,9 @@
                 Save and continue
               </button>
           </div>
-      
+          <input type="hidden" name="agriculture-answer" value="{{ data['agri-holding'] }}">
+          <input type="hidden" name="agriculture-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="agriculture-completedText" value="Completed">
         </form>
     </div>
   </div>

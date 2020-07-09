@@ -14,30 +14,29 @@
       </h1>
       <form action="site-access" method="post" novalidate>
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="green-belt-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h3 class="govuk-heading-m">Is the appeal site within a Green Belt?</h3>
             </legend>
-            <!-- <p>If you do not know, contact your Local Planning Office.</p>-->
-            <span id="changed-name-hint" class="govuk-hint">
+            <span id="green-belt-hint" class="govuk-hint">
               A Green Belt is an area of open land around a city, on which building is restricted. 
             </span>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="changed-name">
+                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt" name="green-belt" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="green-belt">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="green-belt-2">
                   No
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="notsure">
-                <label class="govuk-label govuk-radios__label" for="changed-name-3">
+                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="notsure">
+                <label class="govuk-label govuk-radios__label" for="green-belt-3">
                   Not sure
                 </label>
               </div>
@@ -49,6 +48,10 @@
               Save and continue
             </button>
         </div>
+        <input type="hidden" name="green-belt-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="green-belt-completedText" value="Completed">
+        <input type="hidden" name="site-location-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="site-location-completedText" value="Completed">
       </form>
     </div>
   </div>

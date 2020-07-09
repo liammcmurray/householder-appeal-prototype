@@ -167,7 +167,7 @@ router.post('/agricultural-check-v2', function (req, res) {
   if (holding === 'yes') {
     res.redirect('/v2/agricultural-ownership')
   } else {
-    res.redirect('/v2/task-list-34complete')
+    res.redirect('/v2/task-list')
   }
 })
 
@@ -177,6 +177,6 @@ router.post('/agricultural-ownership-check-v2', function (req, res) {
   if (holding2 === 'no') {
     res.redirect('/v2/notification-agriculture')
   } else {
-    res.redirect('/v2/task-list-34complete')
+    res.redirect('/v2/task-list')
   }
 })

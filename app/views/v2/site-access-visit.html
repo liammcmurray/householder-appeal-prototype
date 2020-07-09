@@ -23,7 +23,7 @@
            <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+              <input value="{{ data['site-access-visit'] }}" class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                 Yes
               </label>
@@ -33,12 +33,12 @@
                 <span id="more-detail-hint" class="govuk-hint">
                   Tell us why you think a site visit is needed as part of this appeal.​
                 </span>
-               <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+               <textarea value="{{ data['site-access-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
               </div>
 
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
+              <input value="{{ data['site-access-visit'] }}" class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="phone" data-aria-controls="conditional-how-contacted-conditional-2">
               <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                 No
               </label>
@@ -48,7 +48,7 @@
                 <span id="more-detail-hint" class="govuk-hint">
                   Tell us why you think a site visit is not needed as part of this appeal.​
                 </span>
-               <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+               <textarea value="{{ data['site-access-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
               </div>
 
             </div>
@@ -62,6 +62,10 @@
       <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
+          <input type="hidden" name="site-access-visit-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="site-access-visit-completedText" value="Completed">
+          <input type="hidden" name="all-access-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="all-access-completedText" value="Completed">
         </form>
     </div>
   </div>

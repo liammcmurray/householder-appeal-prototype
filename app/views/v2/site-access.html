@@ -21,7 +21,7 @@
             <p>This will help us plan the site visit.</p>
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
+                <input value="{{ data['site-access'] }}" class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes
                 </label>
@@ -29,17 +29,17 @@
               
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="no" data-aria-controls="conditional-how-contacted-conditional">
-                  <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+                  <input value="{{ data['site-access'] }}" class="govuk-radios__input" id="site-access-conditional" name="site-access" type="radio" value="no" data-aria-controls="conditional-site-access-conditional">
+                  <label class="govuk-label govuk-radios__label" for="site-access-conditional">
                     No, access is restricted
                   </label>
                 </div>
-                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-site-access-conditional">
                   <div class="govuk-form-group">
-                    <span id="how-contacted-conditional-hint" class="govuk-hint">
+                    <span id="site-access-conditional-hint" class="govuk-hint">
                       Tell us how access is restricted.
                     </span>
-                    <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                    <textarea value="{{ data['site-access-more-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
                   </div>
 
                 </div>
@@ -53,6 +53,8 @@
             Save and continue
           </button>
         </div>
+        <input type="hidden" name="site-access-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="site-access-completedText" value="Completed">
       </form>
     </div>
   </div>

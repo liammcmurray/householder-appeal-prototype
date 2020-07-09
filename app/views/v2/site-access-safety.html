@@ -41,7 +41,7 @@
             </details>
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
+                <input value="{{ data['safety'] }}" class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="email" data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes
                 </label>
@@ -51,12 +51,12 @@
                   <label class="govuk-label" for="contact-by-email">
                     Tell us about any health and safety concerns
                   </label>
-                  <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                  <textarea value="{{ data['safety-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
                 </div>
               </div>
               
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="no">
+                <input value="{{ data['safety'] }}" class="govuk-radios__input" id="how-contacted-conditional-2" name="how-contacted" type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                   No
                 </label>
@@ -69,6 +69,8 @@
             Save and continue
           </button>
         </div>
+        <input type="hidden" name="safety-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="safety-completedText" value="Completed">
       </form>
     </div>
   </div>

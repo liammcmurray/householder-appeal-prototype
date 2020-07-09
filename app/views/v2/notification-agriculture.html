@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="task-list-34complete" method="post" novalidate>
+      <form action="task-list" method="post" novalidate>
       <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the site</span>
       <h1 class="govuk-heading-xl">
         Agricultural holding
@@ -25,7 +25,7 @@
           <label class="govuk-label" for="file-upload-1">
             Provide a list of all tenants and the date they were notified. That date can be today.
           </label>
-          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+          <input value="{{ data['file-upload-agri-'] }}" class="govuk-file-upload" id="file-upload-agri" name="file-upload-agri" type="file">
         </div>
 
           <div class="govuk-form-group">
@@ -33,7 +33,8 @@
                 Save and continue
               </button>
           </div>
-      
+          <input type="hidden" name="agriculture-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="agriculture-completedText" value="Completed">
         </form>
     </div>
   </div>
