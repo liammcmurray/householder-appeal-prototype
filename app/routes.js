@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const fs = require('fs');
 // Add your routes here - above the module.exports line
 
 module.exports = router
@@ -180,3 +180,35 @@ router.post('/agricultural-ownership-check-v2', function (req, res) {
     res.redirect('/v2/task-list-34complete')
   }
 })
+
+
+//autocomplete
+
+function sortByProperty(property){
+   return function(a,b){
+      if(a[property] > b[property])
+         return 1;
+      else if(a[property] < b[property])
+         return -1;
+
+      return 0;
+   }
+}
+
+router.all("/select-council", function(req,res,next){
+  const url = "https://local-authority-eng.register.gov.uk/records.json";
+
+  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
+    if (err) {
+      throw err;
+      next()
+    }
+      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
+      next()
+      
+  });
+
+
+
+  
+});  
