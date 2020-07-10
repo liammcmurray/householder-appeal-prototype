@@ -217,9 +217,18 @@ router.post("/search-council/results", function(req, res, next){
   let postcode = req.body.postcode.replace(/ /g,'');
 
   request.get("https://api.postcodes.io/postcodes/" + postcode, (error, response, body) => {
-    let json = JSON.parse(body);
-    res.locals.councilName = json.result.admin_district;
-    console.log(json.result.admin_district)
-    res.render("search-council/results");
+     let json = JSON.parse(body);
+
+  
+    if(json.status === 200){
+      res.locals.councilName = json.result.admin_district;
+      res.render("search-council/results");
+    } else {
+      console.log(json.status);
+      console.log(json.error);
+      res.locals.councilName = json.error;
+      res.render("search-council/results");
+    }
+    
   });
 });
