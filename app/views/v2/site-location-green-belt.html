@@ -23,19 +23,19 @@
             </span>
             <div class="govuk-radios">
               <div class="govuk-radios__item">
-                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt" name="green-belt" type="radio" value="yes">
+                <input class="govuk-radios__input" id="green-belt" name="green-belt" type="radio" value="yes">
                 <label class="govuk-label govuk-radios__label" for="green-belt">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="no">
+                <input class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="green-belt-2">
                   No
                 </label>
               </div>
               <div class="govuk-radios__item">
-                <input value="{{ data['green-belt'] }}" class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="notsure">
+                <input class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="notsure">
                 <label class="govuk-label govuk-radios__label" for="green-belt-3">
                   Not sure
                 </label>
@@ -48,6 +48,8 @@
               Save and continue
             </button>
         </div>
+        <input type="hidden" name="green-belt-info" value="{{ data['green-belt'] }}">
+
         <input type="hidden" name="green-belt-completed" value="govuk-tag app-task-list__task-completed">
         <input type="hidden" name="green-belt-completedText" value="Completed">
         <input type="hidden" name="site-location-completed" value="govuk-tag app-task-list__task-completed">

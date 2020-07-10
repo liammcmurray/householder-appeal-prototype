@@ -22,16 +22,18 @@
       </p>
 
       <div class="govuk-form-group">
-        <label class="govuk-heading-m" for="file-upload-1">
+        <label class="govuk-heading-m" for="file-upload-docs">
           Upload files (optional)
         </label>
-        <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file" multiple>
+        <input value="{{ data['file-upload-docs'] }}" class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
       </div>
 
       <div class="govuk-form-group">
-      <button class="govuk-button" data-module="govuk-button">
+        <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
+          <input type="hidden" name="upload-appeal-docs-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="upload-appeal-docs-completedText" value="Completed">
         </form>
     </div>
   </div>

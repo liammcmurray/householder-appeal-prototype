@@ -81,7 +81,7 @@
           <label class="govuk-heading-m" for="file-upload-1">
             Upload a file (optional)
           </label>
-          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+          <input value="{{ data['appeal-statement'] }}" class="govuk-file-upload" id="appeal-statement" name="appeal-statement" type="file">
         </div>
 
 
@@ -105,6 +105,9 @@
             Save and continue
           </button>
         </div>
+        <input type="hidden" name="sense-check" value="{{ data['appeal-confirmation'] }}">
+        <input type="hidden" name="appeal-statement-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="appeal-statement-completedText" value="Completed">
       </form>
     </div>
   </div>
