@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const fs = require('fs');
+const request = require('request');
 // Add your routes here - above the module.exports line
 
 module.exports = router
@@ -208,7 +209,17 @@ router.all("/select-council", function(req,res,next){
       
   });
 
-
-
   
 });  
+
+
+router.post("/search-council/results", function(req, res, next){
+  let postcode = req.body.postcode.replace(/ /g,'');
+
+  request.get("https://api.postcodes.io/postcodes/" + postcode, (error, response, body) => {
+    let json = JSON.parse(body);
+    res.locals.councilName = json.result.admin_district;
+    console.log(json.result.admin_district)
+    res.render("search-council/results");
+  });
+});

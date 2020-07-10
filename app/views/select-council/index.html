@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+
+<form
+
 <div class="govuk-form-group">
 	<label class="govuk-label govuk-label--m" for="select-council-{{number}}">
       Local council <span class="govuk-visually-hidden">{{number}} of {{loop.length}}		</span>
@@ -22,19 +25,4 @@
 {% endblock %}
 
 
-{% block pageScripts %}
-<script>
-$(document).ready(function(){
-
-	
-	accessibleAutocomplete.enhanceSelectElement({
-	  selectElement: document.querySelector('#select-council'),
-	  showAllValues: true,
-	  defaultValue: ""
-	})
-	
-
-})
-</script>
-{% endblock %}
 
