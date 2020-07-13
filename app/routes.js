@@ -180,3 +180,123 @@ router.post('/agricultural-ownership-check-v2', function (req, res) {
     res.redirect('/v2/task-list')
   }
 })
+
+
+
+// VERSION 3
+// ELIGIBILITY
+router.post('/applicant-eligibility-v3', function (req, res) {
+  let hasapplicant = req.session.data['how-contacted']
+
+  if (hasapplicant === 'me') {
+    res.redirect('/v3/eligibility/decision-date')
+  } else if (hasapplicant === 'company') {
+    res.redirect('/v3/eligibility/decision-date')
+  } else if (hasapplicant === 'agent') {
+    res.redirect('/v3/eligibility/decision-date')
+  } else if (hasapplicant === 'out') {
+    res.redirect('/v3/eligibility/applicant-out')
+  } else {
+    res.redirect('/v3/eligibility/applicant-error')
+  }
+})
+
+router.post('/consent-eligibility-v3', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/v3/eligibility/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/v3/eligibility/out')
+  } else {
+    res.redirect('/v3/eligibility/consent-error')
+  }
+})
+
+router.post('/listed-eligibility-v3', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/v3/eligibility/enforcement')
+  } else if (haslisted === 'yes') {
+    res.redirect('/v3/eligibility/out')
+  } else {
+    res.redirect('/v3/eligibility/listed-error')
+  }
+})
+
+router.post('/enforcement-eligibility-v3', function (req, res) {
+  let hasenforcement = req.session.data['enforcement']
+
+  if (hasenforcement === 'no') {
+    res.redirect('/v3/eligibility/appeal-statement')
+  } else if (hasenforcement === 'yes') {
+    res.redirect('/v3/eligibility/out')
+  } else {
+    res.redirect('/v3/eligibility/enforcement-error')
+  }
+})
+
+router.post('/decision-eligibility-v3', function (req, res) {
+  let date = req.session.data['decision-date-year']
+
+  if (date === '2020') {
+    res.redirect('/v3/eligibility/consent')
+  } else if (date === '2019') {
+    res.redirect('/v3/eligibility/decision-date-out')
+  } else {
+    res.redirect('/v3/eligibility/decision-date-error')
+  }
+})
+
+
+// SUBMISSION
+router.post('/site-ownership-check-v3', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/v3/site-ownership-certb')
+  } else {
+    res.redirect('/v3/notification')
+  }
+})
+
+router.post('/grounds-check-v3', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/v3/supporting-documents')
+  } else {
+    res.redirect('/v3/grounds-of-appeal-error')
+  }
+})
+
+router.post('/submission-check-v3', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/v3/confirmation')
+  } else {
+    res.redirect('/v3/submission-error')
+  }
+})
+
+router.post('/agricultural-check-v3', function (req, res) {
+  let holding = req.session.data['agri-holding']
+
+  if (holding === 'yes') {
+    res.redirect('/v3/agricultural-ownership')
+  } else {
+    res.redirect('/v3/task-list')
+  }
+})
+
+router.post('/agricultural-ownership-check-v3', function (req, res) {
+  let holding2 = req.session.data['agri-holding-2']
+
+  if (holding2 === 'no') {
+    res.redirect('/v3/notification-agriculture')
+  } else {
+    res.redirect('/v3/task-list')
+  }
+})

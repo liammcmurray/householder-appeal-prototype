@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="supporting-documents" method="post" novalidate>
+        <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
+        <h1 class="govuk-heading-xl">
+          Upload grounds of appeal statement
+        </h1>  
+        
+        <p>You can upload a statement that explains why you disagree with the LPA's decision, and highlights any additional information that supports your appeal. There's more guidance on <a href="#" target="_new">how to write your grounds of appeal statement</a> on GOV.UK.</p>
+        <p>Your grounds of appeal statement cannot include any sensitive information (see 'What is sensitive information?').</p>
+       
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What is sensitive information?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <h4 class="govuk-heading-s">Use of language and sensitive information</h4>
+            <p>You should not use racist, inflammatory or abusive language in your statement, or your appeal will be rejected. You should not include sensitive information (also called ‘special category information’) in your statement. If you do, you will be asked to resubmit and this will delay your appeal (or invalidate it, if you do not resubmit in time).</p>
+
+            <p>Sensitive information refers to:</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>Representations from children</li>
+              <li>Information relating to children</li>
+              <li>Information relating to health</li>
+              <li>Information relating to crime</li>
+              <li>Any information relating to an individual’s:
+                <ol type="i">
+                  <li>race</li>
+                  <li>ethnic origin</li>
+                  <li>politics</li>
+                  <li>religion</li>
+                  <li>trade union membership</li>
+                  <li>genetics</li>
+                  <li>physical characteristics</li>
+                  <li>sex life</li>
+                  <li>sexual orientation</li>
+                </ol>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <div class="govuk-form-group">
+          <label class="govuk-heading-m" for="file-upload-1">
+            Upload a file (optional)
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div>
+
+
+
+        <div class="govuk-form-group">
+            <div class="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                <label class="govuk-label govuk-checkboxes__label" for="waste">
+                  I confirm that I have not included sensitive information in my grounds of appeal statement.
+                </label>
+              </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
