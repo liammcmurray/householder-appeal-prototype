@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Upload the original planning application
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="upload-application-changes" method="post" novalidate>
+      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
+      <h1 class="govuk-heading-xl">
+        Upload the planning application form
+      </h1>
+      <p>If you only have a paper copy of your planning application form, you’ll need to scan it and then upload it.</p>
+      
+<div class="govuk-form-group">
+          <label class="govuk-heading-m" for="file-upload-1">
+            Upload a file
+          </label>
+          <input value="{{ data['application-upload'] }}" class="govuk-file-upload" id="application-upload" name="application-upload" type="file">
+        </div>        
+        <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+        </button>
+        <input type="hidden" name="application-upload-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="application-upload-completedText" value="Completed">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
