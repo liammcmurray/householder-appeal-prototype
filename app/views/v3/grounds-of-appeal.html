@@ -76,7 +76,7 @@
             </ul>
           </div>
         </details>
-
+        <div class="govuk-inset-text">File size should be no more than 1.5Gb</div>
         <div class="govuk-form-group">
           <label class="govuk-heading-m" for="file-upload-1">
             Upload a file (optional)
@@ -84,7 +84,23 @@
           <input value="{{ data['appeal-statement'] }}" class="govuk-file-upload" id="appeal-statement" name="appeal-statement" type="file">
         </div>
 
-
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with file formats
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Please upload your statement in one of the following formats:
+            <ul class="govuk-list--bullets">
+              <li>PDF &ndash; <strong>.pdf</strong></li>
+              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
+              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
+              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
+              <li>PNG &ndash; <strong>.png</strong></li>
+            </ul>
+          </div>
+        </details>
 
         <div class="govuk-form-group">
             <div class="govuk-checkboxes">

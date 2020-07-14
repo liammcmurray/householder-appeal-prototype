@@ -257,7 +257,7 @@ router.post('/site-ownership-check-v3', function (req, res) {
   if (owner === 'no') {
     res.redirect('/v3/site-ownership-certb')
   } else {
-    res.redirect('/v3/notification')
+    res.redirect('/v3/task-list')
   }
 })
 
@@ -278,25 +278,5 @@ router.post('/submission-check-v3', function (req, res) {
     res.redirect('/v3/confirmation')
   } else {
     res.redirect('/v3/submission-error')
-  }
-})
-
-router.post('/agricultural-check-v3', function (req, res) {
-  let holding = req.session.data['agri-holding']
-
-  if (holding === 'yes') {
-    res.redirect('/v3/agricultural-ownership')
-  } else {
-    res.redirect('/v3/task-list')
-  }
-})
-
-router.post('/agricultural-ownership-check-v3', function (req, res) {
-  let holding2 = req.session.data['agri-holding-2']
-
-  if (holding2 === 'no') {
-    res.redirect('/v3/notification-agriculture')
-  } else {
-    res.redirect('/v3/task-list')
   }
 })
