@@ -196,7 +196,7 @@ function sortByProperty(property){
    }
 }
 
-router.all("/select-council", function(req,res,next){
+router.all("/components/select-council", function(req,res,next){
   const url = "https://local-authority-eng.register.gov.uk/records.json";
 
   fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
@@ -213,7 +213,7 @@ router.all("/select-council", function(req,res,next){
 });  
 
 
-router.post("/search-council/results", function(req, res, next){
+router.post("/components/search-council/results", function(req, res, next){
   let postcode = req.body.postcode.replace(/ /g,'');
 
   request.get("https://api.postcodes.io/postcodes/" + postcode, (error, response, body) => {
@@ -222,12 +222,12 @@ router.post("/search-council/results", function(req, res, next){
   
     if(json.status === 200){
       res.locals.councilName = json.result.admin_district;
-      res.render("search-council/results");
+      res.render("components/search-council/results");
     } else {
       console.log(json.status);
       console.log(json.error);
       res.locals.councilName = json.error;
-      res.render("search-council/results");
+      res.render("components/search-council/results");
     }
     
   });
