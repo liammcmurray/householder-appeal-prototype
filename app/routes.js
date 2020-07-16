@@ -186,7 +186,7 @@ router.post('/agricultural-ownership-check-v2', function (req, res) {
 // VERSION 3
 // ELIGIBILITY
 router.post('/applicant-eligibility-v3', function (req, res) {
-  let hasapplicant = req.session.data['how-contacted']
+  let hasapplicant = req.session.data['appeal-relationship']
 
   if (hasapplicant === 'me') {
     res.redirect('/v3/eligibility/decision-date')
