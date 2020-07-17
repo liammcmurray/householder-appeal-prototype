@@ -300,3 +300,14 @@ router.post('/agricultural-ownership-check-v3', function (req, res) {
     res.redirect('/v3/task-list')
   }
 })
+
+// SAVE AND RETURN
+router.post('/save-return-check', function (req, res) {
+  let savelog = req.session.data['return-input']
+
+  if (savelog === '12345678abcd') {
+    res.redirect('/save-return/task-list')
+  } else {
+    res.redirect('/save-return/save-return-error')
+  }
+})
