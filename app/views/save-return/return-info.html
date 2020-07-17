@@ -8,7 +8,7 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="save-confirmation" method="post" novalidate>
+      <form class="form" method="post" novalidate>
         <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
         <h1 class="govuk-heading-xl">
           What's your email address?
@@ -16,18 +16,19 @@
         <p>We'll email you a link and a reference code to get you back into your appeal.</p>
 
         <div class="govuk-form-group">
-          <label class="govuk-label" for="appellant-email">
-            Your email
+          <label class="govuk-label" for="email-address">
+            Email address
           </label>
-          <input class="govuk-input" id="appellant-email" name="save-return-email" value="{{ data['save-return-email'] }}" type="text">
+          <input value="{{ data['emailAddress'] }}" class="govuk-input" id="email-address" name="emailAddress" type="text">
         </div>
-        <div class="govuk-form-group">
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-          <br />
-          <a href="task-list">Return to appeal</a>
-        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <br />
+        <p class="govuk-body-s"><a href="task-list">Return to appeal</a></p>
+      </form>
+    </div>
   </div>
 
 {% endblock %}

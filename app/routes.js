@@ -1,10 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
-// Add your routes here - above the module.exports line
-
-module.exports = router
-
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
 
 // V1
 
@@ -302,6 +300,26 @@ router.post('/agricultural-ownership-check-v3', function (req, res) {
 })
 
 // SAVE AND RETURN
+// The URL here needs to match the URL of the page that the user is on
+// when they type in their email address
+router.post('/save-return/return-info', function (req, res) {
+
+  notify.sendEmail(
+    // this long string is the template ID, copy it from the template
+    // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+    // in your code.
+    'bd5cd68c-b4cb-4d87-a10c-88f964da07b3',
+    // `emailAddress` here needs to match the name of the form field in
+    // your HTML page
+    req.body.emailAddress
+  );
+
+  // This is the URL the users will be redirected to once the email
+  // has been sent
+  res.redirect('/save-return/save-confirmation');
+
+});
+
 router.post('/save-return-check', function (req, res) {
   let savelog = req.session.data['return-input']
 
@@ -311,3 +329,5 @@ router.post('/save-return-check', function (req, res) {
     res.redirect('/save-return/save-return-error')
   }
 })
+
+module.exports = router

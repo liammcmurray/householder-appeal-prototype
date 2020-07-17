@@ -1,5 +1,13 @@
+.pins-sidebar,
 .pins-return-sidebar {
   border-top: solid 5px $govuk-brand-colour;
-  margin-top: 105px;
+  margin-top: 50px;
   padding-top: 10px;
+}
+
+.pins-sidebar {
+  background-color: #f3f2f1;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
