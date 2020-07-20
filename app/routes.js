@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
-
+const fs = require('fs');
+const request = require('request');
 // Add your routes here - above the module.exports line
 
 module.exports = router
@@ -182,7 +183,6 @@ router.post('/agricultural-ownership-check-v2', function (req, res) {
 })
 
 
-
 // VERSION 3
 // ELIGIBILITY
 router.post('/applicant-eligibility-v3', function (req, res) {
@@ -249,7 +249,6 @@ router.post('/decision-eligibility-v3', function (req, res) {
   }
 })
 
-
 // SUBMISSION
 router.post('/site-ownership-check-v3', function (req, res) {
   let owner = req.session.data['site-owner-names']
@@ -280,3 +279,53 @@ router.post('/submission-check-v3', function (req, res) {
     res.redirect('/v3/submission-error')
   }
 })
+
+//autocomplete
+
+function sortByProperty(property){
+   return function(a,b){
+      if(a[property] > b[property])
+         return 1;
+      else if(a[property] < b[property])
+         return -1;
+
+      return 0;
+   }
+}
+
+router.all("/components/select-council", function(req,res,next){
+  const url = "https://local-authority-eng.register.gov.uk/records.json";
+
+  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
+    if (err) {
+      throw err;
+      next()
+    }
+      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
+      next()
+      
+  });
+
+  
+});  
+
+
+router.post("/components/search-council/results", function(req, res, next){
+  let postcode = req.body.postcode.replace(/ /g,'');
+
+  request.get("https://api.postcodes.io/postcodes/" + postcode, (error, response, body) => {
+     let json = JSON.parse(body);
+
+  
+    if(json.status === 200){
+      res.locals.councilName = json.result.admin_district;
+      res.render("components/search-council/results");
+    } else {
+      console.log(json.status);
+      console.log(json.error);
+      res.locals.councilName = json.error;
+      res.render("components/search-council/results");
+    }
+    
+  });
+});

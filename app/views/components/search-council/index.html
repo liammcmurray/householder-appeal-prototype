@@ -1,0 +1,33 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Please complete | Appeal a planning decision
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="search-council/results" method="post" novalidate>
+
+          <div class="govuk-form-group">
+			  <label class="govuk-label govuk-label--xl" for="postcode">
+			    Postcode
+			  </label>
+			  <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
+			</div>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
+
+
+

@@ -2,6 +2,8 @@
 const fs = require('fs')
 const path = require('path')
 
+global.__basedir = __dirname;
+
 // NPM dependencies
 const bodyParser = require('body-parser')
 const dotenv = require('dotenv')
