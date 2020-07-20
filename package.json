@@ -12,7 +12,8 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
-    "accessible-autocomplete": "^2.0.2",
+    "@ministryofjustice/frontend": "0.0.19-alpha",
+    "accessible-autocomplete": "^2.0.3",
     "acorn": "^7.1.1",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
@@ -43,6 +44,7 @@
     "portscanner": "^2.1.1",
     "postcss": "^7.0.32",
     "prompt": "^1.0.0",
+    "request": "^2.88.2",
     "require-dir": "^1.0.0",
     "stylelint": "^13.6.1",
     "sync-request": "^6.0.0",

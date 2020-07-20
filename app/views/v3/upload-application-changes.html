@@ -11,11 +11,11 @@
       <form action="task-list" method="post" novalidate>
       <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
       <h1 class="govuk-heading-xl">
-        The description of the development
+        Changes to the description of the development
       </h1>
         <div class="govuk-form-group">
-          <p>The 'description of the development' is what you entered on your original planning application.</p>
-          <h3 class="govuk-heading-m"><label class="govuk-label govuk-label--m" for="more-detail">Have you agreed to change the description of the development since you submitted your original application?​</label></h3>
+          <p>Compare the description of the development on your original planning application with the description on your decision notice.​</p>
+          <h3 class="govuk-heading-m"><label class="govuk-label govuk-label--m" for="more-detail">Has the description of the development changed?</label></h3>
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="development-conditional" name="development" type="radio" value="yes" data-aria-controls="conditional-development-conditional">
@@ -35,7 +35,7 @@
                   </label>
                   <input value="{{ data['development-description-proof'] }}" class="govuk-file-upload" id="upload-evidence" name="upload-evidence" type="file">
                 </div>
-              </div>
+              </div>              
             </div>
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="development-conditional-2" name="development" type="radio" value="no" data-aria-controls="conditional-development-conditional-2">

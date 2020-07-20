@@ -13,20 +13,33 @@
       <h1 class="govuk-heading-xl">
         Upload documents to support your appeal
       </h1>
-      <p>These could be:
-        <ul class="govuk-list govuk-list--bullet govuk-!-padding-bottom-6">
-          <li>details of similar developments in the immediate area</li>
-          <li>extracts of other relevant policies not referred to on the LPA's decision notice</li>
-          <li>photographs to illustrate your appeal statement, for example, showing your house and its relationship to its neighbours</li>
-        </ul>
+      <p>If you have referred to any documents in your appeal statement, for example photographs, upload them here.
       </p>
-
+      <div class="govuk-inset-text">Individual file sizes should be no more than 4Mb</div>
       <div class="govuk-form-group">
         <label class="govuk-heading-m" for="file-upload-docs">
           Upload files (optional)
         </label>
         <input value="{{ data['file-upload-docs'] }}" class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
       </div>
+      
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with file formats
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Please upload your statement in one of the following formats:
+            <ul class="govuk-list--bullets">
+              <li>PDF &ndash; <strong>.pdf</strong></li>
+              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
+              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
+              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
+              <li>PNG &ndash; <strong>.png</strong></li>
+            </ul>
+          </div>
+        </details>
 
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">

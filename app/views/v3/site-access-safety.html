@@ -8,15 +8,15 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="site-access-visit" method="post" novalidate>
+      <form action="task-list" method="post" novalidate>
         <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the site</span>
         <h1 class="govuk-heading-xl">
-          Access to site
+          Access to appeal site
         </h1>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h3 class="govuk-heading-m">Are there any health and safety issues on the site?</h3>
+              <h3 class="govuk-heading-m">Are there any health and safety issues on the appeal site?</h3>
             </legend>
             <details class="govuk-details" data-module="govuk-details">
               <summary class="govuk-details__summary">
@@ -72,6 +72,8 @@
         <input type="hidden" name="health-option" value="{{ data['safety'] }}">
         <input type="hidden" name="safety-completed" value="govuk-tag app-task-list__task-completed">
         <input type="hidden" name="safety-completedText" value="Completed">
+        <input type="hidden" name="all-access-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="all-access-completedText" value="Completed">
       </form>
     </div>
   </div>
