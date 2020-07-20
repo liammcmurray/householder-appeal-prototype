@@ -1,0 +1,43 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Please complete | Appeal a planning decision
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+		<div class="govuk-form-group">
+			<label class="govuk-label govuk-label--m" for="select-council-{{number}}">
+		      Local council <span class="govuk-visually-hidden">{{number}} of {{loop.length}}		</span>
+		  	</label>
+
+			<select class="govuk-select govuk-input--width-20" id="select-council" data-councilpicker name="council">
+				<option value=""></option>
+				{% for council in councils %}
+					<option value="{{council.name}}" {{ checked('council', council.name) }}>{{council.name}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+$(document).ready(function(){
+
+	
+	accessibleAutocomplete.enhanceSelectElement({
+	  selectElement: document.querySelector('#select-council'),
+	  showAllValues: true,
+	  defaultValue: ""
+	})
+	
+
+})
+</script>
+{% endblock %}
+
