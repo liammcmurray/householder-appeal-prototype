@@ -1,0 +1,39 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      
+      <h1 class="govuk-heading-xl">
+        Your planning appeal history
+      </h1>
+
+      <ul class="govuk-list">
+        <li>
+          <p>25 July 2020 - Your appeal was accepted.</p>
+          <p><a href="#" title="">View appeal decision details</a></p>
+        </li>
+        <li>
+          <p>25 July 2020 - An inspector from the Planning Inspectorate viewed the property.</p>
+          <p><a href="#" title="">View inspection report</a></p>
+        </li>
+        <li>
+          <p>19 July 2020 - Maidstone Borough Counil submitted their evidence.</p>
+          <p><a href="#" title="">View council evidence</a></p>
+        </li>
+        <li>
+          <p>15 July 2020 - You sent your appeal.</p>
+          <p><a href="#" title="">View your appeal</a></p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
