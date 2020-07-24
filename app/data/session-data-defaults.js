@@ -34,7 +34,7 @@ module.exports = {
         "value": "AX 82 52 01 E"
       },
       "location": {
-        "city": "Ely",
+        "city": "Maidstone",
         "coordinates": {
           "latitude": "17.2334",
           "longitude": "88.9196"

@@ -1,0 +1,32 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      <h1 class="govuk-heading-xl">
+        Your planning appeal progress
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l">Maidstone Borough Council have uploaded their evidence.</p>
+        <p><a href="council-evidence">View council evidence</a>
+      </div>
+
+       <h2 class="govuk-heading-m">What happens next?</h2>
+      
+       <ul class="govuk-list govuk-list--bullet">
+
+      <li>A planning inspector will perform a site visit. We will contact you to arrange this.</li>
+      <li>When a site visit has been completed, the Planning Inspectorate will be ready to make a decision.</li>
+    </ul>
+      <p><a href="history-council" title="">View your appeal details</a></p>
+    </div>
+  </div>
+
+{% endblock %}

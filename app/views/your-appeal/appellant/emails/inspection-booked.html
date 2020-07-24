@@ -1,0 +1,28 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: Your planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<p>Dear {{data.user.name.first}} {{data.user.name.last}}</p>
+
+<p>A planning inspector will visit your property between 10am and midday on 25 July 2020.</p>
+<p>Please ensure that someone is at the property to provide access.</p>
+
+<p>Regards,<br>
+The Planning Ispectorate</p>
+
+</div>
+</div>
+{% endblock %}
