@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/site-ownership-check-v3" method="post" novalidate>
+        <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the site</span>
+        <h1 class="govuk-heading-xl">
+          Appeal site ownership
+        </h1>        
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you own the whole appeal site?
+                </h1>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name" name="site-owner-names" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="changed-name">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name-2" name="site-owner-names" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+        <input type="hidden" name="site-ownership" value="{{ data['site-owner-names'] }}">
+        <input type="hidden" name="site-ownership-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="site-ownership-completedText" value="Completed">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
