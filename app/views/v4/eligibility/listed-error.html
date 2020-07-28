@@ -20,12 +20,15 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/listed-eligibility-v3" method="post" novalidate>
+      <form action="/listed-eligibility-v4" method="post" novalidate>
         <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
-        <h1 class="govuk-heading-xl">
-          Is your appeal about a listed building?
-        </h1>
-        <div class="govuk-form-group govuk-form-group--error">
+         <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                Is your appeal about a listed building?
+              </h1>
+            </legend>
           <div class="govuk-radios govuk-radios" data-module="govuk-radios">
             <span id="passport-issued-error" class="govuk-error-message">
       <span class="govuk-visually-hidden">Error:</span> You need to select a response
@@ -44,6 +47,7 @@
               </label>
             </div>
           </div>
+        </fieldset>
         </div>
 
         

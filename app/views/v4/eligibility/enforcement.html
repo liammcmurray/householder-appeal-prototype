@@ -8,30 +8,36 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="/enforcement-eligibility-v3" method="post" novalidate>
-        <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
-        <h1 class="govuk-heading-xl">
-          Have you received an enforcement notice?
-        </h1>
-        <div class="govuk-form-group">
-          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional" name="enforcement" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
-                Yes
-              </label>
-            </div>
+      <form action="/enforcement-eligibility-v4" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
 
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="how-contacted-conditional-2" name="enforcement" type="radio" value="no" data-aria-controls="conditional-how-contacted-conditional-2">
-              <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
-                No
-              </label>
-            </div>
-          </div>
-        </div>
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        
+        {{ govukRadios({
+          classes: "govuk-radios",
+          idPrefix: "enforcement-notice",
+          name: "enforcement-notice",
+          fieldset: {
+            legend: {
+              text: "Have you received an enforcement notice?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "An enforcement notice is issued if the Local Planning Authority thinks you have carried out building work without the correct planning permission.​"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
 
         <div class="govuk-form-group">
           <button class="govuk-button" data-module="govuk-button">
