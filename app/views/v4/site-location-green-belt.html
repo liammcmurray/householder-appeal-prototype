@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>About the site</span>
+      <h1 class="govuk-heading-xl">
+        Appeal site location
+      </h1>
+      <form action="site-access" method="post" novalidate>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="green-belt-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h3 class="govuk-heading-m">Is the appeal site in a Green Belt?</h3>
+            </legend>
+            <p>If you do not know, contact your Local Planning Authority.​</p>
+            <div class="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="green-belt" name="green-belt" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="green-belt">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="green-belt-2" name="green-belt" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="green-belt-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+              Save and continue
+            </button>
+        </div>
+        <input type="hidden" name="green-belt-info" value="{{ data['green-belt'] }}">
+
+        <input type="hidden" name="green-belt-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="green-belt-completedText" value="Completed">
+        <input type="hidden" name="site-location-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="site-location-completedText" value="Completed">
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
