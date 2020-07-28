@@ -25,3 +25,10 @@ $govuk-assets-path: '/govuk/assets/';
 .autocomplete__option {
 	font-family: "nta", Arial, sans-serif;
 }
+
+
+.govuk-panel--rejection {
+  color: #ffffff;
+  background: govuk-colour("bright-purple");
+}
+

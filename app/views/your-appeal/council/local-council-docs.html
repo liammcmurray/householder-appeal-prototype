@@ -1,0 +1,48 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-xl">Maidstone Borough Council</span> 
+      <h1 class="govuk-heading-l">
+        New householder planning appeal
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.name.first}} {{data.user.name.last}}
+          </dd>
+        </div>
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appeal address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.location.street.number}} {{data.user.location.street.name}}<br>
+            {{data.user.location.city}}<br>
+            {{data.user.location.postcode}}
+          </dd>
+        </div>
+      </dl>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l">You need to submit your questionnaire by 7 August 2020</p>
+        <a class="govuk-button" href="council-evidence">Submit questionnaire</a>
+      </div>
+
+    </ul>
+      <p><a href="appeal-details" title="">View appeal details</a></p>
+    </div>
+  </div>
+
+{% endblock %}

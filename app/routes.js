@@ -281,6 +281,7 @@ router.post('/submission-check-v3', function (req, res) {
   }
 })
 
+
 // SAVE AND RETURN
 // The URL here needs to match the URL of the page that the user is on
 // when they type in their email address
@@ -311,6 +312,74 @@ router.post('/save-return-check', function (req, res) {
     res.redirect('/save-return/save-return-error')
   }
 })
+
+
+// VERSION 4
+// ELIGIBILITY
+router.post('/applicant-eligibility-v4', function (req, res) {
+  let hasapplicant = req.session.data['appeal-relationship']
+
+  if (hasapplicant === 'me') {
+    res.redirect('/v4/eligibility/decision-date')
+  } else if (hasapplicant === 'company') {
+    res.redirect('/v4/eligibility/decision-date')
+  } else if (hasapplicant === 'agent') {
+    res.redirect('/v4/eligibility/decision-date')
+  } else if (hasapplicant === 'out') {
+    res.redirect('/v4/eligibility/applicant-out')
+  } else {
+    res.redirect('/v4/eligibility/applicant-error')
+  }
+})
+
+router.post('/consent-eligibility-v4', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/v4/eligibility/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/v4/eligibility/out')
+  } else {
+    res.redirect('/v4/eligibility/consent-error')
+  }
+})
+
+router.post('/listed-eligibility-v4', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/v4/eligibility/enforcement')
+  } else if (haslisted === 'yes') {
+    res.redirect('/v4/eligibility/listed-out')
+  } else {
+    res.redirect('/v4/eligibility/listed-error')
+  }
+})
+
+router.post('/enforcement-eligibility-v4', function (req, res) {
+  let hasenforcement = req.session.data['enforcement-notice']
+
+  if (hasenforcement === 'no') {
+    res.redirect('/v4/eligibility/appeal-statement')
+  } else if (hasenforcement === 'yes') {
+    res.redirect('/v4/eligibility/enforcement-out')
+  } else {
+    res.redirect('/v4/eligibility/enforcement-error')
+  }
+})
+
+router.post('/decision-eligibility-v4', function (req, res) {
+  let date = req.session.data['decision-date-year']
+
+  if (date === '2020') {
+    res.redirect('/v4/eligibility/consent')
+  } else if (date === '2019') {
+    res.redirect('/v4/eligibility/decision-date-out')
+  } else {
+    res.redirect('/v4/eligibility/decision-date-error')
+  }
+})
+
 
 //autocomplete
 
