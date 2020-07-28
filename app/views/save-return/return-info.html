@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="notify-letter" method="post" novalidate>
+        <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
+        <h1 class="govuk-heading-xl">
+          What's your email address?
+        </h1>
+        <p>We'll email you a link and a reference code to get you back into your appeal.</p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="email-address">
+            Email address
+          </label>
+          <input value="{{ data['emailAddress'] }}" class="govuk-input" id="email-address" name="emailAddress" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <br />
+        <p class="govuk-body-s"><a href="task-list">Return to appeal</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
