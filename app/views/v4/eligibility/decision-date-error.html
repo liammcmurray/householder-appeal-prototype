@@ -22,11 +22,13 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="/decision-eligibility-v4" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
-        <h1 class="govuk-heading-l">
-          What's the decision date on the letter from the Local Planning Authority?​
-        </h1>
-
         <div class="govuk-form-group govuk-form-group--error">
+          <fieldset class="govuk-fieldset" aria-describedby="has-permission-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What's the decision date on the letter from the Local Planning Authority?​
+              </h1>
+            </legend>
           <span id="passport-issued-error" class="govuk-error-message">
             <span class="govuk-visually-hidden">Error:</span> You need to provide a date
           </span>
@@ -59,6 +61,7 @@
               </div>
             </div>
           </div>
+        </fieldset>
         </div>
 
          <div class="govuk-form-group">
