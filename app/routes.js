@@ -380,6 +380,37 @@ router.post('/decision-eligibility-v4', function (req, res) {
   }
 })
 
+// SUBMISSION
+router.post('/site-ownership-check-v4', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/v4/site-ownership-certb')
+  } else {
+    res.redirect('/v4/task-list')
+  }
+})
+
+router.post('/grounds-check-v4', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/v4/supporting-documents')
+  } else {
+    res.redirect('/v4/grounds-of-appeal-error')
+  }
+})
+
+router.post('/submission-check-v4', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/v4/confirmation')
+  } else {
+    res.redirect('/v4/submission-error')
+  }
+})
+
 
 //autocomplete
 

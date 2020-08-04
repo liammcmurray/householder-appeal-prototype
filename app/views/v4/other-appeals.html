@@ -9,17 +9,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="task-list" method="post" novalidate>
-      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
-      <h1 class="govuk-heading-xl">
-        Other appeals at this site
-      </h1>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              Do you have any other active appeals at this site?
-            </h1>
-          </legend>
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">Do you have any other active appeals at this site?</legend>
          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="how-contacted-conditional" name="other-appeals" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
@@ -54,8 +47,8 @@
           Save and continue
         </button>
       </div>
-      <input type="hidden" name="your-appeal-completed" value="govuk-tag app-task-list__task-completed">
-        <input type="hidden" name="your-appeal-completedText" value="Completed">
+      <input type="hidden" name="other-appeal-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="other-appeal-completedText" value="Completed">
         </form>
     </div>
   </div>
