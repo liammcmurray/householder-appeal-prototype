@@ -22,7 +22,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v2/eligibility/applicant" aria-describedby="">
+                <a href="/v4/eligibility/applicant" aria-describedby="">
                   Check you can appeal
                 </a>
               </span>
@@ -38,7 +38,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/your-details" aria-describedby="your-details-status">
+                <a href="/v4/your-details" aria-describedby="your-details-status">
                   Your details
                 </a>
               </span>
@@ -54,7 +54,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/lpa-details">
+                <a href="/v4/lpa-details">
                   Local Planning Authority (LPA) details
                 </a>
               </span>
@@ -62,11 +62,11 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/upload-decision">
-                  Upload the decision notice
+                <a href="/v4/upload-decision">
+                  Upload the decision letter
                 </a>
               </span>
-              <strong name="deciison-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
+              <strong name="decision-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -78,7 +78,7 @@
           <ul class="app-task-list__items"> 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/application-name">
+                <a href="/v4/application-name">
                   Name on original planning application
                 </a>
               </span>
@@ -86,7 +86,7 @@
             </li>       
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/application-date">
+                <a href="/v4/application-date">
                   Date you applied for planning permission
                 </a>
               </span>
@@ -94,15 +94,15 @@
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/upload-application">
-                  Upload the application form
+                <a href="/v4/upload-application">
+                  Upload the planning application form
                 </a>
               </span>
               <strong name="application-upload-status" class="{{data['application-upload-completed']}}" >{{data['application-upload-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/upload-application-changes">
+                <a href="/v4/upload-application-changes">
                   Changes to the description of the development
                 </a>
               </span>
@@ -112,28 +112,28 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">5. </span> About the site
+            <span class="app-task-list__section-number">5. </span> About the appeal site
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/site-location">
-                  Appeal site location
+                <a href="/v4/site-location">
+                  Address of the appeal site
                 </a>
               </span>
               <strong name="site-location-status" class="{{data['site-location-completed']}}" >{{data['site-location-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/site-access">
-                  Access to appeal site
+                <a href="/v4/site-access">
+                  Access to the appeal site
                 </a>
               </span>
               <strong name="site-access-status" class="{{data['all-access-completed']}}" >{{data['all-access-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/site-ownership">
+                <a href="/v4/site-ownership">
                   Appeal site ownership
                 </a>
               </span>
@@ -148,27 +148,27 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/grounds-of-appeal">
+                <a href="/v4/grounds-of-appeal">
                   Your appeal statement
                 </a>
               </span>
-              <strong name="appeal-statement-status" class="{{data['your-appeal-completed']}}" >{{data['your-appeal-completedText']}}</strong>
+              <strong name="appeal-statement-status" class="{{data['appeal-statement-completed']}}" >{{data['appeal-statement-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/supporting-documents">
-                 Upload documents to support your appeal
+                <a href="/v4/supporting-documents">
+                 Any other documents to support your appeal​
                 </a>
               </span>
-              <strong name="supporting-documents-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+              <strong name="supporting-documents-status" class="{{data['upload-appeal-docs-completed']}}" >{{data['upload-appeal-docs-completedText']}}</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/other-appeals">
+                <a href="/v4/other-appeals">
                   Other relevant appeals
                 </a>
               </span>
-              <strong name="other-appeals-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+              <strong name="other-appeals-status" class="{{data['other-appeal-completed']}}" >{{data['other-appeal-completedText']}}</strong>
             </li>
           </ul>
         </li>
@@ -179,7 +179,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v3/check-answers">
+                <a href="/v4/check-answers">
                   Check your answers
                 </a>
               </span>
