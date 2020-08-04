@@ -6,6 +6,8 @@ var NotifyClient = require('notifications-node-client').NotifyClient,
 
 const fs = require('fs');
 const request = require('request');
+
+const moment = require("moment")
 // Add your routes here - above the module.exports line
 
 // V1
@@ -461,5 +463,44 @@ router.post("/components/search-council/results", function(req, res, next){
     
   });
 });
+
+
+router.post("/alt-appeal/send-letter/summary", function(req, res, next){
+
+  let date = `${req.session.data['planning-date-year']}/${req.session.data['planning-date-month']}/${req.session.data['planning-date-day']}`
+
+  req.session.data['planning-date'] = moment(date).format("D MMMM YYYY"); 
+  next()
+})
+
+
+router.post("/alt-appeal/send-letter/date", function(req, res, next){
+  let address = [
+    req.session.data['address-line-1'],
+    req.session.data['address-line-2'],
+    req.session.data['address-town'],
+    req.session.data['address-county'],
+    req.session.data['address-postcode']
+  ].filter(item => item);
+
+  let formattedAddress = ""
+
+  address.forEach(function(item, index, arr){
+    if(item.index < arr.length){
+      formattedAddress = formattedAddress += item + '<br>'
+    } else {
+      formattedAddress = formattedAddress += item 
+    }
+  })
+
+  req.session.data.address = [
+    req.session.data['address-line-1'],
+    req.session.data['address-line-2'],
+    req.session.data['address-town'],
+    req.session.data['address-county'],
+    req.session.data['address-postcode']
+  ].filter(item => item);
+  next()
+})
 
 module.exports = router

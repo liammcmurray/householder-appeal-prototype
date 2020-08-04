@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="address" method="post" novalidate>
+          
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{{ govukInput({
+  label: {
+    text: "What is the name on the planning application?",
+    classes: "govuk-label--l"
+  },
+  hint: {
+    text: "Enter the full name, including title."
+  },
+  id: "full-name",
+  name: "full-name",
+  autocomplete: "name",
+  spellcheck: false
+}) }}
+
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
