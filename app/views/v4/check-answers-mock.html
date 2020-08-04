@@ -1,15 +1,15 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Check answers
+  Check your answers
 {% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-full-width">
       
-      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Submit your appeal</span>
+      <span class="govuk-caption-xl">Submit your appeal</span>
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
@@ -18,32 +18,31 @@
       <h2 class="govuk-heading-m">Before you start</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               What are you appealing?
             </dt>
             <dd class="govuk-summary-list__value">
-               <p>{{ data['appeal-relationship'] }}</p>
+               I'm appealing a decision I received
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="eligibility/applicant">
-                Change<span class="govuk-visually-hidden"> your what I'm appealing</span>
+              <a class="govuk-link" href="your-relationship">
+                Change<span class="govuk-visually-hidden"> what you are appealing</span>
               </a>
             </dd>
           </div>
         </dl>
-      
+
+
       <h2 class="govuk-heading-m">About you</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Your name
             </dt>
             <dd class="govuk-summary-list__value">
-               <p>{{ data['appellant-name'] }}</p>
+               Manish Sharma
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="your-details">
@@ -56,7 +55,7 @@
               Your email
             </dt>
             <dd class="govuk-summary-list__value">
-               <p>{{ data['appellant-email'] }}</p>
+               manish.sharma@example.com
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="your-details">
@@ -73,7 +72,7 @@
               Name of LPA
             </dt>
             <dd class="govuk-summary-list__value">
-               <p>{{ data['lpa-name'] }}</p>
+              <p class="govuk-body">Brighton and Hove County Council</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="lpa-details">
@@ -86,7 +85,7 @@
               Planning application number
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['application-number'] }}</p>
+              <p class="govuk-body">W/828006F</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="lpa-details">
@@ -99,7 +98,7 @@
               Decision notice
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['decision-notice'] }}</p>
+              <p class="govuk-body">w828006f_FINAL.pdf</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="upload-decision">
@@ -116,11 +115,11 @@
               Name on original planning application
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['original-applicant-name'] }}</p>
+              <p class="govuk-body">Manish Sharma</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="application-name">
-                Change<span class="govuk-visually-hidden"> name on original planning application</span>
+                Change<span class="govuk-visually-hidden"> name of applicant</span>
               </a>
             </dd>
           </div>
@@ -129,11 +128,11 @@
               Date you applied for planning permission
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['permission-day'] }}/{{ data['permission-month'] }}/{{ data['permission-year'] }}</p>
+              <p class="govuk-body">20/01/2020</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="application-date">
-                Change<span class="govuk-visually-hidden"> date you applied for planning permission</span>
+                Change<span class="govuk-visually-hidden"> date of application</span>
               </a>
             </dd>
           </div>
@@ -142,11 +141,11 @@
               Original application form
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['application-upload'] }}</p>
+              <p class="govuk-body">13EastHill_application.doc</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="upload-application">
-                Change<span class="govuk-visually-hidden"> uploaded application form</span>
+                Change<span class="govuk-visually-hidden"> uploaded application</span>
               </a>
             </dd>
           </div>
@@ -155,8 +154,8 @@
               Changes to the description of the development
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['development-description'] }}</p>
-              <p class="govuk-body">{{ data['development-description-proof'] }}</p>
+              <p class="govuk-body">Yes</p>
+              <p class="govuk-body">proposal_update.doc</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="upload-application-changes">
@@ -173,11 +172,9 @@
             Address of the appeal site
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['address-line-1'] }}<br>
-            {{ data['address-line-2'] }}<br>
-            {{ data['address-town'] }}<br>
-            {{ data['address-county'] }}<br>
-            {{ data['postcode'] }}</p>
+            Buckingham Palace<br>
+            London<br>
+            SW1A 1AA
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-location">
@@ -190,7 +187,7 @@
             Within Green Belt?
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['green-belt'] }}</p>
+            No
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-location-green-belt">
@@ -203,8 +200,7 @@
             Can the Inspector see the whole of the appeal site from a public road?
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['site-access'] }}</p>
-            <p>{{ data['site-access-more-detail'] }}</p>
+            Yes
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-access">
@@ -214,11 +210,11 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are there any health and safety issues?
+            Are there any health and safety issues on the appeal site?
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['safety'] }}</p>
-            <p>{{ data['safety'] }}</p>
+            <p>Yes</p>
+            <p>There are unmarked changes in level or missing fittings</p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-access-safety">
@@ -248,11 +244,11 @@
             Your appeal statement
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['appeal-statement'] }}</p>
+            ms_appeal02.pdf
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="grounds-of-appeal">
-              Change<span class="govuk-visually-hidden"> appeal statement</span>
+              Change<span class="govuk-visually-hidden"> grounds of appeal</span>
             </a>
           </dd>
         </div>
@@ -261,20 +257,24 @@
             Documents to support your appeal
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['file-upload-docs'] }}</p>
+            IMG200720_215.jpg<br>
+            IMG200720_218.jpg<br>
+            IMG200720_219.jpg<br>
+            IMG200720_221.jpg
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="supporting-documents">
-              Change<span class="govuk-visually-hidden"> other documents to support your appeal</span>
+              Change<span class="govuk-visually-hidden"> other documents</span>
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Other relevant appeals
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['other-appeals'] }}</p>
+            n/a
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="other-appeals">
@@ -282,6 +282,8 @@
             </a>
           </dd>
         </div>
+
+
       </dl>
 
 
