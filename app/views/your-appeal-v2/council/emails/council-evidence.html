@@ -1,0 +1,28 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: New planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+		<p>To whom it may concern</p>
+
+		<p>A new planning appeal has been started. You need to submit your questionnaire for the appeal by 7 August 2020.</p>
+		<p><a href="/your-appeal/council/local-council-docs" title="">View the appeal</a> to submit your questionnaire.</p>
+
+		<p>Regards,<br>
+		The Planning Inspectorate</p>
+
+	</div>
+</div>
+{% endblock %}
