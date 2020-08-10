@@ -6,15 +6,13 @@
 
 {% block content %}
 
-  <div class="govuk-width-container">
-  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <div class="govuk-panel govuk-panel--confirmation">
           <h1 class="govuk-panel__title">
             Appeal submitted
           </h1>
-          <h4 class="govuk-heading-m" style="color:#ffffff;">We've sent a confirmation email to: {{ data['appellant-email'] }}</h4>
+          <div class="govuk-panel__body">We've sent a confirmation email to: <br> {{ data['appellant-email'] }}</div>
         </div>
          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
         <h2 class="govuk-heading-m">What happens next</h2>
@@ -31,8 +29,6 @@
         </p>
       </div>
     </div>
-  </main>
-</div>
 
 {% endblock %}
  

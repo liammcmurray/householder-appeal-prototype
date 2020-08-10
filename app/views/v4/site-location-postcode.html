@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+\{% extends "layout.html" %}
 
 {% block pageTitle %}
   Your details
@@ -9,11 +9,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
-      <h1 class="govuk-heading-l">Address of the appeal site</h1>
       <form action="site-location-green-belt" method="post" novalidate>
-      <fieldset class="govuk-fieldset govuk-!-padding-bottom-6">
-        <legend class="govuk-visually-hidden">Postcode lookup</legend>
-        <p>Postcode: <strong>{{ data['finder-postcode'] }}</strong> <a href="site-location">change</a>
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="sort">
+                What is the address of the appeal site?
+              </label>
+            </h1>
 
         <div class="govuk-form-group">
           <select class="govuk-select" id="sort" name="sort">
@@ -33,21 +33,21 @@
                 <label class="govuk-label" for="address-line-1">
                   Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
                 </label>
-                <input value="{{ data['address-line-1'] }}" class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line-1">
+                <input value="{{ data['address-line-1'] }}" class="govuk-input" id="address-line-1" name="address-line-1" type="text">
               </div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-line-2">
                   <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
                 </label>
-                <input value="{{ data['address-line-2'] }}" class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2">
+                <input value="{{ data['address-line-2'] }}" class="govuk-input" id="address-line-2" name="address-line-2" type="text">
               </div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-town">
                   Town or city
                 </label>
-                <input value="{{ data['address-town'] }}" class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2">
+                <input value="{{ data['address-town'] }}" class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
               </div>
 
               <div class="govuk-form-group">
@@ -61,7 +61,7 @@
                 <label class="govuk-label" for="address-postcode">
                   Postcode
                 </label>
-                <input  value="{{ data['postcode'] }}"class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+                <input  value="{{ data['postcode'] }}"class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
               </div>
             </fieldset>
 
