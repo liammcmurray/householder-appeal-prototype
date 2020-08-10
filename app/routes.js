@@ -465,7 +465,7 @@ router.post("/components/search-council/results", function(req, res, next){
 });
 
 
-router.post("/alt-appeal/send-letter/summary", function(req, res, next){
+router.post("/appeal-wtih-reference/send-letter/summary", function(req, res, next){
 
   let date = `${req.session.data['planning-date-year']}/${req.session.data['planning-date-month']}/${req.session.data['planning-date-day']}`
 
@@ -474,8 +474,8 @@ router.post("/alt-appeal/send-letter/summary", function(req, res, next){
 })
 
 
-router.post("/alt-appeal/send-letter/date", function(req, res, next){
-  let address = [
+router.post("/appeal-with-reference/send-letter/correspondence-address", function(req, res, next){
+  req.session.data['address'] = [
     req.session.data['address-line-1'],
     req.session.data['address-line-2'],
     req.session.data['address-town'],
@@ -483,22 +483,18 @@ router.post("/alt-appeal/send-letter/date", function(req, res, next){
     req.session.data['address-postcode']
   ].filter(item => item);
 
-  let formattedAddress = ""
 
-  address.forEach(function(item, index, arr){
-    if(item.index < arr.length){
-      formattedAddress = formattedAddress += item + '<br>'
-    } else {
-      formattedAddress = formattedAddress += item 
-    }
-  })
+  next()
+})
 
-  req.session.data.address = [
-    req.session.data['address-line-1'],
-    req.session.data['address-line-2'],
-    req.session.data['address-town'],
-    req.session.data['address-county'],
-    req.session.data['address-postcode']
+router.post("/appeal-with-reference/send-letter/date", function(req, res, next){
+
+  req.session.data['post-address'] = [
+    req.session.data['post-address-line-1'],
+    req.session.data['post-address-line-2'],
+    req.session.data['post-address-town'],
+    req.session.data['post-address-county'],
+    req.session.data['post-address-postcode']
   ].filter(item => item);
   next()
 })
