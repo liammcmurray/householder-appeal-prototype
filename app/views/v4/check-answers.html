@@ -129,7 +129,7 @@
               Date you applied for planning permission
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">{{ data['permission-day'] }}/{{ data['permission-month'] }}/{{ data['permission-year'] }}</p>
+              <p class="govuk-body">{{ data['permission-day'] }} {{ data['permission-month'] | formatMonth }} {{ data['permission-year'] }}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="application-date">

@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 module.exports = function (env) {
   /**
    * Instantiate object used to store the methods registered as a
@@ -41,5 +43,16 @@ module.exports = function (env) {
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
   ------------------------------------------------------------------ */
+  filters.formatMonth = function(number){
+    if(number){
+      var date = moment().month(number -1)
+      return date.format('MMMM')
+    } else {
+      return ""
+    }
+  }
+
+
+
   return filters
 }
