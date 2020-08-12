@@ -11,13 +11,13 @@
       <form action="/consent-eligibility-v4" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="has-permission-hint">
+          <fieldset class="govuk-fieldset" aria-describedby="householder-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
               <h1 class="govuk-fieldset__heading">
                 Did you apply for 'householder planning permission'?
               </h1>
             </legend>
-            <p>'Householder planning permission' is a specific type of planning permission. You can check what you applied for on your original planning application form.</p>
+            <p id="householder-hint">'Householder planning permission' is a specific type of planning permission. You can check what you applied for on your original planning application form.</p>
             <div class="govuk-radios govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
                 <input class="govuk-radios__input" id="how-contacted-conditional" name="how-contacted" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">

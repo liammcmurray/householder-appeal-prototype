@@ -8,6 +8,19 @@
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "You have not confirmed all statements",
+      href: "#eligibility-list-error"
+    }
+  ]
+}) }}
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
@@ -15,8 +28,8 @@
           {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
           {{ govukCheckboxes({
-            idPrefix: "nationality",
-            name: "nationality",
+            idPrefix: "eligibility-list",
+            name: "eligibility-list",
             fieldset: {
               legend: {
                 text: "Check you can use this service",
@@ -24,6 +37,10 @@
                 classes: "govuk-fieldset__legend--l"
               }
             },
+            errorMessage: {
+              text: "If any of these do not apply to you, you need to use our Appeal a Planning Decision service instead"
+            },
+            id: "eligibility-list-error",
             hint: {
               text: "This service is for householder planning appeals. You can use it if the following 5 statements apply to you:"
             },

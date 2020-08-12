@@ -10,12 +10,13 @@
     <div class="govuk-grid-column-two-thirds">
       <form action="task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
-      <h1 class="govuk-heading-l">
-        Changes to the description of the development
-      </h1>
+      <label class="govuk-label govuk-label--m" for="more-detail">
+        <h1 class="govuk-heading-l">
+          Has the description of the development changed?
+        </h1>
+      </label>
         <div class="govuk-form-group">
-          <p>Compare the description of the development on your original planning application with the description on your decision letter.</p>
-          <h3 class="govuk-heading-m"><label class="govuk-label govuk-label--m" for="more-detail">Has the description of the development changed?</label></h3>
+          <div class="govuk-hint" id="descrition-hint">Compare the description of the development on your original planning application with the description on your decision letter.</div>
           <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="development-conditional" name="development" type="radio" value="yes" data-aria-controls="conditional-development-conditional">
@@ -25,9 +26,9 @@
             </div>
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-development-conditional">
                <div class="govuk-form-group">
-                <span id="more-detail-hint" class="govuk-hint">
+                <label class="govuk-label" for="more-detail" id="more-detail-hint">
                   Tell us about these changes.
-                </span>
+                </label>
                  <textarea value="{{ data['development-description'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
                   <div class="govuk-form-group">
                   <label class="govuk-heading-s" for="upload-evidence">
