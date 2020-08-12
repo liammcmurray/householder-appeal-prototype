@@ -380,6 +380,18 @@ router.post('/decision-eligibility-v4', function (req, res) {
   }
 })
 
+// SINGLE PAGE ELIGIBILITY
+router.post('/eligibility-list-check-v4', function (req, res) {
+  let eligible = req.session.data['eligibility-list']
+
+  if (Array.isArray(eligible) && eligible[0] === 'notapplicant') {
+    res.redirect('/v4/eligibility/appeal-statement')
+  } else {
+    res.redirect('/v4/eligibility/eligibility-list-error')
+  }
+})
+
+
 // SUBMISSION
 router.post('/site-ownership-check-v4', function (req, res) {
   let owner = req.session.data['site-owner-names']
