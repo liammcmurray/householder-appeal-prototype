@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/return-info-check" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "contact-by-email",
+          name: "contact-by-email",
+          type: "email",
+          spellcheck: false,
+          classes: "govuk-!-width-two-thirds",
+          label: {
+            text: "Email address"
+          }
+        }) }}
+        {% endset -%}
+
+
+        {% set textHtml %}
+        {{ govukInput({
+          id: "contact-by-text",
+          name: "contact-by-text",
+          type: "tel",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Mobile phone number"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          idPrefix: "how-contacted-conditional",
+          name: "how-contacted",
+          fieldset: {
+            legend: {
+              text: "How would you prefer to receive a code to return to your appeal?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select one option"
+          },
+          items: [
+            {
+              value: "onscreen",
+              text: "On screen"
+            },
+            {
+              value: "email",
+              text: "Email",
+              conditional: {
+                html: emailHtml
+              }
+            },
+            {
+              value: "text",
+              text: "Text message",
+              conditional: {
+                html: textHtml
+              }
+            }
+          ]
+        }) }}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <br />
+        <p class="govuk-body-s"><a href="task-list">Return to appeal</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
