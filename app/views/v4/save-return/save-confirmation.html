@@ -12,17 +12,9 @@
         <h1 class="govuk-heading-xl">
           Your reference code
         </h1>
-        <div class="pins-reference-code-panel">
-          <p class="govuk-body govuk-!-font-size-80 govuk-!-font-weight-bold">1234AB</p>
-        </div>
-        
-        <h2 class="govuk-heading-m">What to do with your reference</h2>
-        <p>The code above is your unique reference. You can use this to:</p>
-        <ul class="govuk-list govuk-list--bullet">
-          <li>return to your appeal and continue</li>
-          <li>see the progress of your appeal once you have submitted</li>
-        </ul>
-
+        <p>We've sent an email to: <strong>{{ data['return-email'] }}</strong></p>
+        <p>This contains your reference code and a link to get you back into your appeal.</p>
+        <p><a href="notify-letter">(View email)</a></p>
 
         <p><a href="../task-list">Return to appeal</a></p>
         </div>

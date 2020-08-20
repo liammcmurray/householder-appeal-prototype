@@ -8,6 +8,17 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "You need to provide an email address",
+            href: "#return-email-error"
+          }
+        ]
+      }) }}
       <!-- <form action="/return-info-check" method="post" novalidate> -->
       <form action="/return-info-check" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
@@ -21,6 +32,9 @@
           },
           hint: {
             text: "We'll send you an email with a link and a reference code to get you back into your appeal"
+          },
+          errorMessage: {
+            text: "You need to provide an email address"
           },
           id: "return-email",
           name: "return-email"
