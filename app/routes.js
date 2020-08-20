@@ -314,6 +314,19 @@ router.post('/save-return-check', function (req, res) {
 })
 
 
+// SAVE RETURN V2
+router.post('/save-return-check-v2', function (req, res) {
+  let savelog = req.session.data['return-input']
+
+  if (savelog === '1234ab') {
+    res.redirect('/v4/task-list')
+  } else {
+    res.redirect('/v4/save-return/save-return-error')
+  }
+})
+
+
+
 // VERSION 4
 // ELIGIBILITY
 router.post('/applicant-eligibility-v4', function (req, res) {

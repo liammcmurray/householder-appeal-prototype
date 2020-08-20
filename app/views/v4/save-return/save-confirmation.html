@@ -8,17 +8,23 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="save-confirmation" method="post" novalidate>
         <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
         <h1 class="govuk-heading-xl">
           Your reference code
         </h1>
-        <p class="govuk-body govuk-!-font-size-80">1234 5678 ABCD</p>
-        <p>We've emailed the reference code and a link to get you back into your appeal to: <strong>{{ data['emailAddress'] }}</strong></p>
-        <p>
-
+        <div class="pins-reference-code-panel">
+          <p class="govuk-body govuk-!-font-size-80 govuk-!-font-weight-bold">1234AB</p>
+        </div>
         
-          <a href="index">Return to appeal</a>
+        <h2 class="govuk-heading-m">What to do with your reference</h2>
+        <p>The code above is your unique reference. You can use this to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>return to your appeal and continue</li>
+          <li>see the progress of your appeal once you have submitted</li>
+        </ul>
+
+
+        <p><a href="../task-list">Return to appeal</a></p>
         </div>
   </div>
 

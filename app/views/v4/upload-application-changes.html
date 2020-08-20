@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-save.html" %}
 
 {% block pageTitle %}
   Any application changes
@@ -6,7 +6,6 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
@@ -54,6 +53,5 @@
         <input type="hidden" name="development-description-completedText" value="Completed">
       </form>
     </div>
-  </div>
 
 {% endblock %}

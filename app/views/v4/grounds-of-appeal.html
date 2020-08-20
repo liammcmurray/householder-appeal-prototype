@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-save.html" %}
 
 {% block pageTitle %}
   Your details
@@ -6,7 +6,6 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="/grounds-check-v4" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
@@ -124,6 +123,5 @@
         <input type="hidden" name="appeal-statement-completedText" value="Completed">
       </form>
     </div>
-  </div>
 
 {% endblock %}
