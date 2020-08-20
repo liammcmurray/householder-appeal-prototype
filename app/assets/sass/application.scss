@@ -26,9 +26,6 @@ $govuk-assets-path: '/govuk/assets/';
 	font-family: "nta", Arial, sans-serif;
 }
 
-
-.govuk-panel--rejection {
-  color: #ffffff;
-  background: govuk-colour("bright-purple");
+.govuk-summary-list__key--no-border{
+	border-bottom: none;
 }
-

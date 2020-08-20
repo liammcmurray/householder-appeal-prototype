@@ -511,4 +511,17 @@ router.post("/appeal-with-reference/send-letter/date", function(req, res, next){
   next()
 })
 
+
+router.post("/appeal-with-reference/reference-number-post", function(req, res, next){
+  console.log(req.body.reference);
+  let reference = req.body.reference.toUpperCase();
+  if(!reference){
+    res.redirect("/appeal-with-reference/reference-number-error")
+  }else if(reference.startsWith("HAS")){
+    res.redirect("/appeal-with-reference/postcode")
+  } else {
+    res.redirect("/appeal-with-reference/reference-not-recognised")
+  }
+})
+
 module.exports = router
