@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-save.html" %}
 
 {% block pageTitle %}
   Your details
@@ -6,7 +6,6 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="site-ownership" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Access to the appeal site</span>
@@ -73,6 +72,5 @@
         <input type="hidden" name="all-access-completedText" value="Completed">
       </form>
     </div>
-  </div>
 
 {% endblock %}

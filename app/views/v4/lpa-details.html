@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-save.html" %}
 
 {% block pageTitle %}
   Local Planning authority details
@@ -6,7 +6,6 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="upload-decision" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the relevant Local Planning Authority</span>
@@ -37,6 +36,5 @@
         <input type="hidden" name="lpadetails-completedText" value="Completed">
       </form>
     </div>
-  </div>
 
 {% endblock %}
