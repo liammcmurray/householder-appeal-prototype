@@ -446,6 +446,116 @@ router.post('/submission-check-v4', function (req, res) {
 })
 
 
+// VERSION 5
+// ELIGIBILITY
+router.post('/applicant-eligibility-v5', function (req, res) {
+  let hasapplicant = req.session.data['appeal-relationship']
+
+  if (hasapplicant === 'me') {
+    res.redirect('/v5/eligibility/decision-date')
+  } else if (hasapplicant === 'company') {
+    res.redirect('/v5/eligibility/decision-date')
+  } else if (hasapplicant === 'agent') {
+    res.redirect('/v5/eligibility/decision-date')
+  } else if (hasapplicant === 'out') {
+    res.redirect('/v5/eligibility/applicant-out')
+  } else {
+    res.redirect('/v5/eligibility/applicant-error')
+  }
+})
+
+router.post('/consent-eligibility-v5', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/v5/eligibility/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/v5/eligibility/out')
+  } else {
+    res.redirect('/v5/eligibility/consent-error')
+  }
+})
+
+router.post('/listed-eligibility-v5', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/v5/eligibility/enforcement')
+  } else if (haslisted === 'yes') {
+    res.redirect('/v5/eligibility/listed-out')
+  } else {
+    res.redirect('/v5/eligibility/listed-error')
+  }
+})
+
+router.post('/enforcement-eligibility-v5', function (req, res) {
+  let hasenforcement = req.session.data['enforcement-notice']
+
+  if (hasenforcement === 'no') {
+    res.redirect('/v5/eligibility/appeal-statement')
+  } else if (hasenforcement === 'yes') {
+    res.redirect('/v5/eligibility/enforcement-out')
+  } else {
+    res.redirect('/v5/eligibility/enforcement-error')
+  }
+})
+
+router.post('/decision-eligibility-v5', function (req, res) {
+  let date = req.session.data['decision-date-year']
+
+  if (date === '2020') {
+    res.redirect('/v5/eligibility/consent')
+  } else if (date === '2019') {
+    res.redirect('/v5/eligibility/decision-date-out')
+  } else {
+    res.redirect('/v5/eligibility/decision-date-error')
+  }
+})
+
+// SINGLE PAGE ELIGIBILITY
+router.post('/eligibility-list-check-v5', function (req, res) {
+  let eligible = req.session.data['eligibility-list']
+
+  if (Array.isArray(eligible) && eligible[0] === 'notapplicant') {
+    res.redirect('/v5/eligibility/appeal-statement')
+  } else {
+    res.redirect('/v5/eligibility/eligibility-list-error')
+  }
+})
+
+
+// SUBMISSION
+router.post('/site-ownership-check-v5', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/v5/site-ownership-certb')
+  } else {
+    res.redirect('/v5/task-list')
+  }
+})
+
+router.post('/grounds-check-v5', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/v5/supporting-documents')
+  } else {
+    res.redirect('/v5/grounds-of-appeal-error')
+  }
+})
+
+router.post('/submission-check-v5', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/v5/confirmation')
+  } else {
+    res.redirect('/v5/submission-error')
+  }
+})
+
+
 //autocomplete
 
 function sortByProperty(property){
