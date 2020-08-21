@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="other-appeals" method="post" novalidate>
+      <span class="govuk-caption-xl"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
+      <h1 class="govuk-heading-xl">
+        Other local developments
+      </h1>
+      <p>Tell us about any similar developments or appeals in the local area that support your grounds of appeal.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="other-appeals">
+          Enter details of relevant developments (optional)
+        </label>
+        <!--<span id="other-appeals-hint" class="govuk-hint">You can add multiple references separated by commas.</span>-->
+        <input class="govuk-input" id="other-appeals" name="other-appeals" spellcheck="false">
+      </div>
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

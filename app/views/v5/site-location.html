@@ -1,0 +1,88 @@
+{% extends "layout-save.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form action="site-location-postcode" method="post" novalidate>
+      
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
+        
+          
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="finder-postcode">
+                What is the postcode of the appeal site?
+              </label>
+            </h1>
+        <p>The appeal site is the area of property or land that your original planning application relates to.</p>
+        
+          <div id="hint-finder-postcode" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
+            For example SW1A 2AA
+          </div>
+          <input  value="{{ data['finder-postcode'] }}" name="What is the postcode of the appeal site?" class="govuk-input govuk-input--width-10" id="finder-postcode" type="text" aria-describedby="hint-finder-postcode">
+        
+      
+        <button class="govuk-button" type="submit">Find</button>
+
+    </form>
+      <div class="govuk-form-group">
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">Enter address manually</span>
+          </summary>
+          <div class="govuk-details__text">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-1">
+                  Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
+                </label>
+                <input value="{{ data['address-line-1'] }}" class="govuk-input" id="address-line-1" name="address-line-1" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-2">
+                  <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
+                </label>
+                <input value="{{ data['address-line-2'] }}" class="govuk-input" id="address-line-2" name="address-line-2" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-town">
+                  Town or city
+                </label>
+                <input value="{{ data['address-town'] }}" class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-county">
+                  County
+                </label>
+                <input value="{{ data['address-county'] }}" class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-postcode">
+                  Postcode
+                </label>
+                <input  value="{{ data['postcode'] }}"class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text">
+              </div>
+              <div class="govuk-form-group">
+                <form action="site-location-green-belt" method="post" novalidate>
+                  <button class="govuk-button" data-module="govuk-button">
+                    Save and continue
+                  </button>
+                  <input type="hidden" name="site-address-completed" value="govuk-tag app-task-list__task-completed">
+                  <input type="hidden" name="site-address-completedText" value="Completed">
+                </form>
+              </div>
+            </fieldset>
+
+          </div>
+        </details>
+      </div>
+    </div>
+
+{% endblock %}
