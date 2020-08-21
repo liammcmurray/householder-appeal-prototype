@@ -1,0 +1,193 @@
+{% extends "layout-no-back-save.html" %}
+
+{% block pageTitle %}
+  Please complete | Appeal a planning decision
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Appeal a householder planning decision
+      </h1>
+      <p>A householder appeal must be received by the Planning Inspectorate within 12 weeks of the decision date.</p>
+      <p>If you do not submit it in time, you will lose your right to appeal.</p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span>Before you start
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/eligibility/applicant" aria-describedby="">
+                  Check you can appeal
+                </a>
+              </span>
+               <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">Completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span>About you
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/your-details" aria-describedby="your-details-status">
+                  Your details
+                </a>
+              </span>
+               <strong id="your-details-status" class="{{data['your-details-completed']}}" >{{data['your-details-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+        
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> About the relevant Local Planning Authority
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/lpa-details">
+                  Local Planning Authority (LPA) details
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">In progress</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/upload-decision">
+                  Upload the decision letter
+                </a>
+              </span>
+              <strong name="decision-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> About the original planning application
+          </h2>
+          <ul class="app-task-list__items"> 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/application-name">
+                  Name on original planning application
+                </a>
+              </span>
+              <strong name="appellant-name-status" class="{{data['appellant-name-completed']}}" >{{data['appellant-name-completedText']}}</strong>
+            </li>       
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/application-date">
+                  Date you applied for planning permission
+                </a>
+              </span>
+              <strong name="planning-date-status" class="{{data['planning-permission-completed']}}" >{{data['planning-permission-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/upload-application">
+                  Upload the planning application form
+                </a>
+              </span>
+              <strong name="application-upload-status" class="{{data['application-upload-completed']}}" >{{data['application-upload-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/upload-application-changes">
+                  Changes to the description of the development
+                </a>
+              </span>
+              <strong name="development-description-status" class="{{data['development-description-completed']}}" >{{data['development-description-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> About the appeal site
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/site-location">
+                  Address of the appeal site
+                </a>
+              </span>
+              <strong name="site-location-status" class="{{data['site-location-completed']}}" >{{data['site-location-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/site-access">
+                  Access to the appeal site
+                </a>
+              </span>
+              <strong name="site-access-status" class="{{data['all-access-completed']}}" >{{data['all-access-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/site-ownership">
+                  Appeal site ownership
+                </a>
+              </span>
+              <strong name="site-ownership-status" class="{{data['site-ownership-completed']}}" >{{data['site-ownership-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">6. </span> Your appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/grounds-of-appeal">
+                  Your appeal statement
+                </a>
+              </span>
+              <strong name="appeal-statement-status" class="{{data['appeal-statement-completed']}}" >{{data['appeal-statement-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/supporting-documents">
+                 Any other documents to support your appeal​
+                </a>
+              </span>
+              <strong name="supporting-documents-status" class="{{data['upload-appeal-docs-completed']}}" >{{data['upload-appeal-docs-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/other-appeals">
+                  Other relevant appeals
+                </a>
+              </span>
+              <strong name="other-appeals-status" class="{{data['other-appeal-completed']}}" >{{data['other-appeal-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">7. </span> Submit your appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v4/check-answers">
+                  Check your answers
+                </a>
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+ 
+
+{% endblock %}
