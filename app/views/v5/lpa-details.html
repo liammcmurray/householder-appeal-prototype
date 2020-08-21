@@ -8,13 +8,14 @@
 
     <div class="govuk-grid-column-two-thirds">
       <form action="upload-decision" method="post" novalidate>
-        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the relevant Local Planning Authority</span>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the local planning department</span>
         <h1 class="govuk-heading-l">
-          Local Planning Authority (LPA) details
+          The local planning department
         </h1>
+        <p>Enter the name of the local planning department that dealt with your original planning application (also referred to as 'Local Planning Authority' or 'LPA')</p>
         <div class="govuk-form-group">
           <label class="govuk-label" for="lpa-name">
-            Full name of the LPA that dealt with your original planning application
+            Full name of local planning department
           </label>
           <input value="{{ data['lpa-name'] }}" class="govuk-input" id="lpa-name" name="lpa-name" type="text">
         </div>
@@ -24,7 +25,7 @@
             Planning application number
           </label>
           <span id="application-number-hint" class="govuk-hint">
-            You can find this on the LPA decision notice.
+            You can find this on the decision letter from your local planning department
           </span>
           <input value="{{ data['application-number'] }}" class="govuk-input govuk-!-width-one-half" id="application-number" name="application-number" type="text">
         </div>
