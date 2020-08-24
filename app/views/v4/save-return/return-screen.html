@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <form action="/return-info-check" method="post" novalidate> -->
+      <form action="/return-info-check" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Save and return</span>
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          label: {
+            text: "What's your email address?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "We'll send you an email with a link and a reference code to get you back into your appeal"
+          },
+          id: "return-email",
+          name: "return-email"
+        }) }}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Send email
+        </button>
+        <br />
+        <p class="govuk-body-s"><a href="task-list">Go back to my appeal</a></p>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
