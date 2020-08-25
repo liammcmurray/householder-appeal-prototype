@@ -1,31 +1,6 @@
 {% extends "layout.html" %}
 
-{% set questions = [
-  {
-    "text": "Name",
-    "answer": data.user.name.first + " " + data.user.name.last
-  },
-  {
-    "text": "Do you agree with this choice of Procedure?",
-    "answer": "Yes"
-  },
-  {
-    "text": "Do you have any relevant emerging development plan policies?",
-    "answer": "No"
-  },
-  {
-    "text": "IS there a list of suggested conditions?",
-    "answer": "No"
-  },
-  {
-    "text": "Is there a need for a planning obligation?",
-    "answer": "Yes"
-  },
-  {
-    "text": "Is the site in, or adjecent to, a conservation area",
-    "answer": "Yes"
-  }
-  ]%}
+
   
 
 {% block pageTitle %}
@@ -62,7 +37,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Appeal Site location
+            Appeal site
           </dt>
           <dd class="govuk-summary-list__value">
             {{data.user.location.street.number}} {{data.user.location.street.name}}<br>
@@ -73,7 +48,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Local Council
+            Local planning department
           </dt>
           <dd class="govuk-summary-list__value">
             {{data.user.location.city}} Borough Council
@@ -82,16 +57,16 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            The decision notice
+            Decision letter
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="/public/images/Decision_Notice.pdf">Download decision notice</a> 
+            <a href="/public/images/Decision_Notice.pdf">Download decision letter</a> 
           </dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your appeal statement
+            Appeal statement
           </dt>
           <dd class="govuk-summary-list__value">
             <a href="/public/images/appeal-statement.pdf">Download appeal statement</a> 

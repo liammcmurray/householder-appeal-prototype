@@ -27,7 +27,7 @@ module.exports = {
         "age": 31,
         "date": "1989-11-17T21:56:57.779Z"
       },
-      "email": "John.Doe@example.com",
+      "email": "manish.sharma@example.com",
       "gender": "female",
       "id": {
         "name": "NINO",
@@ -61,8 +61,8 @@ module.exports = {
         "uuid": "2d5afd5e-a598-469f-9933-4edba18bcefb"
       },
       "name": {
-        "first": "John",
-        "last": "Doe",
+        "first": "Manish",
+        "last": "Sharma",
         "title": "Miss"
       },
       "nat": "GB",
