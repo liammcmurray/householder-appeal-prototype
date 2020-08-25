@@ -1,0 +1,30 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      
+      <h1 class="govuk-heading-l">
+        Your planning appeal decision
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l">Your appeal has been unsuccessful.</p>
+        <p><a href="history-rejected">View the full details of the appeal decision</a>.</p>
+      </div>
+      
+      <h2 class="govuk-heading-m">What happens next?</h2>
+
+
+      <p>If you think the Planning Inspectorate made a legal mistake, you can <a href="#">challenge the decision in the High Court</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

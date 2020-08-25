@@ -1,0 +1,33 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      <h1 class="govuk-heading-xl">
+        The status of your planning appeal
+      </h1>
+
+      <div class="govuk-inset-text">
+        <p class="govuk-body-l">Your appeal has been submitted.</p>
+
+      </div>
+      <p>We need to make sure your appeal is valid. This should take around 2 weeks, but may take longer in busy periods.</p>
+       <h2 class="govuk-heading-m">What happens next?</h2>
+      
+       <ul class="govuk-list govuk-list--bullet">        
+          <li>Once we’ve checked that your appeal is valid, we’ll start your appeal. </li>
+          <li>Your local planning department will then submit their evidence. This usually takes around 1 week after you submit your appeal. ​</li>
+          <li>An inspector may need to make a site visit. ​</li>
+    </ul>
+    <p>​We will contact you at each of these stages.​</p>
+      <p><a href="appeal-details" title="">View your appeal details</a></p>
+    </div>
+  </div>
+
+{% endblock %}

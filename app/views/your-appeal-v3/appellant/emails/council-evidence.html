@@ -1,0 +1,31 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: Your planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<p>Dear {{data.user.name.first}} {{data.user.name.last}}</p>
+
+<p>There's an update in the status of your planning appeal.​</p>
+<p>Your local planning department has submitted their evidence.​</p>
+<p>When deciding a planning appeal, the inspector looks at evidence from both parties.</p>
+
+<p><a href="/your-appeal-v3/appellant/local-council-docs" title="">View the local planning department's evidence</a>.</p>
+
+<p>Regards,<br>
+The Planning Inspectorate</p>
+
+</div>
+</div>
+{% endblock %}
