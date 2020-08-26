@@ -52,6 +52,25 @@ module.exports = function (env) {
     }
   }
 
+  filters.formatDate = function(str,format) {
+      var d = moment(str).format(format);
+      if (d !== 'Invalid date') return d;
+      else return '';
+  }
+
+
+  filters.daysAgo = function(num) {
+      var d = moment().subtract(num,"days").format("D MMMM YYYY")
+      if (d !== 'Invalid date') return d
+      else return ''
+  }
+
+  filters.daysInFuture = function(num) {
+      var d = moment().add(num,"days").format("D MMMM YYYY")
+      if (d !== 'Invalid date') return d
+      else return ''
+  }
+
 
 
   return filters
