@@ -587,6 +587,22 @@ router.all("/components/select-council", function(req,res,next){
   
 });  
 
+router.all("/v5/eligibility/planning-department", function(req,res,next){
+  const url = "https://local-authority-eng.register.gov.uk/records.json";
+
+  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
+    if (err) {
+      throw err;
+      next()
+    }
+      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
+      next()
+      
+  });
+
+  
+}); 
+
 
 router.post("/components/search-council/results", function(req, res, next){
   let postcode = req.body.postcode.replace(/ /g,'');
