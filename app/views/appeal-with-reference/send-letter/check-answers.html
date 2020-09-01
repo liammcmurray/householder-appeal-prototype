@@ -1,0 +1,155 @@
+
+
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="confirmation" method="post" novalidate>
+          
+<h1 class="govuk-heading-l">Check your answers before sending</h1>
+
+{% set planningDate = data["planning-date-day"] + " " + data["planning-date-month"] |formatMonth + " " + data["planning-date-year"] %}
+
+{{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Name"
+            },
+            value: {
+              text: data['full-name']
+            },
+            actions: {
+              items: [
+                {
+                  href: "name",
+                  text: "Change",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date of planning application"
+            },
+            value: {
+              html: planningDate
+            },
+            actions: {
+              items: [
+                {
+                  href: "date",
+                  text: "Change",
+                  visuallyHiddenText: "date of planning application"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Site address"
+            },
+            value: {
+              html: data.address | join("<br>")
+            },
+            actions: {
+              items: [
+                {
+                  href: "address",
+                  text: "Change",
+                  visuallyHiddenText: "address"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Summary"
+            },
+            value: {
+              html: data['summary']
+            },
+            actions: {
+              items: [
+                {
+                  href: "summary",
+                  text: "Change",
+                  visuallyHiddenText: "contact details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Reasons for refusal"
+            },
+            value: {
+              html: data['reason']
+            },
+            actions: {
+              items: [
+                {
+                  href: "reasons",
+                  text: "Change",
+                  visuallyHiddenText: "reasons for refusal"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the property in a green belt?"
+            },
+            value: {
+              html: data['green-belt']
+            },
+            actions: {
+              items: [
+                {
+                  href: "green-belt",
+                  text: "Change",
+                  visuallyHiddenText: "if property is in a green belt"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Is the property a listed building?"
+            },
+            value: {
+              html: data['listed-building']
+            },
+            actions: {
+              items: [
+                {
+                  href: "listed-building",
+                  text: "Change",
+                  visuallyHiddenText: "if property is a listed building"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Accept and send
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
