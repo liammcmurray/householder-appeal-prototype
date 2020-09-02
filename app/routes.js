@@ -450,6 +450,23 @@ router.post('/submission-check-v4', function (req, res) {
 
 // VERSION 5
 // ELIGIBILITY
+
+router.post('/planning-eligibility-v5', function(req, res, next){
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN') {
+    req.session.data.planningError = false;
+    res.redirect('/v5/eligibility/applicant')
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/v5/eligibility/planning-department')
+  } else {
+    req.session.data.planningError = false;
+    res.redirect('/v5/eligibility/planning-department-out')
+  }
+})
+
+
 router.post('/applicant-eligibility-v5', function (req, res) {
   let hasapplicant = req.session.data['appeal-relationship']
 
@@ -465,6 +482,8 @@ router.post('/applicant-eligibility-v5', function (req, res) {
     res.redirect('/v5/eligibility/applicant-error')
   }
 })
+
+
 
 router.post('/consent-eligibility-v5', function (req, res) {
   let hasconsent = req.session.data['how-contacted']
