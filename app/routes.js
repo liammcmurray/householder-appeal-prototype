@@ -536,15 +536,32 @@ router.post('/enforcement-eligibility-v5', function (req, res) {
 })
 
 router.post('/decision-eligibility-v5', function (req, res) {
-  let date = req.session.data['decision-date-year']
+  let day = req.session.data['decision-date-day'],
+      month = req.session.data['decision-date-month'],
+      year = req.session.data['decision-date-year'];
+   if(!day || !month  || !year) {
+     res.redirect('/v5/eligibility/decision-date-error')
+   }
 
-  if (date === '2020') {
-    res.redirect('/v5/eligibility/consent')
-  } else if (date === '2019') {
-    res.redirect('/v5/eligibility/decision-date-out')
-  } else {
+  let date = moment(`${year}-${month}-${day}`, "Y-M-D", true);
+
+  console.log(date.isValid());
+
+  if(date.isValid() === false){
     res.redirect('/v5/eligibility/decision-date-error')
-  }
+  } else{
+    let checkDate = date.add(12, "weeks");
+    let today = moment();
+    if(checkDate.isBefore(today, "days")){
+
+      req.session.data.deadlineDate = checkDate.format("D MMMM YYYY");
+      res.redirect('/v5/eligibility/decision-date-out')
+    } else {
+      res.redirect('/v5/eligibility/consent')
+    }
+  } 
+
+  
 })
 
 // SINGLE PAGE ELIGIBILITY
