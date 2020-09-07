@@ -17,13 +17,13 @@
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span>Before you start
+            <span class="app-task-list__section-number">1. </span>About you
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/v5/eligibility/applicant" aria-describedby="">
-                  Check you can appeal
+                <a href="/v5/your-details" aria-describedby="your-details-status">
+                  Your details
                 </a>
               </span>
                <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">Completed</strong>
@@ -33,49 +33,17 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span>About you
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/v5/your-details" aria-describedby="your-details-status">
-                  Your details
-                </a>
-              </span>
-               <strong id="your-details-status" class="{{data['your-details-completed']}}" >{{data['your-details-completedText']}}</strong>
-            </li>
-          </ul>
-        </li>
-        
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> About the local planning department
-          </h2>
-          <ul class="app-task-list__items">
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/v5/lpa-details">
-                  Your local planning department
-                </a>
-              </span>
-              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">In progress</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/v5/upload-decision">
-                  Upload the decision letter
-                </a>
-              </span>
-              <strong name="decision-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> About the original planning application
+            <span class="app-task-list__section-number">2. </span> About the original planning application
           </h2>
           <ul class="app-task-list__items"> 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v5/application-number">
+                  Planning application number
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">Completed</strong>
+            </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/v5/application-name">
@@ -110,9 +78,32 @@
             </li>
           </ul>
         </li>
+         <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> About the local planning department
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v5/lpa-details">
+                  Your local planning department
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__task-completed" id="medical-information-completed">In progress</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/v5/upload-decision">
+                  Upload the decision letter
+                </a>
+              </span>
+              <strong name="decision-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">5. </span> About the appeal site
+            <span class="app-task-list__section-number">4. </span> About the appeal site
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -143,7 +134,7 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">6. </span> Your appeal
+            <span class="app-task-list__section-number">5. </span> Your appeal
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -174,7 +165,7 @@
         </li>
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">7. </span> Submit your appeal
+            <span class="app-task-list__section-number">6. </span> Submit your appeal
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

@@ -337,6 +337,20 @@ router.post('/save-return/return-info', function (req, res) {
 
 });
 
+// SAVE RETURN V5
+router.post('/return-info-check-v5', function (req, res) {
+  let returnemail = req.session.data['appellant-email']
+  let returnnumber = req.session.data['application-number']
+
+  if (returnemail === '') {
+    res.redirect('/v5/save-return/return-info-error')
+  } else if (returnnumber === '') {
+    res.redirect('/v5/save-return/return-info-error')
+  } else {
+    res.redirect('/v5/save-return/save-confirmation')
+  }
+})
+
 
 // VERSION 4
 // ELIGIBILITY
