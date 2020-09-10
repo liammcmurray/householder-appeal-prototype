@@ -564,6 +564,22 @@ router.post('/decision-eligibility-v5', function (req, res) {
   
 })
 
+router.all("/v5/eligibility/planning-department", function(req,res,next){
+  const url = "https://local-authority-eng.register.gov.uk/records.json";
+
+  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
+    if (err) {
+      throw err;
+      next()
+    }
+      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
+      next()
+      
+  });
+
+  
+}); 
+
 // SINGLE PAGE ELIGIBILITY
 router.post('/eligibility-list-check-v5', function (req, res) {
   let eligible = req.session.data['eligibility-list']
@@ -574,6 +590,137 @@ router.post('/eligibility-list-check-v5', function (req, res) {
     res.redirect('/v5/eligibility/eligibility-list-error')
   }
 })
+
+
+// VERSION 6
+// ELIGIBILITY
+
+router.post('/planning-eligibility-v6', function(req, res, next){
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN') {
+    req.session.data.planningError = false;
+    res.redirect('/v6/eligibility/applicant')
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/v6/eligibility/planning-department')
+  } else {
+    req.session.data.planningError = false;
+    res.redirect('/v6/eligibility/planning-department-out')
+  }
+})
+
+
+router.post('/applicant-eligibility-v6', function (req, res) {
+  let hasapplicant = req.session.data['appeal-relationship']
+
+  if (hasapplicant === 'me') {
+    res.redirect('/v6/eligibility/decision-date')
+  } else if (hasapplicant === 'company') {
+    res.redirect('/v6/eligibility/decision-date')
+  } else if (hasapplicant === 'agent') {
+    res.redirect('/v6/eligibility/decision-date')
+  } else if (hasapplicant === 'out') {
+    res.redirect('/v6/eligibility/applicant-out')
+  } else {
+    res.redirect('/v6/eligibility/applicant-error')
+  }
+})
+
+
+
+router.post('/consent-eligibility-v6', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/v6/eligibility/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/v6/eligibility/out')
+  } else {
+    res.redirect('/v6/eligibility/consent-error')
+  }
+})
+
+router.post('/listed-eligibility-v6', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/v6/eligibility/enforcement')
+  } else if (haslisted === 'yes') {
+    res.redirect('/v6/eligibility/listed-out')
+  } else {
+    res.redirect('/v6/eligibility/listed-error')
+  }
+})
+
+router.post('/enforcement-eligibility-v6', function (req, res) {
+  let hasenforcement = req.session.data['enforcement-notice']
+
+  if (hasenforcement === 'no') {
+    res.redirect('/v6/eligibility/appeal-statement')
+  } else if (hasenforcement === 'yes') {
+    res.redirect('/v6/eligibility/enforcement-out')
+  } else {
+    res.redirect('/v6/eligibility/enforcement-error')
+  }
+})
+
+router.post('/decision-eligibility-v6', function (req, res) {
+  let day = req.session.data['decision-date-day'],
+      month = req.session.data['decision-date-month'],
+      year = req.session.data['decision-date-year'];
+   if(!day || !month  || !year) {
+     res.redirect('/v6/eligibility/decision-date-error')
+   }
+
+  let date = moment(`${year}-${month}-${day}`, "Y-M-D", true);
+
+  console.log(date.isValid());
+
+  if(date.isValid() === false){
+    res.redirect('/v6/eligibility/decision-date-error')
+  } else{
+    let checkDate = date.add(12, "weeks");
+    let today = moment();
+    if(checkDate.isBefore(today, "days")){
+
+      req.session.data.deadlineDate = checkDate.format("D MMMM YYYY");
+      res.redirect('/v6/eligibility/decision-date-out')
+    } else {
+      res.redirect('/v6/eligibility/consent')
+    }
+  } 
+
+  
+})
+
+router.all("/v6/eligibility/planning-department", function(req,res,next){
+  const url = "https://local-authority-eng.register.gov.uk/records.json";
+
+  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
+    if (err) {
+      throw err;
+      next()
+    }
+      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
+      next()
+      
+  });
+
+  
+}); 
+
+// SINGLE PAGE ELIGIBILITY
+router.post('/eligibility-list-check-v6', function (req, res) {
+  let eligible = req.session.data['eligibility-list']
+
+  if (Array.isArray(eligible) && eligible[0] === 'notapplicant') {
+    res.redirect('/v6/eligibility/appeal-statement')
+  } else {
+    res.redirect('/v6/eligibility/eligibility-list-error')
+  }
+})
+
 
 
 // SUBMISSION
@@ -637,21 +784,7 @@ router.all("/components/select-council", function(req,res,next){
   
 });  
 
-router.all("/v5/eligibility/planning-department", function(req,res,next){
-  const url = "https://local-authority-eng.register.gov.uk/records.json";
 
-  fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
-    if (err) {
-      throw err;
-      next()
-    }
-      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
-      next()
-      
-  });
-
-  
-}); 
 
 
 router.post("/components/search-council/results", function(req, res, next){
