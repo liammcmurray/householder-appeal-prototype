@@ -576,8 +576,6 @@ router.all("/v5/eligibility/planning-department", function(req,res,next){
       next()
       
   });
-
-  
 }); 
 
 // SINGLE PAGE ELIGIBILITY
