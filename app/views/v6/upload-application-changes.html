@@ -1,0 +1,57 @@
+{% extends "layout-save.html" %}
+
+{% block pageTitle %}
+  Any application changes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="task-list" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
+      <label class="govuk-label govuk-label--m" for="more-detail">
+        <h1 class="govuk-heading-l">
+          Has the description of the development changed?
+        </h1>
+      </label>
+        <div class="govuk-form-group">
+          <div class="govuk-hint" id="descrition-hint">Compare the description of the development on your original planning application with the description on your decision letter.</div>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="development-conditional" name="development" type="radio" value="yes" data-aria-controls="conditional-development-conditional">
+              <label class="govuk-label govuk-radios__label" for="development-conditional">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-development-conditional">
+               <div class="govuk-form-group">
+                <label class="govuk-label" for="more-detail" id="more-detail-hint">
+                  Tell us about these changes.
+                </label>
+                 <textarea value="{{ data['development-description'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                  <div class="govuk-form-group">
+                  <label class="govuk-heading-s" for="upload-evidence">
+                    Upload a copy of the local planning department's agreement to the change
+                  </label>
+                  <input value="{{ data['development-description-proof'] }}" class="govuk-file-upload" id="upload-evidence" name="upload-evidence" type="file">
+                </div>
+              </div>              
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="development-conditional-2" name="development" type="radio" value="no" data-aria-controls="conditional-development-conditional-2">
+              <label class="govuk-label govuk-radios__label" for="development-conditional-2">
+                No
+              </label>
+            </div>
+          </div>
+  
+        </div>
+        <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+        </button>
+        <input type="hidden" name="development-description-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="development-description-completedText" value="Completed">
+      </form>
+    </div>
+
+{% endblock %}

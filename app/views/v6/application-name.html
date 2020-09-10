@@ -1,0 +1,36 @@
+{% extends "layout-save.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="application-date" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
+        {{ govukInput({
+          label: {
+            text: "What is the name on the original planning application?",
+            isPageHeading: true,
+            classes: "govuk-label--l"
+          },
+          hint: {
+           text: "Enter the name of the applicant exactly as it appears on the original planning application, or your appeal may be invalid.​​"
+         },
+          id: "original-applicant-name",
+          name: "original-applicant-name",
+          value: data['original-applicant-name']
+        }) }}
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+        <input type="hidden" name="appellant-name-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="appellant-name-completedText" value="Completed">
+      </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout-save.html" %}
+
+{% block pageTitle %}
+  Date of application
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="upload-application" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="date-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                Date you applied for planning permission
+                </h1>
+              </legend>
+        <p class="govuk-!-margin-bottom-6">You can find this on the decision letter from your local planning department.</p>
+        <div class="govuk-form-group">
+          <div class="govuk-date-input" id="passport-issued">
+            <span id="date-hint" class="govuk-hint">
+              For example, 20 07 2020
+            </span>
+            <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="permission-day">
+                Day
+              </label>
+              <input value="{{ data['permission-day'] }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="permission-day" name="permission-day" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="permission-month">
+                Month
+              </label>
+              <input value="{{ data['permission-month'] }}" class="govuk-input govuk-date-input__input govuk-input--width-2" id="permission-month" name="permission-month" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="permission-year">
+                Year
+              </label>
+              <input value="{{ data['permission-year'] }}" class="govuk-input govuk-date-input__input govuk-input--width-4" id="permission-year" name="permission-year" type="text" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        <input type="hidden" name="planning-permission-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="planning-permission-completedText" value="Completed">
+      </form>
+    </div>
+
+{% endblock %}
