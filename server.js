@@ -25,6 +25,7 @@ const config = require('./app/config.js')
 const documentationRoutes = require('./docs/documentation_routes.js')
 const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
+const routesv1to5 = require('./app/routes/v1to5.js');
 const routesv6 = require('./app/routes/v6.js');
 
 const utils = require('./lib/utils.js')
@@ -249,9 +250,11 @@ if (typeof (routes) !== 'function') {
   console.log(routes.bind)
   console.log('Warning: the use of bind in routes is deprecated - please check the Prototype Kit documentation for writing routes.')
   routes.bind(app)
+  routesv1to5.bind(app)
   routesv6.bind(app)
 } else {
   app.use('/', routes)
+  app.use('/', routesv1to5)
   app.use('/', routesv6)
 }
 
