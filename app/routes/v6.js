@@ -126,7 +126,7 @@ router.post('/decision-eligibility-' + version, function (req, res) {
   
 })
 
-router.all("/'+ version +'/eligibility/planning-department", function(req,res,next){
+router.all('/' + version +'/eligibility/planning-department', function(req,res,next){
   const url = "https://local-authority-eng.register.gov.uk/records.json";
 
   fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
