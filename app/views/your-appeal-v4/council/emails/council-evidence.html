@@ -1,0 +1,33 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: New planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+		<p>To whom it may concern</p>
+
+		<p>A new householder planning appeal has been submitted. You need to <a href="/your-appeal-v2/council/local-council-docs" title="">submit your questionnaire</a> for the appeal by 7 August 2020.</p>
+
+		
+		<h2 class="govuk-heading-s">Site Address</h2>
+			<p>9617 The Avenue <br>
+					Maidstone <br>
+					XM26 7YS</p>
+
+		<p>Regards,<br>
+		The Planning Inspectorate</p>
+
+	</div>
+</div>
+{% endblock %}
