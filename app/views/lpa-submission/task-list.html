@@ -1,0 +1,91 @@
+{% extends "layout-no-back-save.html" %}
+
+{% block pageTitle %}
+  Provide information for a householder planning appeal
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Provide information for a householder planning appeal
+      </h1>
+      <p>An appeal has been started for application 20/500818/FULL.</p>
+      <p>You have 5 working days to provide this information to the Planning Inspectorate
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span>About the appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appellant-submission" aria-describedby="appellant-submission-status">
+                  Review the details of the appellants submission
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="accurate" aria-describedby="accurate-status">
+                  Does the information in the documents from the appellant accurately reflect the original planning application?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="other-appeals-status">
+                  Are there any other appeals in the immediate area that are still being considered by the Planning Inspectorate?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span>About the appeal site
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Can the Inspector see the relevant parts of the appeal site from public land?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Does the appeal require the Inspector to enter the appeal site or property?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Does the appeal require the Inspector to enter a neighbour’s land or property?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Have the occupants commented as an interested party?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+{% endblock %}
