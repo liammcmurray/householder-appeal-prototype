@@ -1,0 +1,32 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      <h1 class="govuk-heading-xl">
+        The status of your planning appeal
+      </h1>
+
+
+      <div class="govuk-inset-text">
+      <p class="govuk-body-l">An Inspector will visit the appeal site between 1pm and 3pm on {{ 14 | daysInFuture }}.​</p>
+      <p>You, or a representative, will need to meet the Inspector to allow entry.</p>
+      <p>​The Inspector will not be able to discuss the appeal or receive documents during the visit. </p>
+    </div>
+
+      
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <p>The Inspector will then consider all the evidence to make their decision.</p>
+      
+      <p><a href="history-inspection" title="">View your appeal history</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

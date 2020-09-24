@@ -1,0 +1,29 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: Your planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<p>Dear {{data.user.name.first}} {{data.user.name.last}}</p>
+
+<p>There's an update in the status of your planning appeal.​</p>
+<p>An Inspector will visit the appeal site between 1pm and 3pm on {{ 14 | daysInFuture }}. You, or a representative, will need to meet the Inspector to allow entry.  ​</p>
+<p>The Inspector will not be able to discuss the appeal or receive documents during the visit. </p>
+
+<p>Kind regards<br>
+The Planning Inspectorate</p>
+
+</div>
+</div>
+{% endblock %}

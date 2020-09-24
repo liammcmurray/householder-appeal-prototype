@@ -1,0 +1,35 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Your appeal has been successful
+        </h1>
+        
+      </div>
+
+      <ul class="govuk-list">
+        <li><a href="decision-successful" title="">View the full details of the appeal decision</a></li>
+        <li><a href="history-accepted" title="">View your appeal history</a></li>
+      </ul>
+      
+      <h2 class="govuk-heading-m">What happens next?</h2>
+      <p>The Planning Inspectorate will tell Maidstone Borough Council that your appeal has been successful and you can carry out the proposed work.</p>
+
+      
+      
+
+    </div>
+  </div>
+
+{% endblock %}

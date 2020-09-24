@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+
+  
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Your appeal details
+      </h1>
+
+      <p>You submitted the following information on {{ 0 | daysAgo }}.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.name.first}} {{data.user.name.last}}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your email
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.email}}
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appeal site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.location.street.number}} {{data.user.location.street.name}}<br>
+            {{data.user.location.city}}<br>
+            {{data.user.location.postcode}}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local planning department
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data.user.location.city}} Borough Council
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision letter
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="/public/images/Decision_Notice.pdf">Download decision letter</a> 
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appeal statement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="/public/images/appeal-statement.pdf">Download appeal statement</a> 
+          </dd>
+        </div>
+      </dl>
+
+      <!--<dl class="govuk-summary-list">
+
+        {% for question in questions %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            {{ question.text }}
+          </dt>
+          <dd class="govuk-summary-list__value govuk-!-width-one-half">
+            {{ question.answer }}
+          </dd>
+        </div>
+        {% endfor %}
+        
+      </dl>-->
+      
+  </div>
+
+{% endblock %}
