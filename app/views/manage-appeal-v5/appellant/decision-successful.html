@@ -1,10 +1,24 @@
-{% extends "layout.html" %}
+{% extends "layout-no-back.html" %}
 
 {% block pageTitle %}
   Your details
 {% endblock %}
 
 {% block content %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Your appeal status",
+      href: "/manage-appeal-v5/appellant/accepted"
+    },
+    {
+      text: "Appeal decision details",
+      href: "#"
+    }
+  ]
+}) }}
+
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -13,6 +27,9 @@
       <h1 class="govuk-heading-l">
         Your planning appeal was successful
       </h1>
+
+      {% include "../includes/appeal-details.html" %}
+
 
       <ol class="govuk-list govuk-list--number">
         <li>The development hereby permitted shall begin not later than 3 years from the date of this decision.</li>

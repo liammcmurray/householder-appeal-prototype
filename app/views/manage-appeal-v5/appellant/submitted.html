@@ -8,27 +8,56 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
-      <h1 class="govuk-heading-xl">
+      
+      <h1 class="govuk-heading-l">
         The status of your planning appeal
       </h1>
 
-      <div class="govuk-inset-text">
-        <p class="govuk-body-l">We’ve received your appeal.</p>
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Appellant Name</dt>
+          <dd class="govuk-summary-list__value">{{data.user.name.first}} {{data.user.name.last}}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Site address</dt>
+          <dd class="govuk-summary-list__value">{{data.user.location.street.number}} {{data.user.location.street.name}},
+                {{data.user.location.city}}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Status</dt>
+          <dd class="govuk-summary-list__value">{{govukTag({
+              text: "In progress",
+              classes: "govuk-tag--blue"
+            })}}</dd>
+        </div>
+      </dl>
 
-      </div>
-      <p>We need to make sure your appeal is valid, which means checking it includes all the necessary documents.</p>
-      <p>​This should take around 2 weeks but may take longer in busy periods.</p>
-       <h2 class="govuk-heading-m">What happens next?</h2>
-      
-       <ul class="govuk-list govuk-list--bullet">        
-          <li>Once we confirm we have everything we need, we'll start your appeal. </li>
-          <li>Your local planning department will then submit their evidence. This usually takes around 1 week after you submit your appeal. ​</li>
-          <li>An Inspector may need to make a site visit. ​</li>
-          <li>The Inspector will then consider all the evidence to make their decision.</li>
-    </ul>
-      <p><a href="appeal-details" title="">View your appeal details</a></p>
+
+      <ol class="timeline">
+
+        <li class="timeline__entry timeline__entry--complete">
+          <h2 class="timeline__header">Submit appeal</h2>
+          <p class="timeline__content">We received your appeal on {{ 0 | daysAgo }}.</p>
+          <p><a href="appeal-details">View your appeal details</a></p>
+        </li>
+
+        <li class="timeline__entry timeline__entry--current">
+          <h2 class="timeline__header">Local planning department submit their evidence</h2>
+          <p>Your local planning department will submit their evidence. This usually takes around 1 week after you submit your appeal.</p>
+        </li>
+
+        <li class="timeline__entry">
+          <h2 class="timeline__header">Site visit</h2>
+          <p>A planning inspector may need to view the appeal site. We will contact you to confirm a date and time.</p>
+        </li>
+
+        <li class="timeline__entry">
+          <h2 class="timeline__header">Decision</h2>
+          <p>The Inspector will consider all the evidence to make their decision. </p>
+        </li>
+      </ol>
+
     </div>
-  </div>
+  </div>  
 
 {% endblock %}

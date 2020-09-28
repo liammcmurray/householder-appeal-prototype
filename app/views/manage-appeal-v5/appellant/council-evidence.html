@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-no-back.html" %}
 
 {% set headerTitle = "Evidence from the local planning department" %}
   
@@ -9,14 +9,31 @@
 
 {% block content %}
 
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Your appeal status",
+      href: "/manage-appeal-v5/appellant/local-council-docs"
+    },
+    {
+      text: "Evidence from local planning department",
+      href: "#"
+    }
+  ]
+}) }}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
     <h1 class="govuk-heading-l">
       {{headerTitle}}
     </h1>
+    
+      {% include "../includes/appeal-details.html" %}
+    
 
   <p>Maidstone Borough Council submitted the following information on {{ 7 | daysInFuture }}. The Inspector will consider this, along with the evidence you submitted, to reach a decision.​</p>
       <p>This is just for your information. You cannot change your appeal or add any new evidence.</p>
+      
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
