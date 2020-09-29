@@ -1,0 +1,164 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Provide information for a householder planning appeal
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Provide information for a householder planning appeal
+      </h1>
+      <p>An appeal has been started for application <strong class="govuk-tag govuk-tag--turquoise">
+      20/500818/FULL
+    </strong></p>
+      <p>You need to provide your evidence by 7 October 2020.</p>
+
+      <ol class="app-task-list lpaq">
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span>About the appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appellant-submission" aria-describedby="appellant-submission-status">
+                  Review the details of the appellants submission
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['appellant-submission-completed']}}" >{{data['appellant-submission-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="accurate" aria-describedby="accurate-status">
+                  Does the information from the appellant accurately reflect the original planning application?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['accurate-completed']}}" >{{data['accurate-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="conditions" aria-describedby="other-appeals-status">
+                  Is there a list of suggested conditions?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['conditions-completed']}}" >{{data['conditions-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="other-appeals" aria-describedby="other-appeals-status">
+                  Are there any other appeals in the immediate area that are still being considered by the Planning Inspectorate?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['other-appeals-completed']}}" >{{data['other-appeals-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span>About the appeal site
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="section-2-list" aria-describedby="appellant-submission-status">
+                  Questions about the appeal site
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Does the appeal require the Inspector to enter a neighbour’s land or property?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Have the occupants commented as an interested party?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Upload the Conservation Area map and relevant guidance
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  Did you give publicity for the site being within a conservation area or affecting a listed building?
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+            
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span>Site notices
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appellant-submission" aria-describedby="appellant-submission-status">
+                  If the original application required a site notice and/or a local advertisement, upload these.
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span>Documents to include
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appellant-submission" aria-describedby="appellant-submission-status">
+                  Ten questions here - this needs to be a single section
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. Submit your evidence</span>
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appellant-submission" aria-describedby="appellant-submission-status">
+                  Check your answers
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+            </li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+{% endblock %}

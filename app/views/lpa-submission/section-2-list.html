@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% set headerTitle = "Appellant stuff" %}
+  
+
+{% block pageTitle %}
+  LPA 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+    <form action="lpa-task-list" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Appeal site location
+            </h1>
+          </legend>
+          <p>Tell us about any particular characteristics of the appeal site.</p>
+          <div id="site-location-hint" class="govuk-hint">
+            Select all of the statements that apply.
+          </div>
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location" name="site-location" type="checkbox" value="public">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location">
+                The Inspector <strong>CAN NOT</strong> see the relevant parts of the appeal site from public land
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-6" name="site-location" type="checkbox" value="access">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-6">
+                The Inspector <strong>WOULD</strong> need to enter the appeal the site. 
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-7" name="site-location" type="checkbox" value="neighbour">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-7">
+                The Inspector <strong>WOULD</strong> need access to a neighbour’s land. 
+              </label>
+            </div>
+            
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-4" name="site-location" type="checkbox" value="listed">
+              <label class="govuk-label govuk-checkboxes__label"  for="site-location-4">
+                The development <strong>WOULD</strong> affect the setting of a listed building
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-5" name="site-location" type="checkbox" value="sensitive">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-5">
+                The development <strong>IS</strong> within (or partly within) a ‘sensitive area’ (Regulation 2 of the Town and Country Planning Regulations 2011)
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-2" name="site-location" type="checkbox" value="greenbelt">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-2">
+                The appeal site <strong>IS</strong> in a green belt
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-3" name="site-location" type="checkbox" value="conservation">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-3">
+                The appeal site <strong>IS</strong> in or near a Conservation Area
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+      <input type="hidden" name="section2-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="section2-completedText" value="Completed">
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="govuk-grid-column-one-third"> 
+    <table class="govuk-table">
+      <caption class="govuk-table__caption">Appeal details</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Planning application number</th>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+      20/500818/FULL
+    </strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Site address</th>
+          <td class="govuk-table__cell">22 Argyll Street, Maidstone</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Appellant Name</th>
+          <td class="govuk-table__cell">Manish Sharma</td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+</div>
+
+{% endblock %}
