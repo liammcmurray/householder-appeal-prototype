@@ -42,6 +42,15 @@ $govuk-assets-path: '/govuk/assets/';
 	&__header {
 		@extend .govuk-heading-m;
 		padding-top: govuk-spacing(1);
+		margin-bottom: 0;
+	}
+
+	&__sub-header {
+		@extend .govuk-caption-m;
+	}
+
+	&__content {
+		margin-bottom: govuk-spacing(5);
 	}
 
 

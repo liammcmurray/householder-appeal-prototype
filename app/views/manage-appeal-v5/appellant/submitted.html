@@ -31,13 +31,13 @@
             })}}</dd>
         </div>
       </dl>
-
+      <h2 class="govuk-heading-m">Appeal progress</h2>
 
       <ol class="timeline">
 
         <li class="timeline__entry timeline__entry--complete">
-          <h2 class="timeline__header">Submit appeal</h2>
-          <p class="timeline__content">We received your appeal on {{ 0 | daysAgo }}.</p>
+          <h2 class="timeline__header">Appeal sent </h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 0 | daysAgo }}</span>
           <p><a href="appeal-details">View your appeal details</a></p>
         </li>
 
@@ -56,6 +56,7 @@
           <p>The Inspector will consider all the evidence to make their decision. </p>
         </li>
       </ol>
+
 
     </div>
   </div>  

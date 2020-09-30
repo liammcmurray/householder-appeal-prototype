@@ -26,34 +26,41 @@
           <dt class="govuk-summary-list__key">Status</dt>
           <dd class="govuk-summary-list__value">{{govukTag({
               text: "Appeal successful",
-              classes: "govuk-tag--green"
-            })}}</dd>
+              classes: "govuk-tag--green govuk-!-margin-bottom-2"
+            })}}
+          <p>The Planning Inspectorate will tell Maidstone Borough Council that your appeal has been successful and you can carry out the proposed work. </p>
+          <p><a href="decision-successful" title="">View the full details of the appeal decision</a></p>
+        </dd>
         </div>
       </dl>
+
+      <h2 class="govuk-heading-m">Appeal progress</h2>
 
       <ol class="timeline">
 
         <li class="timeline__entry timeline__entry--complete">
-          <h2 class="timeline__header">Submit appeal</h2>
-          <p class="timeline__content">We received your appeal on {{ 0 | daysAgo }}.</p>
+          <h2 class="timeline__header">Appeal sent </h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 0 | daysAgo }}</span>
           <p><a href="appeal-details">View your appeal details</a></p>
         </li>
 
-        <li class="timeline__entry timeline__entry--complete">
-          <h2 class="timeline__header">The local planning department have uploaded their evidence</h2>
+        <li class="timeline__entry timeline__entry--complete ">
+          <h2 class="timeline__header">The local planning department uploaded their evidence</h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 7 | daysInFuture }}</span>
+
           <p><a href="council-evidence">View the local planning department's evidence</a>
         </li>
 
         <li class="timeline__entry timeline__entry--complete">
           <h2 class="timeline__header">Site visit completed</h2>
-          <p>An Inspector visited the appeal site  on {{ 14 | daysInFuture }}.​</p>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 14 | daysInFuture }}</span>
         </li>
 
         <li class="timeline__entry timeline__entry--complete">
           <h2 class="timeline__header">Decision</h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 21 | daysInFuture }}</span>
           <p>Your appeal has been successful</p>
           <p><a href="decision-successful" title="">View the full details of the appeal decision</a></p>
-          <p>The Planning Inspectorate will tell Maidstone Borough Council that your appeal has been successful and you can carry out the proposed work.</p>
         </li>
       </ol>
 

@@ -1,36 +1,22 @@
 {% extends "layout-email.html" %}
-
-{% block pageTitle %}
-  Your details
-{% endblock %}
-
+{% block pageTitle %}Your details{% endblock %}
 {% block content %}
-
 <p>Subject: Your planning appeal</p>
 <p>From: info@planninginspectorate.gov.uk</p>
-
-<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
-
+<img src="{{ asset_path }}images/pi-logo.png" width="150">
 <div class="govuk-grid-row govuk-!-margin-top-5">
-    <div class="govuk-grid-column-two-thirds">
-
-
+<div class="govuk-grid-column-two-thirds">
 <p>Dear {{data.user.name.first}} {{data.user.name.last}}</p>
-
 <p>We have received your submission for the following householder planning appeal: </p>
-<h2 class="govuk-heading-s">Appeal site</h2>
-			<p>9617 The Avenue <br>
-					Maidstone <br>
-					XM26 7YS</p>
-
-<h2 class="govuk-heading-s">Local planning department​</h2>
-​<p>Maidstone Borough Council</p>
-
+<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Appeal site</h2>
+<p>9617 The Avenue <br>
+Maidstone <br>
+XM26 7YS</p>
+<h2 class="govuk-heading-s govuk-!-margin-bottom-1">Local planning department</h2>
+<p>Maidstone Borough Council</p>
 <p>We will contact you at the next stage of your planning appeal. You can <a href="/manage-appeal-v5/appellant/submitted">check the status of your planning appeal</a> at any time.</p>
-
 <p>Kind regards<br>
 The Planning Inspectorate</p>
-
 </div>
 </div>
 {% endblock %}
