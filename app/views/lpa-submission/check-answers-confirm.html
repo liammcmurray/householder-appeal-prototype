@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check your answers
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full-width">
+      
+      <span class="govuk-caption-xl">Submit your evidence</span>
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+      <p>Before you submit your evidence, take a moment to make sure you're happy with the answers you've provided.</p>
+
+
+      <h2 class="govuk-heading-m">About the appeal</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Appellant submission
+            </dt>
+            <dd class="govuk-summary-list__value">
+               I have reviewed the details of the appellant's submission
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="appellant-submission">
+                View again<span class="govuk-visually-hidden"> the appellant's submission</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Appellant submission accuracy
+            </dt>
+            <dd class="govuk-summary-list__value">
+               The information from the appellant accurately reflects the original planning application
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="accurate">
+                Change<span class="govuk-visually-hidden"> feedback on appeal</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Suggested conditions
+            </dt>
+            <dd class="govuk-summary-list__value">
+               There are no suggested conditions
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="conditions">
+                Change<span class="govuk-visually-hidden"> suggested conditions</span>
+              </a>
+            </dd>
+          </div>
+           <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Other appeals
+            </dt>
+            <dd class="govuk-summary-list__value">
+               There are two other appeals in progress: <br><strong>  
+                W/828006F</strong>, <strong>  
+                W/799012F</strong>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="other-appeals">
+                Change<span class="govuk-visually-hidden"> other appeals</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+
+        <h2 class="govuk-heading-m">About the Appeal site</h2>
+
+
+        <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    By submitting this questionnaire, you confirm that, to the best of your knowledge, the details are correct.
+  </strong>
+</div>
+     <form action="lpa-confirmation" method="post" novalidate>
+        <button class="govuk-button" data-module="govuk-button">
+            Submit
+        </button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

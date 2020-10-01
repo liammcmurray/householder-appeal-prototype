@@ -11,7 +11,15 @@ const moment = require("moment")
 // Add your routes here - above the module.exports line
 
 
+router.post('/check-lpa-section2', function (req, res) {
+  let conservation = req.session.data['citizenship-conditional-3']
 
+  if (Array.isArray(conservation) && conservation[0] === 'on') {
+    res.redirect('/lpa-submission/conservation-publicity')
+  } else {
+    res.redirect('/lpa-submission/lpa-task-list')
+  }
+})
 
 //autocomplete
 

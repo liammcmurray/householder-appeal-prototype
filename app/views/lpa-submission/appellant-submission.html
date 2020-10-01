@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set headerTitle = "Appellant stuff" %}
+{% set headerTitle = "Appellant's case file" %}
   
 
 {% block pageTitle %}
@@ -15,7 +15,7 @@
       {{headerTitle}}
     </h1>
 
-  <p>The following information was submitted on {{ 7 | daysAgo }}.</p>
+  <p>The following information was submitted on {{ 3 | daysAgo }}.</p>
 
 
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
@@ -96,7 +96,10 @@
       </div>
     </div>
 
-     <form action="/accurate" method="post" novalidate>
+     <form action="accurate" method="post" novalidate>
+
+      <input type="hidden" name="appellant-submission-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="appellant-submission-completedText" value="Completed">
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>

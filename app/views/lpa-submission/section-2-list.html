@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% set headerTitle = "Appellant stuff" %}
+  
+
+{% block pageTitle %}
+  LPA 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+    <form action="/check-lpa-section2" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
+
+
+      <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="citizenship-conditional-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Appeal site location
+      </h1>
+    </legend>
+    <p>Tell us about any particular characteristics of the appeal site.</p>
+          <div id="site-location-hint" class="govuk-hint">
+            Select all of the statements that apply.
+          </div>
+    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location" name="site-location" type="checkbox" value="public">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location">
+                The Inspector <strong>CAN NOT</strong> see the relevant parts of the appeal site from public land
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-6" name="site-location" type="checkbox" value="access">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-6">
+                The Inspector <strong>WOULD</strong> need to enter the appeal the site. 
+              </label>
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional" name="citizen" type="checkbox" value="email" data-aria-controls="conditional-citizenship-conditional">
+              <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional">
+                The Inspector <strong>WOULD</strong> need access to a neighbour’s land. 
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-email">
+                  Tell us the full address and why you think a visit is required
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                    <h1 class="govuk-fieldset__heading">
+                      Have the occupants commented as an interested party?
+                    </h1>
+                  </legend>
+                  <div class="govuk-radios govuk-radios--small govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="month">
+                      <label class="govuk-label govuk-radios__label" for="changed-name">
+                      Yes
+                      </label>
+                    </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="year">
+                      <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                      No
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+
+              </div>
+            </div>
+
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional-2" name="citizen" type="checkbox" value="phone" data-aria-controls="conditional-citizenship-conditional-2">
+              <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-2">
+                The development <strong>WOULD</strong> affect the setting of a listed building
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-phone">
+                  Add the relevant listing description from the List of Buildings of Special Architectural or Historic Interest
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+              </div>
+            </div>
+            
+
+             <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional-4" name="citizen" type="checkbox" value="text message" data-aria-controls="conditional-citizenship-conditional-4">
+              <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-4">
+                The development <strong>IS</strong> within (or partly within) a ‘sensitive area’ (Regulation 2 of the Town and Country Planning Regulations 2011)
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional-4">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-by-phone">
+                  Provide details
+                </label>
+                <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+               
+            </div>
+          </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="site-location-2" name="site-location" type="checkbox" value="greenbelt">
+              <label class="govuk-label govuk-checkboxes__label" for="site-location-2">
+                The appeal site <strong>IS</strong> in a green belt
+              </label>
+            </div>
+
+            
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="citizenship-conditional-3" name="citizenship-conditional-3" type="checkbox" value="on" data-aria-controls="conditional-citizenship-conditional-3">
+              <label class="govuk-label govuk-checkboxes__label" for="citizenship-conditional-3">
+                The appeal site <strong>IS</strong> in or near a Conservation Area
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-citizenship-conditional-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="file-upload-1">
+                  Upload the Conservation Area map and relevant guidance. 
+                </label>
+                <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+
+      <input type="hidden" name="section2-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="section2-completedText" value="Completed">
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="govuk-grid-column-one-third"> 
+    <table class="govuk-table">
+      <caption class="govuk-table__caption">Appeal details</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Planning application number</th>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+      20/500818/FULL
+    </strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Site address</th>
+          <td class="govuk-table__cell">22 Argyll Street, Maidstone</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Appellant Name</th>
+          <td class="govuk-table__cell">Manish Sharma</td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+</div>
+
+{% endblock %}
