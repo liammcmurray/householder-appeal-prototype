@@ -26,7 +26,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="appellant-submission" aria-describedby="appellant-submission-status">
-                  Review the details of the appellants submission
+                  Review the appellant's submission
                 </a>
               </span>
                <strong id="section-status" class="{{data['appellant-submission-completed']}}" >{{data['appellant-submission-completedText']}}</strong>
@@ -50,7 +50,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="other-appeals" aria-describedby="other-appeals-status">
-                  Are there any other appeals in the immediate area that are still being considered by the Planning Inspectorate?
+                  Other appeals in the immediate area
                 </a>
               </span>
                <strong id="section-status" class="{{data['other-appeals-completed']}}" >{{data['other-appeals-completedText']}}</strong>
@@ -96,14 +96,44 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="appellant-submission" aria-describedby="appellant-submission-status">
-                  Ten questions here - this needs to be a single section
+                <a href="case-file" aria-describedby="appellant-submission-status">
+                  Upload planning application case file
                 </a>
               </span>
-               <strong id="section-status" class="{{data['-completed']}}" >{{data['-completedText']}}</strong>
+               <strong id="section-status" class="{{data['case-file-completed']}}" >{{data['case-file-completedText']}}</strong>
             </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="planning-history" aria-describedby="appellant-submission-status">
+                  Planning history
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['planning-history-completed']}}" >{{data['planning-history-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  TO DO Files relating to interested parties
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['interested-parties-completed']}}" >{{data['intersted-parties-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="" aria-describedby="appellant-submission-status">
+                  TO DO Related plans and policies
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['policies-completed']}}" >{{data['policies-completedText']}}</strong>
+            </li>
+
           </ul>
         </li>
+
+        
 
         <li>
           <h2 class="app-task-list__section">

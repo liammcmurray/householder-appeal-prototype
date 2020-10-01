@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% set headerTitle = "case file" %}
+  
+
+{% block pageTitle %}
+  LPA 
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+    <form action="lpa-task-list" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Documents to include</span>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Relevant planning history
+            </h1>
+          </legend>
+          <p>The relevant planning history (for example, previous planning permissions) and the documents used when considering the application. </p>
+          <div class="govuk-form-group">
+                <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
+                  Upload the plans used to reach a decision on the application
+                </label>
+                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
+              </div>
+        </fieldset>
+      </div>
+
+      <input type="hidden" name="planning-history-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="planning-history-completedText" value="Completed">
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}
