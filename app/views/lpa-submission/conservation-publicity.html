@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-lpa.html" %}
 
 {% set headerTitle = "Appellant stuff" %}
   
@@ -9,10 +9,9 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
     <form action="lpa-task-list" method="post" novalidate>
-      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal</span>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
@@ -61,6 +60,5 @@
       </div>
     </form>
   </div>
-</div>
 
 {% endblock %}
