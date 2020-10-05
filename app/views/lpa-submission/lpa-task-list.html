@@ -14,7 +14,7 @@
       <p>An appeal has been started for application <strong class="govuk-tag govuk-tag--turquoise">
       20/500818/FULL
     </strong></p>
-      <p>You need to provide your evidence by 7 October 2020.</p>
+      <p>You need to provide your evidence by {{ 7 | daysAgo }}.</p>
 
       <ol class="app-task-list lpaq">
 
@@ -97,7 +97,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="case-file" aria-describedby="appellant-submission-status">
-                  Upload planning application case file
+                  Planning application case file
                 </a>
               </span>
                <strong id="section-status" class="{{data['case-file-completed']}}" >{{data['case-file-completedText']}}</strong>
@@ -114,20 +114,56 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="" aria-describedby="appellant-submission-status">
-                  TO DO Files relating to interested parties
+                <a href="site-notice-ip" aria-describedby="appellant-submission-status">
+                  Relating to interested parties
                 </a>
               </span>
-               <strong id="section-status" class="{{data['interested-parties-completed']}}" >{{data['intersted-parties-completedText']}}</strong>
+               <strong id="section-status" class="{{data['interested-parties-completed']}}" >{{data['interested-parties-completedText']}}</strong>
             </li>
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="" aria-describedby="appellant-submission-status">
-                  TO DO Related plans and policies
+                <a href="officers-report" aria-describedby="appellant-submission-status">
+                  Planning Officer's report
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['officers-report-completed']}}" >{{data['officers-report-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="statutory" aria-describedby="appellant-submission-status">
+                  Statutory development plan policy
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['statutory-completed']}}" >{{data['statutory-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="policy" aria-describedby="appellant-submission-status">
+                  Other relevant policies
                 </a>
               </span>
                <strong id="section-status" class="{{data['policies-completed']}}" >{{data['policies-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="supplementary" aria-describedby="appellant-submission-status">
+                  Supplementary planning document extracts
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['supplementary-completed']}}" >{{data['supplementary-completedText']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="development-plan" aria-describedby="appellant-submission-status">
+                  Development Plan Document or Neighbourhood Plan
+                </a>
+              </span>
+               <strong id="section-status" class="{{data['dpd-completed']}}" >{{data['dpd-completedText']}}</strong>
             </li>
 
           </ul>

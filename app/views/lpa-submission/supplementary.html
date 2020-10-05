@@ -1,0 +1,49 @@
+{% extends "layout-lpa.html" %}
+
+{% set headerTitle = "Appellant stuff" %}
+  
+
+{% block pageTitle %}
+  LPA 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-column-two-thirds"> 
+    <form action="lpa-task-list" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Documents to include</span>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Supplementary planning documents
+            </h1>
+          </legend>
+          <p>Extracts from any supplementary planning document you feel is relevant (and/or any supplementary planning guidance published under previous provisions and still in place), together with:</p>
+          <ol class="govuk-list govuk-list--number">
+            <li>its status</li>
+            <li>whether it was the subject of public consultation and consequent modification</li>
+            <li>whether it was formally adopted and, if so, when</li>
+          </ol>
+            <p>In the case of emerging documents, please note the stage they have reached.</p>
+          
+          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
+                  Upload files. 
+                </label>
+                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
+
+          
+        </fieldset>
+      </div>
+      <input type="hidden" name="supplementary-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="supplementary-completedText" value="Completed">
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "layout-lpa.html" %}
 
-{% set headerTitle = "case file" %}
+{% set headerTitle = "Appellant stuff" %}
   
 
 {% block pageTitle %}
@@ -10,28 +10,25 @@
 {% block content %}
 
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="planning-history" method="post" novalidate>
+    <form action="correspondence" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Documents to include</span>
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Upload planning application case file
+              Notifying interested parties of the application
             </h1>
           </legend>
-          <p>This should include everything you considered when making the decision at application stage.</p>
-          <div class="govuk-form-group">
-                <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
-                  Upload the plans used to reach a decision on the application
+          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
+                  Upload if applicable, a copy of the letter/site notice you used to notify interested parties, and a list of their addresses.
                 </label>
                 <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
-              </div>
+
+          
         </fieldset>
       </div>
 
-      <input type="hidden" name="case-file-completed" value="govuk-tag app-task-list__task-completed">
-      <input type="hidden" name="case-file-completedText" value="Completed">
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
@@ -39,5 +36,5 @@
       </div>
     </form>
   </div>
-  
+
 {% endblock %}
