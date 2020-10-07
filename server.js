@@ -27,6 +27,7 @@ const packageJson = require('./package.json')
 const routes = require('./app/routes.js')
 const routesv1to5 = require('./app/routes/v1to5.js');
 const routesv6 = require('./app/routes/v6.js');
+const routesv7 = require('./app/routes/v7.js');
 
 const utils = require('./lib/utils.js')
 const extensions = require('./lib/extensions/extensions.js')
@@ -252,10 +253,12 @@ if (typeof (routes) !== 'function') {
   routes.bind(app)
   routesv1to5.bind(app)
   routesv6.bind(app)
+  routesv7.bind(app)
 } else {
   app.use('/', routes)
   app.use('/', routesv1to5)
   app.use('/', routesv6)
+  app.use('/', routesv7)
 }
 
 

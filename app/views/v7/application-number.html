@@ -1,0 +1,31 @@
+{% extends "layout-save.html" %}
+
+{% block pageTitle %}
+  Local Planning authority details
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="upload-application" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the original planning application</span>
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="account-number">
+             What is your original planning application number?
+            </label>
+          </h1>
+          <div id="application-number-hint" class="govuk-hint">
+            You can find this on the decision letter from your local planning department
+          </div>         
+          <input value="{{ data['application-number'] }}" class="govuk-input govuk-!-width-one-half" id="application-number" name="application-number" aria-describedby="application-number-hint" type="text">
+        </div>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+        <input type="hidden" name="application-number-completed" value="govuk-tag app-task-list__task-completed">
+        <input type="hidden" name="application-number-completedText" value="Completed">
+      </form>
+    </div>
+
+{% endblock %}

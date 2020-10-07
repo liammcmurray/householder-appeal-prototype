@@ -1,0 +1,93 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Local Planning authority details
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper govuk-main-wrapper--l" id="main-content" role="main">
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "You have not confirmed all statements",
+      href: "#eligibility-list-error"
+    }
+  ]
+}) }}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Before you start</span>
+        <form action="/eligibility-list-check-v7" method="post" novalidate>
+          {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+          {{ govukCheckboxes({
+            idPrefix: "eligibility-list",
+            name: "eligibility-list",
+            fieldset: {
+              legend: {
+                text: "Check you can use this service",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            errorMessage: {
+              text: "If any of these do not apply to you, you need to use our Appeal a Planning Decision service instead"
+            },
+            id: "eligibility-list-error",
+            hint: {
+              text: "This service is for householder planning appeals. You can use it if the following 5 statements apply to you:"
+            },
+            items: [
+              {
+                value: "notapplicant",
+                text: "The original planning application was submitted in my name",
+                hint: {
+                  text: "This is also applicable if you are an agent acting on behalf of the applicant"
+                }
+              },
+              {
+                value: "date",
+                text: "The decision date is on or after 12 May 2020",
+                hint: {
+                  text: "You can find this on the decision letter from your Local Planning Authority"
+                }
+              },
+              {
+                value: "hasconsent",
+                text: "I applied for householder planning permission",
+                hint: {
+                  text: "You can check what type of planning permission you applied for on your planning application form"
+                }
+              },
+              {
+                value: "notlisted",
+                text: "My appeal is not about a listed building"
+              },
+              {
+                value: "noenforcement",
+                text: "I have not received an enforcement notice"
+              }
+            ]
+          }) }}
+          <p class="govuk-body">
+            <a class="govuk-link" href="https://acp.planninginspectorate.gov.uk/myportal/default.aspx">If any of these do not apply to you, you need to use our Appeal a Planning Decision service</a>.​
+          </p>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+      </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
