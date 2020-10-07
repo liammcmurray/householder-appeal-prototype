@@ -21,6 +21,17 @@ router.post('/check-lpa-section2', function (req, res) {
   }
 })
 
+router.post('/appellant-submission-check', function (req, res) {
+  let accuracy = req.session.data['is-accurate']
+
+  if (accuracy === 'yes') {
+    res.redirect('/lpa-submission/conditions')
+  }  else {
+    res.redirect('/lpa-submission/appellant-submission-error')
+  }
+})
+
+
 //autocomplete
 
 function sortByProperty(property){
