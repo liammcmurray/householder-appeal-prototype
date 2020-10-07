@@ -20,14 +20,8 @@
               Supplementary planning documents
             </h1>
           </legend>
-          <p>Extracts from any supplementary planning document you feel is relevant (and/or any supplementary planning guidance published under previous provisions and still in place), together with:</p>
-          <ol class="govuk-list govuk-list--number">
-            <li>its status</li>
-            <li>whether it was the subject of public consultation and consequent modification</li>
-            <li>whether it was formally adopted and, if so, when</li>
-          </ol>
-            <p>In the case of emerging documents, please note the stage they have reached.</p>
-          
+          <p>Extracts from any supplementary planning document you feel is relevant (and/or any supplementary planning guidance published under previous provisions and still in place).</p>
+          <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
           <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
                   Upload files. 
                 </label>
@@ -36,6 +30,45 @@
           
         </fieldset>
       </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with file formats
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Please upload your statement in one of the following formats:
+            <ul class="govuk-list--bullets">
+              <li>PDF &ndash; <strong>.pdf</strong></li>
+              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
+              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
+              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
+              <li>PNG &ndash; <strong>.png</strong></li>
+            </ul>
+          </div>
+        </details>
+
+        <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">Also tell us:</legend>
+          
+            <ol class="govuk-list govuk-list--number">
+              <li><label id="supplementary-1" class="govuk-label" for="more-detail-1">its status</label>
+              <input class="govuk-input" id="more-detail-1" name="more-detail-1" type="text"></li>
+
+              <li><label id="supplementary-2" class="govuk-label" for="more-detail-2">whether it was the subject of public consultation and consequent modification</label>
+              <input class="govuk-input" id="more-detail-2" name="more-detail-2" type="text"></li>
+
+              <li><label id="supplementary-3" class="govuk-label" for="more-detail-3">whether it was formally adopted and, if so, when</label>
+                <div id="event-name-hint" class="govuk-hint">In the case of emerging documents, please note the stage they have reached.</div>
+                  <input class="govuk-input" id="more-detail-3" name="more-detail-3" type="text"></li>
+            </ol>
+            
+            </fieldset>
+        </div>
+
+
       <input type="hidden" name="supplementary-completed" value="govuk-tag app-task-list__task-completed">
       <input type="hidden" name="supplementary-completedText" value="Completed">
       <div class="govuk-form-group">
