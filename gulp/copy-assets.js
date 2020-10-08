@@ -25,10 +25,3 @@ gulp.task('copy-assets-v6', function () {
     config.paths.v6Assets + '/**'])
     .pipe(gulp.dest(config.paths.public + '/v6'))
 })
-
-
-gulp.task('copy-assets-autocomplete', function () {
-  return gulp.src([config.paths.nodeModules + 'accessible-autocomplete/dist/{,/**/*}',
-    config.paths.assets + '/**'])
-    .pipe(gulp.dest(config.paths.public + 'autocomplete'))
-})
