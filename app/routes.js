@@ -1,3 +1,5 @@
+
+
 const express = require('express')
 const router = express.Router()
 
@@ -5,7 +7,8 @@ const router = express.Router()
 const fs = require('fs');
 const request = require('request');
 
-const moment = require("moment")
+const moment = require("moment");
+
 // Add your routes here - above the module.exports line
 
 
@@ -32,6 +35,9 @@ router.post('/appellant-submission-check', function (req, res) {
 
 //autocomplete
 
+const localCouncils = require("./data/local-authority-eng.json");
+
+
 function sortByProperty(property){
    return function(a,b){
       if(a[property] > b[property])
@@ -43,16 +49,13 @@ function sortByProperty(property){
    }
 }
 
+
 router.all("/components/select-council", function(req,res,next){
   const url = "https://local-authority-eng.register.gov.uk/records.json";
 
   fs.readFile(__basedir + "/app/data/local-authority-eng.json", function(err, data){
-    if (err) {
-      throw err;
-      next()
-    }
-      res.locals.councils = JSON.parse(data).sort(sortByProperty("name"));
-      next()
+    res.locals.councils = localCouncils.sort(sortByProperty("name"));
+    next()
       
   });
 
@@ -109,6 +112,41 @@ router.post('/eligibility/decision-date-post', function (req, res) {
   } 
 
   
+})
+
+router.all('/eligibility/planning-department', function(req,res,next){
+  
+  res.locals.councils = localCouncils.sort(sortByProperty("name"));
+  
+  next()
+  
+}); 
+
+router.post('/eligibility/planning-department-post', function(req, res, next){
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN') {
+    req.session.data.planningError = false;
+    res.redirect('/eligibility/listed-building')
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/eligibility/planning-department')
+  } else {
+    req.session.data.planningError = false;
+    res.redirect('/eligibility/planning-department-out')
+  }
+})
+
+router.post('/eligibility/listed-building-post', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/eligibility/appeal-statement')
+  } else if (haslisted === 'yes') {
+    res.redirect('/eligibility/listed-out')
+  } else {
+    res.redirect('/eligibility/listed-error')
+  }
 })
 
 
