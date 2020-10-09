@@ -82,52 +82,34 @@ router.post("/components/search-council/results", function(req, res, next){
   });
 });
 
+router.post('/eligibility/decision-date-post', function (req, res) {
+  let day = req.session.data['decision-date-day'],
+      month = req.session.data['decision-date-month'],
+      year = req.session.data['decision-date-year'];
+   if(!day || !month  || !year) {
+     res.redirect('/eligibility/decision-date-error')
+   }
 
-router.post("/appeal-with-reference/send-letter/summary", function(req, res, next){
+  let date = moment(`${year}-${month}-${day}`, "Y-M-D", true);
 
-  let date = `${req.session.data['planning-date-year']}/${req.session.data['planning-date-month']}/${req.session.data['planning-date-day']}`
+  console.log(date.isValid());
 
-  req.session.data['planning-date'] = moment(date).format("D MMMM YYYY"); 
-  next()
+  if(date.isValid() === false){
+    res.redirect('/eligibility/decision-date-error')
+  } else{
+    let checkDate = date.add(12, "weeks");
+    let today = moment();
+    if(checkDate.isBefore(today, "days")){
+
+      req.session.data.deadlineDate = checkDate.format("D MMMM YYYY");
+      res.redirect('/eligibility/decision-date-out')
+    } else {
+      res.redirect('/eligibility/planning-department')
+    }
+  } 
+
+  
 })
 
-
-router.post("/appeal-with-reference/send-letter/correspondence-address", function(req, res, next){
-  req.session.data['address'] = [
-    req.session.data['address-line-1'],
-    req.session.data['address-line-2'],
-    req.session.data['address-town'],
-    req.session.data['address-county'],
-    req.session.data['address-postcode']
-  ].filter(item => item);
-
-
-  next()
-})
-
-router.post("/appeal-with-reference/send-letter/date", function(req, res, next){
-
-  req.session.data['post-address'] = [
-    req.session.data['post-address-line-1'],
-    req.session.data['post-address-line-2'],
-    req.session.data['post-address-town'],
-    req.session.data['post-address-county'],
-    req.session.data['post-address-postcode']
-  ].filter(item => item);
-  next()
-})
-
-
-router.post("/appeal-with-reference/reference-number-post", function(req, res, next){
-  console.log(req.body.reference);
-  let reference = req.body.reference.toUpperCase();
-  if(!reference){
-    res.redirect("/appeal-with-reference/reference-number-error")
-  }else if(reference.startsWith("HAS")){
-    res.redirect("/appeal-with-reference/postcode")
-  } else {
-    res.redirect("/appeal-with-reference/reference-not-recognised")
-  }
-})
 
 module.exports = router
