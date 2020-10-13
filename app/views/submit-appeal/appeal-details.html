@@ -9,8 +9,11 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      
+
       <h1 class="govuk-heading-xl">
-        Your appeal details
+        Your planning details
+        <span class="govuk-caption-xl">Planning reference: PK17/5462/F</span>
       </h1>
 
       <div class="govuk-inset-text">
@@ -20,31 +23,13 @@
 
 
       <dl class="govuk-summary-list">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{data.user.name.first}} {{data.user.name.last}}
-          </dd>
-        </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your email
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{data.user.email}}
-          </dd>
-        </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Appeal Site location
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data.user.location.street.number}} {{data.user.location.street.name}}<br>
-            {{data.user.location.city}}<br>
-            {{data.user.location.postcode}}
+            55 Queensholm Drive Downend Bristol South Gloucestershire BS16 6LQ
           </dd>
         </div>
 
@@ -53,7 +38,7 @@
             Local Council
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data.user.location.city}} Borough Council
+            South Gloucestershire Council
           </dd>
         </div>
 
@@ -71,35 +56,28 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-            Demolition of the existing garage and outbuilding, and
-erection of a single-storey rear and side extension, with first
-and second floor rear dormers within the existing roof pitch.
-Excavation of garden to accommodate the rear extension with
-remodelling as shown in drawings.
+              Erection of two storey side extension and single storey rear extension to form additional living accommodation and creation of new vehicular access.
           </dd>
         </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Reasons for refusal
+            Decision
           </dt>
           <dd class="govuk-summary-list__value">
-            <ol class="govuk-list govuk-list--numbered">
-              <li>The size, position and design of the proposed development would not respect the character
-and appearance of surrounding buildings, the street scene and the surrounding area.</li>
-<li>The depth of the rearward projection and its proximity to the boundary would be obtrusive
-and overbearing when viewed from the rear garden area of [Address], resulting in a degree of
-loss of light.</li>
-            </ol>
+              Approved, with conditions
           </dd>
         </div>
 
-
-
-      </dl>
-
-
-      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision letter
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="/public/images/PK17_5462_F-DECISION-5689953.pdf"  download>View decision letter (PDF download)</a>
+          </dd>
+        </div>
+      </dl>      
   </div>
 
 {% endblock %}

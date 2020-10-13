@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="contact-details-post" method="post" novalidate>
+     
+      {% set hintHtml %}
+      <p>This will be used to send your appeal decision to. We may also need to get in touch about your appeal. </p>
+      {% endset -%}
+
+
+      {% set emailHtml %}
+      {{ govukInput({
+        id: "contact-by-email",
+        name: "contact-by-email",
+        type: "email",
+        spellcheck: false,
+        classes: "govuk-!-width-one-half",
+        label: {
+          text: "Email address"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set phoneHtml %}
+      {{ govukInput({
+        id: "contact-by-phone",
+        name: "contact-by-phone",
+        type: "tel",
+        classes: "govuk-!-width-one-half",
+        label: {
+          text: "Phone number"
+        }
+      }) }}
+      {% endset -%}
+
+      {% set textHtml %}
+      {{ govukInput({
+        id: "contact-by-text",
+        name: "contact-by-text",
+        type: "tel",
+        classes: "govuk-!-width-one-third",
+        label: {
+          text: "Mobile phone number"
+        }
+      }) }}
+      {% endset -%}
+
+      {{ govukCheckboxes({
+        idPrefix: "contact",
+        name: "contact",
+        fieldset: {
+          legend: {
+            text: "How would you like to be contacted?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          html: hintHtml
+        },
+        items: [
+          {
+            value: "email",
+            text: "Email",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "post",
+            text: "Post"
+          }
+        ]
+      }) }}
+
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+          <input type="hidden" name="upload-appeal-docs-completed" value="govuk-tag app-task-list__task-completed">
+          <input type="hidden" name="upload-appeal-docs-completedText" value="Completed">
+        </form>
+    </div>
+  </div>
+
+{% endblock %}

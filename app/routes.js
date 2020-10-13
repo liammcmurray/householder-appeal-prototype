@@ -127,7 +127,7 @@ router.post('/eligibility/planning-department-post', function(req, res, next){
   console.log(dept)
   if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN') {
     req.session.data.planningError = false;
-    res.redirect('/eligibility/listed-building')
+    res.redirect('/submit-appeal/planning-number')
   } else if (dept === ""){
     req.session.data.planningError = true;
     res.redirect('/eligibility/planning-department')
@@ -145,8 +145,28 @@ router.post('/eligibility/listed-building-post', function (req, res) {
   } else if (haslisted === 'yes') {
     res.redirect('/eligibility/listed-out')
   } else {
-    res.redirect('/eligibility/listed-error')
+    res.redirect('/submit-appeal/planning-number')
   }
+})
+
+router.post("/submit-appeal/planning-number-post", function(req, res, next){
+  console.log(req.body.reference);
+  let reference = req.body.reference.toUpperCase();
+  if(!reference){
+    res.redirect("/submit-appeal/reference-number-error")
+  }else {
+    res.redirect("/submit-appeal/postcode")
+  }
+})
+
+router.post("/submit-appeal/contact-details-post", function(req, res, next){
+
+    if (req.body.contact.includes("post")){
+    res.redirect('/submit-appeal/address')
+
+    }
+    
+    res.redirect('/submit-appeal/submission')
 })
 
 
