@@ -125,7 +125,7 @@ router.all('/eligibility/planning-department', function(req,res,next){
 router.post('/eligibility/planning-department-post', function(req, res, next){
   let dept = req.body['planning-department'];
   console.log(dept)
-  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN') {
+  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN' || dept === 'SGC') {
     req.session.data.planningError = false;
     res.redirect('/submit-appeal/planning-number')
   } else if (dept === ""){
