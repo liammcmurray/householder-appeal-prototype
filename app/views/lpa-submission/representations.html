@@ -1,0 +1,61 @@
+{% extends "layout-lpa.html" %}
+
+{% set headerTitle = "Appellant stuff" %}
+  
+
+{% block pageTitle %}
+  LPA 
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-column-two-thirds"> 
+    <form action="lpa-task-list" method="post" novalidate>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Notifying interested parties of the appeal
+            </h1>
+          </legend>
+          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
+                  Upload a copy of the letter used to notify interested parties about the appeal, and a list of their addresses.
+                </label>
+                <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
+                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
+
+          
+        </fieldset>
+      </div>
+      <input type="hidden" name="interested-parties-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="interested-parties-completedText" value="Completed">
+
+       <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Help with file formats
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            Please upload your statement in one of the following formats:
+            <ul class="govuk-list--bullets">
+              <li>PDF &ndash; <strong>.pdf</strong></li>
+              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
+              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
+              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
+              <li>PNG &ndash; <strong>.png</strong></li>
+            </ul>
+          </div>
+        </details>
+
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
