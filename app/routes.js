@@ -154,11 +154,12 @@ router.post("/submit-appeal/planning-number-post", function(req, res, next){
   let reference = req.body.reference.toUpperCase();
   if(!reference){
     res.redirect("/submit-appeal/reference-number-error")
-  }else {
+  } else if(reference.startsWith("9")){
+    res.redirect("/submit-appeal/reference-number-not-found")
+  } else {
     res.redirect("/submit-appeal/postcode")
   }
 })
-
 router.post("/submit-appeal/contact-details-post", function(req, res, next){
 
     if (req.body.contact.includes("post")){
@@ -169,5 +170,12 @@ router.post("/submit-appeal/contact-details-post", function(req, res, next){
     res.redirect('/submit-appeal/submission')
 })
 
+
+router.all("/submit-appeal/reference-number-not-found", function(req, res, next){
+  let council = localCouncils.filter(council => council.key === req.session.data['planning-department']);
+
+  res.locals.councilName = council[0]['official-name'];
+  next()
+})
 
 module.exports = router

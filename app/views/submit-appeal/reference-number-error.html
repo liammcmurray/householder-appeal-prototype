@@ -14,7 +14,7 @@
             titleText: "There is a problem",
             errorList: [
               {
-                text: "No reference number was entered",
+                text: "No planning number was entered",
                 href: "#reference"
               }
             ]
@@ -23,19 +23,20 @@
 
         
         <div class="govuk-form-group govuk-form-group--error">
-          <h1 class="govuk-heading-l">
-          What is the reference number on your decision notice from the Local Planning Authority?
-        </h1>
-        <span id="passport-issued-error" class="govuk-error-message">
-          <span class="govuk-visually-hidden">Error:</span> You must enter a reference number
-        </span>
-          <input class="govuk-input" id="reference" name="reference" type="text">
-        </div>
 
-        {{ govukDetails({
-          summaryText: "I do not have a reference number",
-          html: "This is a new service. If you do not have an appeal reference number, you must the <a href='https://acp.planninginspectorate.gov.uk/'>Appeal Casework Portal</a> instead."
-        }) }}
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
+              What is the planning application number?
+            </label>
+          </h1>
+          <div id="application-number-hint" class="govuk-hint">
+            You can find this on the decision letter from your local planning department
+          </div>
+          <span id="passport-issued-error" class="govuk-error-message">
+          <span class="govuk-visually-hidden">Error:</span> You must enter a planning number
+        </span>
+          <input class="govuk-input govuk-input--width-10" id="reference" name="reference" type="text">
+        
+        </div>
 
         <div class="govuk-form-group">
           <button class="govuk-button" data-module="govuk-button">

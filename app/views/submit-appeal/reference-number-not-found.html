@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+		<h1 class="govuk-heading-l">Planning number has not been found</h1>
+		<p class="govuk-body-l">planning number: {{data.reference}}</p>
+		
+		<p>We have been unable to find this planning number from {{councilName}}'s website.</p>
+
+		<p><a href="planning-number" class="govuk-button" title="">Search again</a></p>
+
+		<p>If you do not have valid reference number, you can still submit an appeal on the <a href='https://acp.planninginspectorate.gov.uk/'>Appeal Casework Portal</a>. </p>
+
+	</div>
+</div>
+
+{% endblock %}
