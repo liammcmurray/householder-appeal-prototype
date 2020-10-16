@@ -1,6 +1,4 @@
 {% extends "layout-lpa.html" %}
-
-{% set headerTitle = "Are any other appeals in the immediate area still being considered?" %}
   
 
 {% block pageTitle %}
@@ -17,7 +15,7 @@
         <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              Are any other appeals in the immediate area still being considered?
+              Are there any other appeals adjacent or close to the site still being considered?
             </h1>
           </legend>
 
@@ -34,8 +32,9 @@
             <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-is-accurate-conditional-2">
               <div class="govuk-form-group">
                 <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
-                  Appeal reference number - you can enter more than one, separated by commas
+                  Enter appeal reference number(s).
                 </label>
+                <div id="event-name-hint" class="govuk-hint">You can enter more than one, separated by commas</div>
                 <input class="govuk-input" id="more-detail" name="more-detail"  aria-describedby="more-detail-hint" type="text">
               </div>
             </div>
