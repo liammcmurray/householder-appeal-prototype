@@ -156,18 +156,31 @@ router.post("/submit-appeal/planning-number-post", function(req, res, next){
     res.redirect("/submit-appeal/reference-number-error")
   } else if(reference.startsWith("9")){
     res.redirect("/submit-appeal/reference-number-not-found")
+  } else if(reference.startsWith("8")){
+    req.session.data.pastDeadline = true;
+    res.redirect("/submit-appeal/postcode")
   } else {
+    req.session.data.pastDeadline = false;
     res.redirect("/submit-appeal/postcode")
   }
 })
+
+router.post("/submit-appeal/postcode-post", function(req, res, next){
+  if(req.session.data.pastDeadline){
+      res.redirect("/submit-appeal/appeal-after-deadline")
+  } else {
+      res.redirect("/submit-appeal/appeal-details")
+  }
+})
+
+
 router.post("/submit-appeal/contact-details-post", function(req, res, next){
 
     if (req.body.contact.includes("post")){
-    res.redirect('/submit-appeal/address')
-
+      res.redirect('/submit-appeal/address')
     }
     
-    res.redirect('/submit-appeal/submission')
+    res.redirect('/submit-appeal/check-answers')
 })
 
 
