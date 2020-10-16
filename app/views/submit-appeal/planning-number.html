@@ -11,10 +11,14 @@
       <form action="planning-number-post" method="post" novalidate>
         
         <div class="govuk-form-group">
-          <h1 class="govuk-heading-l">
-          What is the planning application number?
-        </h1>
-          <input class="govuk-input" id="reference" name="reference" type="text">
+          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
+              What is the planning application number?
+            </label>
+          </h1>
+          <div id="application-number-hint" class="govuk-hint">
+            You can find this on the decision letter from your local planning department
+          </div>
+          <input class="govuk-input govuk-input--width-10" id="reference" name="reference" type="text">
         </div>
 
 
