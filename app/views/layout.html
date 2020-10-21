@@ -75,7 +75,9 @@
 
       {% endif %}
       <div class="govuk-main-wrapper {{ mainClasses }}">
-        {% block content %}{% endblock %}
+        <div class="govuk-grid-row">
+          {% block content %}{% endblock %}
+        </div>
       </div>
     </main>
   </div>

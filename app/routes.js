@@ -9,7 +9,20 @@ const request = require('request');
 
 const moment = require("moment");
 
+
 // Add your routes here - above the module.exports line
+
+// SUBMISSION - APPEAL STATEMENT
+router.post('/check-statement', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/appellant-submission/supporting-documents')
+  } else {
+    res.redirect('/appellant-submission/grounds-of-appeal-error')
+  }
+})
+
 
 
 router.post('/check-lpa-section2', function (req, res) {
