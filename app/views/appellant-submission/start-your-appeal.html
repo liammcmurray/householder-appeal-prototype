@@ -1,0 +1,100 @@
+{% extends "layout-govuk.html" %}
+
+{% block pageTitle %}
+	Start your appeal | Appeal a planning decision
+{% endblock %}
+
+{% block content %}
+<img style="float: right; margin-top: -103px" src="/public/images/search.png" />
+ <div class="govuk-width-container">
+	<div class="govuk-breadcrumbs ">
+		<ol class="govuk-breadcrumbs__list">
+			<li class="govuk-breadcrumbs__list-item">
+				<a class="govuk-breadcrumbs__link" href="#">Home</a>
+			</li>
+			<li class="govuk-breadcrumbs__list-item">
+				<a class="govuk-breadcrumbs__link" href="#">Housing and local services</a>
+			</li>
+			<li class="govuk-breadcrumbs__list-item" aria-current="page">Planning permission and building regulations</li>
+		</ol>
+	</div>
+
+	<main class="govuk-main-wrapper " id="main-content" role="main">
+		<div class="govuk-grid-row">
+			<div class="govuk-grid-column-two-thirds">
+				<h1 class="govuk-heading-l">Appeal a householder planning decision</h1>
+
+				<h2 class="govuk-heading-m">Who can use this service?</h2>
+				<p>Use this service if you want to appeal decision for householder planning permission. </p>
+				<p>For other types of appeal, use the <a href="https://www.gov.uk/appeal-planning-inspectorate">appeal a planning decision</a> service.</p>
+
+				<h2 class="govuk-heading-m">Start your appeal</h2>
+				<p class="govuk-body">You'll need certain documents to complete your appeal:</p>
+
+				<ul class="govuk-list govuk-list--bullet">
+					<li>the decision letter from your local planning department</li>
+					<li>your appeal statement</li>
+				</ul>
+				<p>You'll also need your original planning application form, which you can search for on your local planning department's website.​</p>​
+
+				<h2 class="govuk-heading-m">Your appeal statement</h2>
+
+				<p class="govuk-body">You’ll need to write an appeal statement that sets out why you think the local planning department's decision is incorrect. This should respond to the reasons for refusal (listed on the decision letter) and include any other information that supports your appeal.</p>
+
+				<p class="govuk-body"><a class="govuk-link" href="#">Guidance on writing your appeal statement</a>.</p>
+
+
+
+				<form action="task-list" method="post" novalidate>
+					<input type="hidden" name="sections-completed" value="0">
+	        <input type="hidden" name="sections-completed-text" value="Application incomplete">
+					<!-- your-details -->
+	        <input type="hidden" name="your-details-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="your-details-completed-text" value="Not started">
+	        <!-- your-appeal -->
+	        <input type="hidden" name="appeal-statement-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="appeal-statement-completed-text" value="Not started">
+
+	        <input type="hidden" name="upload-appeal-docs-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="upload-appeal-docs-completed-text" value="Not started">
+
+	        <input type="hidden" name="other-appeal-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="other-appeal-completed-text" value="Not started">
+	        <!-- required-documents -->
+	        <input type="hidden" name="application-upload-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="application-upload-completed-text" value="Not started">
+
+	        <input type="hidden" name="decision-notice-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="decision-notice-completed-text" value="Not started">
+	        <!-- visiting-site -->
+	        <input type="hidden" name="site-location-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="site-location-completed-text"value="Not started">
+
+	        <input type="hidden" name="site-access-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="site-access-completed-text" value="Not started">
+
+	        <input type="hidden" name="safety-access-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="safety-access-completed-text" value="Not started">
+
+	        <input type="hidden" name="site-ownership-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="site-ownership-completed-text" value="Not started">
+	        <!-- submission -->
+					<input type="hidden" name="application-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+					<input type="hidden" name="application-completed-link" value="Check your answers">
+	        <input type="hidden" name="application-completed-text" value="Cannot start yet">
+					<button class="govuk-button" data-module="govuk-button">
+						Start now
+					</button>
+				</form>
+
+				<h2 class="govuk-heading-m">How to appeal</h2>
+
+				<p class="govuk-body">Applying online will speed up the appeals process.</p>
+				<p>If you cannot use the online service, contact the Planning Inspectorate customer support team on 0303 444 5000, or email:<br /><a href="mailto:enquiries@planninginspectorate.gov.uk">enquiries@planninginspectorate.gov.uk</a></p>
+
+			</div>
+		</div>
+	</main>
+</div>
+
+{% endblock %}

@@ -137,9 +137,11 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {{data['application-completed-link']}}
+                <a href="check-answers">
+                  {{data['application-completed-link']}}
+                </a>
               </span>
-               <strong name="site-ownership-status" class="{{data['application-completed']}}" >{{data['application-completed-text']}}</strong>
+               <strong name="site-ownership-status" class="{{data['application-completed']}}" >Not started</strong>
             </li>
           </ul>
         </li>
