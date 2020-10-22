@@ -9,8 +9,45 @@ const request = require('request');
 
 const moment = require("moment");
 
+
 // Add your routes here - above the module.exports line
 
+// SUBMISSION - APPEAL STATEMENT
+router.post('/check-statement', function (req, res) {
+  let sense = req.session.data['sense-check']
+
+  if (Array.isArray(sense) && sense[0] === 'on') {
+    res.redirect('/appellant-submission/supporting-documents')
+  } else {
+    res.redirect('/appellant-submission/appeal-statement-error')
+  }
+})
+
+// SUBMISSION - SITE OWNERSHIP
+router.post('/check-site-ownership', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/appellant-submission/site-ownership-certb')
+  } else {
+    res.redirect('/appellant-submission/task-list-complete')
+  }
+})
+
+
+// SUBMISSION - SUBMISSION
+router.post('/check-submission', function (req, res) {
+  let agreed = req.session.data['appellant-confirmation']
+
+  if (Array.isArray(agreed) && agreed[0] === 'on') {
+    res.redirect('/appellant-submission/confirmation')
+  } else {
+    res.redirect('/appellant-submission/submission-error')
+  }
+})
+
+
+///////////////////////////////////////////////////////////////
 
 router.post('/check-lpa-section2', function (req, res) {
   let conservation = req.session.data['citizenship-conditional-3']

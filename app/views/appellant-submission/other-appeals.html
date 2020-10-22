@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Other active appeals | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-column-two-thirds">
+  <form action="task-list" method="post" novalidate>
+    <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">Do you have any other active appeals at this address?</h1></legend>
+        <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="how-contacted-conditional" name="other-appeals" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
+          <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
+            Yes
+          </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="more-detail">
+                Enter appeal reference numbers
+              </label>
+              <span id="more-detail-hint" class="govuk-hint">
+                You can add multiple reference numbers separated by commas
+              </span>
+              <input value="{{ data['other-appeals-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></input>
+            </div>
+          </div>
+        
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="other-appeals" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <div class="govuk-form-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </div>
+    <input type="hidden" name="sections-completed" value="2">
+    <input type="hidden" name="other-appeal-completed" value="govuk-tag app-task-list__tag">
+    <input type="hidden" name="other-appeal-completed-text" value="Completed">
+  </form>
+</div>
+{% endblock %}
