@@ -12,25 +12,39 @@
   <div class="govuk-grid-column-two-thirds"> 
     <form action="officers-report" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Required documents</span>
+        <h1 class="govuk-heading-l">Upload the plans used to reach the decision</h1>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
-              Upload the plans used to reach the decision
-            </h1>
-          </legend>
-          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">These are the plans submitted at planning application stage on which you based the decision.</label>
-          <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
-          <div class="govuk-form-group">
-               
-                 
-                
-                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
-              </div>
-        </fieldset>
-      </div>
-<details class="govuk-details" data-module="govuk-details">
+          {% set uploadHtml %}
+            {{ govukFileUpload({
+              id: "casefile",
+              name: "casefile",
+              classes: 'moj-multi-file-upload__input',
+              label: {
+                text: "Upload files",
+                classes: 'govuk-label--m'
+              },
+              attributes: { multiple: '' },
+              errorMessage: errorMessage
+            }) }}
+
+            {{govukButton({
+              text: 'Upload file',
+              classes: 'govuk-button--secondary moj-multi-file-upload__button'
+            })}}
+          {% endset %}
+
+          {{ mojMultiFileUpload({
+            uploadedFiles: {
+              heading: { text: 'Files added' },
+              items: data.uploadedFiles | filesByFieldName("casefile")
+            },
+            uploadHtml: uploadHtml
+          }) }}
+
+
+
+
+      <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
               Accepted file formats
@@ -56,4 +70,19 @@
     </form>
   </div>
   
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+
+  new MOJFrontend.MultiFileUpload({
+    container: $('.moj-multi-file-upload'),
+    uploadUrl: '/ajax-case-file',
+    deleteUrl: '/ajax-case-file-delete',
+    fieldName: 'casefile'
+    });
+  }
+</script>
 {% endblock %}

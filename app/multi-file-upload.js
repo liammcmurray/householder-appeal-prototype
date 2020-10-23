@@ -158,82 +158,100 @@ router.post('/components/multi-file-upload/examples/default', getUploadedFiles, 
 
 
 
-const uploadAjax = multer( {
-  limits: { fileSize: 2000000 },
-  storage: multer.diskStorage({
-    destination: './public/uploads',
-    filename: (req, file, cb) => {
-        // randomBytes function will generate a random name
-        let customFileName = crypto.randomBytes(18).toString('hex')
-        // get file extension from original file name
-        let fileExtension = path.extname(file.originalname).split('.')[1];
-        cb(null, customFileName + '.' + fileExtension)
+const uploadAjax = function(fieldName){
+  return multer( {
+    limits: { fileSize: 2000000 },
+    storage: multer.diskStorage({
+      destination: './public/uploads',
+      filename: (req, file, cb) => {
+          // randomBytes function will generate a random name
+          let customFileName = crypto.randomBytes(18).toString('hex')
+          // get file extension from original file name
+          let fileExtension = path.extname(file.originalname).split('.')[1];
+          cb(null, customFileName + '.' + fileExtension)
+      }
+    }),
+    fileFilter: function( req, file, cb ){
+      let ok = false;
+      if( file.mimetype !== 'image/png' && file.mimetype !== 'image/gif' && file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg'){
+        return cb({
+          code: 'FILE_TYPE',
+          field: fieldName,
+          file: file
+        }, false);
+      } else {
+        return cb(null, true);
+      }
     }
-  }),
-  fileFilter: function( req, file, cb ){
-    let ok = false;
-    if( file.mimetype !== 'image/png' && file.mimetype !== 'image/gif' && file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg'){
-      return cb({
-        code: 'FILE_TYPE',
-        field: 'documents',
-        file: file
-      }, false);
-    } else {
-      return cb(null, true);
-    }
-  }
-} ).single('documents');
+  } ).single(fieldName);
+}
 
-router.post('/ajax-upload', getUploadedFiles, function( req, res ){
+let uploads = [{
+  fieldName: "documents",
+  uploadUrl: "/ajax-upload",
+  deleteUrl: "/ajax-delete"
+},{
+  uploadUrl: '/ajax-case-file',
+  deleteUrl: '/ajax-case-file-delete',
+  fieldName: 'casefile'
 
-  uploadAjax(req, res, function(error, val1, val2) {
-    if(error) {
-      if(error.code == 'FILE_TYPE') {
-        error.message = error.file.originalname + ' must be a png or gif';
-      } else if(error.code == 'LIMIT_FILE_SIZE') {
-        // error.message = error.file.originalname + ' must be smaller than 2mb';
-        error.message = 'The file must be smaller than 2mb';
-      }
+}]
 
-      var response = {
-        error: error,
-        file: error.file || { filename: 'filename', originalname: 'originalname' }
-      };
 
-      res.json(response);
-    } else {
+uploads.forEach(function(item, index, array){
 
-      req.uploadedFiles.push(req.file);
-      
-      if(!req.session.data.uploadedFiles){
-        req.session.data.uploadedFiles = [];
-      }
-      req.session.data.uploadedFiles = req.uploadedFiles;
-      req.file.message = {
-        html:`<span class="moj-multi-file-upload__success"> ${svgIcon}<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded</span>`
+  router.post(item.uploadUrl, getUploadedFiles, function( req, res ){
 
-      }
-      req.file.deleteButton = {
-        text: "Delete"
-      }
-
-      res.json({
-        file: req.file,
-        success: {
-          messageHtml: `<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded`,
-          messageText: `${req.file.originalname} has been uploaded`
+    uploadAjax(item.fieldName)(req, res, function(error, val1, val2) {
+      if(error) {
+        if(error.code == 'FILE_TYPE') {
+          error.message = error.file.originalname + ' must be a png or gif';
+        } else if(error.code == 'LIMIT_FILE_SIZE') {
+          // error.message = error.file.originalname + ' must be smaller than 2mb';
+          error.message = 'The file must be smaller than 2mb';
         }
-      });
-    }
+
+        var response = {
+          error: error,
+          file: error.file || { filename: 'filename', originalname: 'originalname' }
+        };
+
+        res.json(response);
+      } else {
+
+        req.uploadedFiles.push(req.file);
+        
+        if(!req.session.data.uploadedFiles){
+          req.session.data.uploadedFiles = [];
+        }
+        req.session.data.uploadedFiles = req.uploadedFiles;
+        req.file.message = {
+          html:`<span class="moj-multi-file-upload__success"> ${svgIcon}<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded</span>`
+
+        }
+        req.file.deleteButton = {
+          text: "Delete"
+        }
+
+        res.json({
+          file: req.file,
+          success: {
+            messageHtml: `<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded`,
+            messageText: `${req.file.originalname} has been uploaded`
+          }
+        });
+      }
+    } );
   } );
-} );
 
-router.post('/ajax-delete', getUploadedFiles, function( req, res ){
-  console.log(req.body.delete)
-  removeFileFromFileList(req.uploadedFiles, req.body.delete);
-  req.session.data.uploadedFiles = req.uploadedFiles;
+  router.post(item.deleteUrl, getUploadedFiles, function( req, res ){
+    console.log(req.body.delete)
+    removeFileFromFileList(req.uploadedFiles, req.body.delete);
+    req.session.data.uploadedFiles = req.uploadedFiles;
 
-  res.json({});
+    res.json({});
+  });
+
 });
 
 module.exports = router;
