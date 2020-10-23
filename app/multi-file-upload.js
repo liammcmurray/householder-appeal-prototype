@@ -3,6 +3,11 @@ const router = express.Router();
 const multer = require('multer');
 const cache = require( '../lib/cache' );
 
+const path = require('path');
+const crypto = require('crypto');
+
+let svgIcon = `<svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25"><path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z"></path></svg> `
+
 function getErrorMessage(item) {
   var message = '';
   if(item.error.code == 'FILE_TYPE') {
@@ -120,6 +125,8 @@ router.get('/components/multi-file-upload/examples/default', getUploadedFiles, f
 function removeFileFromFileList(fileList, filename) {
 
   const index = fileList.findIndex( (item ) => item.filename === filename );
+  
+  console.log(filename)
   if( index >= 0 ){
     fileList.splice( index, 1 );
   }
@@ -148,9 +155,21 @@ router.post('/components/multi-file-upload/examples/default', getUploadedFiles, 
 // AJAX
 ////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
 const uploadAjax = multer( {
-  dest: './public/uploads',
   limits: { fileSize: 2000000 },
+  storage: multer.diskStorage({
+    destination: './public/uploads',
+    filename: (req, file, cb) => {
+        // randomBytes function will generate a random name
+        let customFileName = crypto.randomBytes(18).toString('hex')
+        // get file extension from original file name
+        let fileExtension = path.extname(file.originalname).split('.')[1];
+        cb(null, customFileName + '.' + fileExtension)
+    }
+  }),
   fileFilter: function( req, file, cb ){
     let ok = false;
     if( file.mimetype !== 'image/png' && file.mimetype !== 'image/gif' && file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg'){
@@ -185,11 +204,23 @@ router.post('/ajax-upload', getUploadedFiles, function( req, res ){
     } else {
 
       req.uploadedFiles.push(req.file);
+      
+      if(!req.session.data.uploadedFiles){
+        req.session.data.uploadedFiles = [];
+      }
+      req.session.data.uploadedFiles = req.uploadedFiles;
+      req.file.message = {
+        html:`<span class="moj-multi-file-upload__success"> ${svgIcon}<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded</span>`
+
+      }
+      req.file.deleteButton = {
+        text: "Delete"
+      }
 
       res.json({
         file: req.file,
         success: {
-          messageHtml: `<a href="${req.file.path}" class="govuk-link"> ${req.file.originalname}</a> has been uploaded`,
+          messageHtml: `<a href="/${req.file.path}" download class="govuk-link"> ${req.file.originalname}</a> has been uploaded`,
           messageText: `${req.file.originalname} has been uploaded`
         }
       });
@@ -198,7 +229,10 @@ router.post('/ajax-upload', getUploadedFiles, function( req, res ){
 } );
 
 router.post('/ajax-delete', getUploadedFiles, function( req, res ){
+  console.log(req.body.delete)
   removeFileFromFileList(req.uploadedFiles, req.body.delete);
+  req.session.data.uploadedFiles = req.uploadedFiles;
+
   res.json({});
 });
 

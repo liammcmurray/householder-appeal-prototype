@@ -72,6 +72,15 @@ module.exports = function (env) {
   }
 
 
+  filters.filesByFieldName = function(files, fieldname){
+    if(!files || !fieldname){
+      return "";
+    } else {
+      return files.filter(file => file.fieldname === fieldname)
+    }
+  }
+
+
 
   return filters
 }

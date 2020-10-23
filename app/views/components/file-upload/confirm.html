@@ -1,0 +1,40 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Please complete | Appeal a planning decision
+{% endblock %}
+
+{% block content %}
+{%- from "govuk/components/file-upload/macro.njk" import govukFileUpload -%}
+{%- from "govuk/components/button/macro.njk" import govukButton -%}
+{%- from "govuk/components/error-summary/macro.njk" import govukErrorSummary -%}
+{%- from "moj/components/multi-file-upload/macro.njk" import mojMultiFileUpload -%}
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+
+{% if errorSummary.items.length %}
+  {{ govukErrorSummary({
+    titleText: 'There is a problem',
+    errorList: errorSummary.items
+  }) }}
+{% endif %}
+
+<h1 class="govuk-heading-xl">Uploaded files</h1>
+
+<ul class="govuk-list">
+{% for file in data.uploadedFiles | filesByFieldName("documents") %}
+    <li>  
+      <a href="/{{file.path}}" download>{{file.originalname}}</a> 
+    </li> 
+{% endfor %}
+
+</ul>
+</div>
+</div> 
+
+{% endblock %}
+
+
+
+
