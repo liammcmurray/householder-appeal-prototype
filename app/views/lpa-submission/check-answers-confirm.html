@@ -94,7 +94,13 @@
               Plans used to make decision
             </dt>
             <dd class="govuk-summary-list__value">
-               example_document.pdf
+              <ul class="govuk-list">
+               {% for file in data.uploadedFiles | filesByFieldName("casefile") %}
+                  <li>  
+                    <a href="/{{file.path}}" download>{{file.originalname}}</a> 
+                  </li> 
+              {% endfor %}
+            </ul>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="/lpa-submission/case-file">

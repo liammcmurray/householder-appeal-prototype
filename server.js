@@ -12,6 +12,10 @@ const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
 const cookieParser = require('cookie-parser')
 
+
+//from moj file uploader
+const multiFileUploadRoutes = require('./app/multi-file-upload');
+
 // Run before other code to make sure variables from .env are available
 dotenv.config()
 
@@ -250,6 +254,8 @@ if (typeof (routes) !== 'function') {
 } else {
   app.use('/', routes)
 }
+
+app.use(multiFileUploadRoutes);
 
 if (useDocumentation) {
   // Clone app locals to documentation app locals
