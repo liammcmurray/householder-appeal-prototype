@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Access to site | Appeal a householder planning decision
+  Site notes | Appeal a householder planning decision
 {% endblock %}
 
 {% block content %}
@@ -12,11 +12,11 @@
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="inspector-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-heading-l">Is there anything in particular the Inspector should look at on a site visit?</h1>
+              <h1 class="govuk-heading-l">Is there anything in particular that the Inspector should look at on the site visit?</h1>
             </legend>
-            <p id="inspector-hint">The Inspector will not be able to discuss the appeal during the site visit.</p>
-            
-              
+            <p><label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
+                      The Inspector will not be able to discuss the appeal during the site visit. If there’s something you think they should pay particular attention to, you can tell us about it here.
+                    </label></p>
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
                   <input value="{{ data['site-access'] }}" class="govuk-radios__input" id="site-access-conditional" name="site-access" type="radio" value="no" data-aria-controls="conditional-site-access-conditional">
@@ -26,9 +26,6 @@
                 </div>
                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-site-access-conditional">
                   <div class="govuk-form-group">
-                    <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
-                      Tell us things.
-                    </label>
                     <textarea value="{{ data['site-access-more-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
                   </div>
 
