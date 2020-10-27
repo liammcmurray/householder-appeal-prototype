@@ -156,7 +156,15 @@ router.post('/components/multi-file-upload/examples/default', getUploadedFiles, 
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
-
+const acceptedFormats = [
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "image/tiff",
+  "image/png",
+  "image/jpg",
+  "image/jpeg"
+]
 
 const uploadAjax = function(fieldName){
   return multer( {
@@ -173,7 +181,8 @@ const uploadAjax = function(fieldName){
     }),
     fileFilter: function( req, file, cb ){
       let ok = false;
-      if( file.mimetype !== 'image/png' && file.mimetype !== 'image/gif' && file.mimetype !== 'image/jpg' && file.mimetype !== 'image/jpeg'){
+
+      if( acceptedFormats.indexOf(file.mimetype) < 0 ){
         return cb({
           code: 'FILE_TYPE',
           field: fieldName,
