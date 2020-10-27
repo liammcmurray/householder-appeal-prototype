@@ -47,6 +47,8 @@ router.post('/check-submission', function (req, res) {
 })
 
 
+
+
 ///////////////////////////////////////////////////////////////
 
 router.post('/check-lpa-section2', function (req, res) {
@@ -66,6 +68,17 @@ router.post('/appellant-submission-check', function (req, res) {
     res.redirect('/lpa-submission/conditions')
   }  else {
     res.redirect('/lpa-submission/appellant-submission-error')
+  }
+})
+
+
+router.post('/site-notice-post', function (req, res) {
+  let publicised = req.session.data['was-publicised']
+
+  if (publicised == "true") {
+    res.redirect('/lpa-submission/site-notice-documents')
+  } else {
+    res.redirect('/lpa-submission/lpa-task-list')
   }
 })
 

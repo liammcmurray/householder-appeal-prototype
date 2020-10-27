@@ -194,7 +194,42 @@ let uploads = [{
   uploadUrl: '/ajax-case-file',
   deleteUrl: '/ajax-case-file-delete',
   fieldName: 'casefile'
-
+},{
+  uploadUrl: '/ajax-officers-report',
+  deleteUrl: '/ajax-officers-report-delete',
+  fieldName: 'officers-report'
+},{
+  uploadUrl: '/ajax-interested-parties',
+  deleteUrl: '/ajax-interested-parties-delete',
+  fieldName: 'interested-parties'
+},{
+  uploadUrl: '/ajax-planning-history',
+  deleteUrl: '/ajax-planning-history-delete',
+  fieldName: 'planning-history'
+},{
+  uploadUrl: '/ajax-statutory',
+  deleteUrl: '/ajax-statutory-delete',
+  fieldName: 'statutory'
+},{
+  uploadUrl: '/ajax-policy',
+  deleteUrl: '/ajax-policy-delete',
+  fieldName: 'policy'
+},{
+  uploadUrl: '/ajax-site-notice',
+  deleteUrl: '/ajax-site-notice-delete',
+  fieldName: 'site-notice'
+},{
+  uploadUrl: '/ajax-site-notice-ip',
+  deleteUrl: '/ajax-site-notice-ip-delete',
+  fieldName: 'site-notice-ip'
+},{
+  uploadUrl: '/ajax-supplementary-planning',
+  deleteUrl: '/ajax-supplementary-planning-delete',
+  fieldName: 'supplementary-planning'
+},{
+  uploadUrl: '/ajax-correspondence',
+  deleteUrl: '/ajax-correspondence-delete',
+  fieldName: 'correspondence'
 }]
 
 

@@ -10,17 +10,17 @@
 {% block content %}
 
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="representations" method="post" novalidate>
+    <form action="lpa-task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
-
             <h1 class="govuk-heading-l">
-              Representations from interested parties
+              Upload the site notice and/or local advertisement.
             </h1>
+
           {% set uploadHtml %}
             {{ govukFileUpload({
-              id: "correspondence",
-              name: "correspondence",
+              id: "site-notice",
+              name: "site-notice",
               classes: 'moj-multi-file-upload__input',
               label: {
                 text: "Upload files",
@@ -39,7 +39,7 @@
           {{ mojMultiFileUpload({
             uploadedFiles: {
               heading: { text: 'Files added' },
-              items: data.uploadedFiles | filesByFieldName("correspondence")
+              items: data.uploadedFiles | filesByFieldName("site-notice")
             },
             uploadHtml: uploadHtml
           }) }}
@@ -60,10 +60,11 @@ if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
 
   new MOJFrontend.MultiFileUpload({
     container: $('.moj-multi-file-upload'),
-    uploadUrl: '/ajax-correspondence',
-    deleteUrl: '/ajax-correspondence-delete',
-    fieldName: 'correspondence'
+    uploadUrl: '/ajax-site-notice',
+    deleteUrl: '/ajax-site-notice-delete',
+    fieldName: 'site-notice'
     });
   }
 </script>
 {% endblock %}
+

@@ -1,0 +1,12 @@
+{% if params.uploadedFiles.length < 1 %}
+<p>No files uploaded</p>
+{% else %}
+<p>{{ params.uploadedFiles.length }} files uploaded</p>
+<ul class="govuk-list">
+   {% for file in params.uploadedFiles  %}
+      <li>  
+        <a href="/{{file.path}}" download>{{file.originalname}}</a> 
+      </li> 
+  {% endfor %}
+</ul>
+{% endif %}

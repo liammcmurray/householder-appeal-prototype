@@ -13,37 +13,38 @@
     <form action="lpa-task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
+      
+            <h1 class="govuk-heading-l">
               Planning history
             </h1>
-          </legend>
-          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">If applicable, upload the planning history (for example, previous planning permissions) and the documents used when considering the application.</label>
-          <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
-          <div class="govuk-form-group">
-                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
-              </div>
-        </fieldset>
-      </div>
-       <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Accepted file formats
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-          
-            <ul class="govuk-list--bullets">
-              <li>PDF &ndash; <strong>.pdf</strong></li>
-              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
-              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
-              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
-              <li>PNG &ndash; <strong>.png</strong></li>
-            </ul>
-          </div>
-        </details>
+      
+          <p>If applicable, upload the planning history (for example, previous planning permissions) and the documents used when considering the application.</p>
+        {% set uploadHtml %}
+            {{ govukFileUpload({
+              id: "planning-history",
+              name: "planning-history",
+              classes: 'moj-multi-file-upload__input',
+              label: {
+                text: "Upload files",
+                classes: 'govuk-label--m'
+              },
+              attributes: { multiple: '' },
+              errorMessage: errorMessage
+            }) }}
+
+            {{govukButton({
+              text: 'Upload file',
+              classes: 'govuk-button--secondary moj-multi-file-upload__button'
+            })}}
+          {% endset %}
+
+          {{ mojMultiFileUpload({
+            uploadedFiles: {
+              heading: { text: 'Files added' },
+              items: data.uploadedFiles | filesByFieldName("planning-history")
+            },
+            uploadHtml: uploadHtml
+          }) }}
 
       <input type="hidden" name="planning-history-completed" value="govuk-tag app-task-list__task-completed">
       <input type="hidden" name="planning-history-completedText" value="Completed">
@@ -55,4 +56,18 @@
     </form>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+
+  new MOJFrontend.MultiFileUpload({
+    container: $('.moj-multi-file-upload'),
+    uploadUrl: '/ajax-planning-history',
+    deleteUrl: '/ajax-planning-history-delete',
+    fieldName: 'planning-history'
+    });
+  }
+</script>
 {% endblock %}

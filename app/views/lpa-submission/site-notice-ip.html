@@ -13,38 +13,41 @@
     <form action="correspondence" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="is-accurate-conditional-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-fieldset__heading">
+
+            <h1 class="govuk-heading-l">
               Telling interested parties about the application
             </h1>
-          </legend>
-          <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
-                 If applicable, upload the letter/site notice you used to notify interested parties, and a list of their addresses.
-                </label>
-                 <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
-                <input class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
+         
+          <p>If applicable, upload the letter/site notice you used to notify interested parties, and a list of their addresses.</p>
 
-          
-        </fieldset>
-      </div>
- <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-              Accepted file formats
-            </span>
-          </summary>
-          <div class="govuk-details__text">
-            <ul class="govuk-list--bullets">
-              <li>PDF &ndash; <strong>.pdf</strong></li>
-              <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
-              <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
-              <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
-              <li>PNG &ndash; <strong>.png</strong></li>
-            </ul>
-          </div>
-        </details>
+      {% set uploadHtml %}
+            {{ govukFileUpload({
+              id: "site-notice-ip",
+              name: "site-notice-ip",
+              classes: 'moj-multi-file-upload__input',
+              label: {
+                text: "Upload files",
+                classes: 'govuk-label--m'
+              },
+              attributes: { multiple: '' },
+              errorMessage: errorMessage
+            }) }}
+
+            {{govukButton({
+              text: 'Upload file',
+              classes: 'govuk-button--secondary moj-multi-file-upload__button'
+            })}}
+          {% endset %}
+
+          {{ mojMultiFileUpload({
+            uploadedFiles: {
+              heading: { text: 'Files added' },
+              items: data.uploadedFiles | filesByFieldName("site-notice-ip")
+            },
+            uploadHtml: uploadHtml
+          }) }}
+
+
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
@@ -54,3 +57,18 @@
   </div>
 
 {% endblock %}
+
+{% block pageScripts %}
+<script>
+if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+
+  new MOJFrontend.MultiFileUpload({
+    container: $('.moj-multi-file-upload'),
+    uploadUrl: '/ajax-site-notice-ip',
+    deleteUrl: '/ajax-site-notice-ip-delete',
+    fieldName: 'site-notice-ip'
+    });
+  }
+</script>
+{% endblock %}
+
