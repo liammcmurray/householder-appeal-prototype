@@ -45,6 +45,36 @@
         </div>
       </dl>
 
+      <h2 class="govuk-heading-m">Required documents</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application form
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ data['application-upload'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="upload-application">
+              Change<span class="govuk-visually-hidden"> uploaded application form</span>
+            </a>
+          </dd>
+        </div>     
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision letter
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ data['decision-notice'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="upload-decision">
+              Change<span class="govuk-visually-hidden"> uploaded decision notice</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
       <h2 class="govuk-heading-m">Your appeal</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -88,36 +118,6 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Required documents</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Planning application form
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">{{ data['application-upload'] }}</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="upload-application">
-              Change<span class="govuk-visually-hidden"> uploaded application form</span>
-            </a>
-          </dd>
-        </div>     
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Decision letter
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">{{ data['decision-notice'] }}</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="upload-decision">
-              Change<span class="govuk-visually-hidden"> uploaded decision notice</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
-
      <h2 class="govuk-heading-m">Visiting the appeal site</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -130,6 +130,19 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-location">
               Change<span class="govuk-visually-hidden"> site location</span>
+            </a>
+          </dd>
+        </div>
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you own the whole appeal site?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-ownership">
+              Change<span class="govuk-visually-hidden"> site ownership</span>
             </a>
           </dd>
         </div>
@@ -148,6 +161,19 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Points of view
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p>no</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-access">
+              Change<span class="govuk-visually-hidden"> public visibility of site</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Any health and safety issues?
           </dt>
           <dd class="govuk-summary-list__value">
@@ -156,19 +182,6 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="site-access-safety">
               Change<span class="govuk-visually-hidden"> health and safety concerns of site</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Do you own the whole appeal site?
-          </dt>
-          <dd class="govuk-summary-list__value">
-            yes
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="site-ownership">
-              Change<span class="govuk-visually-hidden"> site ownership</span>
             </a>
           </dd>
         </div>

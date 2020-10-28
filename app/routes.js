@@ -30,7 +30,7 @@ router.post('/check-site-ownership', function (req, res) {
   if (owner === 'no') {
     res.redirect('/appellant-submission/site-ownership-certb')
   } else {
-    res.redirect('/appellant-submission/task-list-complete')
+    res.redirect('/appellant-submission/site-access')
   }
 })
 
