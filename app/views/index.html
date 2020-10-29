@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<div class="govuk-width-container">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <span class="govuk-caption-xl">Appeal a householder planning decision</span>
@@ -14,68 +15,106 @@
       </h1>
 
       <h2 class="govuk-heading-l">Beta</h2>
-      <span class="govuk-caption-m">(October 21&mdash;November 03)</span>
-      <h2 class="govuk-heading-m">Sprint 01</h2>
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Appellant submission
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>Updated journey based on research findings and plan for Beta MVP.</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="appellant-submission/start-your-appeal">
-              View <span class="govuk-visually-hidden"> prototype</span>
-            </a>     
-          </dd>
-        </div>
-      </dl>
 
-      <span class="govuk-caption-m">(October 07&mdash;October 20)</span>
-      <h2 class="govuk-heading-m">Sprint 00</h2>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Appellant submission</h3>
+        <p>Updated journey based on research findings and plan for Beta MVP.</p>
+        <p><a class="govuk-button" href="appellant-submission/start-your-appeal">
+          View  prototype
+        </a> </p>
+      </dt>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <h4 class="govuk-heading-s">Current version</h4>
+      <p>Last updated: Sprint 1</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>first version.</li>
+      </ul>
+    </div>
+  </div>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            User journey for LPA/Idox integration
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>Full user journey for proposed beta, from start page through to appeal submit. </p>
-             <ul class="govuk-list govuk-list--bullet">
+  <hr class="govuk-section-break govuk-!-margin-bottom-9  govuk-section-break--visible">
+  
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">User journey for LPA/Idox integration</h3>
+        <p>Full user journey for proposed beta, from start page through to appeal submit.</p>
+        <ul class="govuk-list govuk-list--bullet">
                <li>Enter a reference beginning with 9 to show planning reference number not found.</li>
                <li>Enter a reference beginning with 8 to show planning application older than 12 weeks.</li>
                <li>Enter any other reference to show eligible plannning application.</li>
              </ul>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="eligibility/start-your-appeal">
-              View <span class="govuk-visually-hidden"> prototype</span>
-            </a>
-          </dd>
+        <p><a class="govuk-button" href="/eligibility/start-your-appeal">
+          View  prototype
+        </a> </p>
+      </dt>
+    </div>
+    <div class="govuk-grid-column-one-half">
+      <h4 class="govuk-heading-s">Current version</h4>
+      <p>Last updated: Sprint 0</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>User journey created based on proof of concept for idox integration.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="govuk-section-break govuk-!-margin-bottom-9  govuk-section-break--visible">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+        <h3 class="govuk-heading-m">Information from local council</h3>
+        <p>The LPA questionnaire</p>
+        
+        <p><a class="govuk-button" href="appellant-submission/start-your-appeal">
+          View  prototype
+        </a> </p>
+      </dt>
+    </div>
+    <div class="govuk-grid-column-one-half">
+
+      <h4 class="govuk-heading-s">Current version</h4>
+      <p>Last updated: Sprint 1</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Iterations based on User reasearch by Liam</li>
+        <li>Multiple file uploader added by Jamie</li>
+      </ul>
+      <h3 class="govuk-heading-s">Version history</h3>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Version 1 - Alpha sprint 20
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p>First version of questionnaire based on <a href="https://pins-ds.atlassian.net/wiki/spaces/AAPDS/pages/154337658/Revised+LPA+Questionnaire+for+beta+service+feedback">Picasso service questions</a></p>
+          <ul class="govuk-list">
+            <li><a href="https://has-appeal-alpha.herokuapp.com/lpa-submission/email" class="govuk-link">View prototype</a></li>
+            <li><a href="https://pins-ds.atlassian.net/wiki/spaces/AAPDS/pages/260571176/Sprint+20+UR">User research findings</a></li>
+          </ul>
         </div>
+      </details>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Information from local council
-          </dt>
-          <dd class="govuk-summary-list__value">
-             <p>Second version of LPA questionnaire, iterated after first round of user research</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="lpa-submission/email">
-              View <span class="govuk-visually-hidden"> prototype</span>
-            </a>     
-          </dd>
-        </div>
 
-      </dl>
-      
+    </div>
+  </div>
 
-      <h2 class="govuk-heading-l">Alpha</h1>
+  <hr class="govuk-section-break govuk-!-margin-bottom-9  govuk-section-break--visible">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+
+
+      <h2 class="govuk-heading-l">Alpha</h2>
       <p>Prototypes developed duting alpha have been moved to a separate server:</p>
       <p><a href="https://has-appeal-alpha.herokuapp.com/">View alpha prototypes</a></p>
     </div>
   </div>
-
+</div>
 {% endblock %}
