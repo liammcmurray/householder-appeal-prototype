@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Appeal statement | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-column-two-thirds">
+  <form action="/check-statement" method="post" novalidate>
+    <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
+    <h1 class="govuk-heading-l">
+      Your appeal statement
+    </h1>  
+    <p>In order to appeal, you must believe that every reason for refusal given on your decision letter is incorrect, otherwise your appeal cannot be upheld.
+    
+    <div class="govuk-form-group">
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="sense-check" name="sense-check" value="on" type="checkbox">
+            <label class="govuk-label govuk-checkboxes__label" for="sense-check">
+              I confirm that I wish to appeal against all the reasons for refusal given on the decision letter from my local planning department.
+            </label>
+          </div>
+        </div>
+    </div>
+
+    <div class="govuk-form-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </div>
+    <input type="hidden" name="sense-check" value="{{ data['appeal-confirmation'] }}">
+    <input type="hidden" name="appeal-statement-completed" value="govuk-tag app-task-list__tag">
+    <input type="hidden" name="appeal-statement-completed-text" value="Completed">
+  </form>
+</div>
+{% endblock %}

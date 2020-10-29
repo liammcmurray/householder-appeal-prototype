@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Appeal statement | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-column-two-thirds">
+  <form action="appeal-statement-comments" method="post" novalidate>
+    <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal statement</span>
+    <h1 class="govuk-heading-l">
+      Reasons for refusal
+    </h1>      
+    <p>The first step is to read the local planning department’s decision letter, where they list their reasons for refusing the planning application. Each reason for refusal will mention the planning policy their decision is based on, and may also refer to additional planning documents.</p> 
+    <p>You should also read the planning officer’s report, and any planning committee meeting notes (if applicable). If you think the local planning department's decision to refuse your application is incorrect, explain why in your statement.</p>
+    
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+        First reason for refusal
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Copy this from your decision letter.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+        Your response
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Write here why you disagree with this reason.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+     <a href="#">Delete this reason for refusal</a>
+   </div>
+
+   <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+   <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+        Second reason for refusal
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Copy this from your decision letter.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+    </div>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="more-detail">
+        Your response
+        </label>
+      </h1>
+      <div id="more-detail-hint" class="govuk-hint">
+        Write here why you disagree with this reason.
+      </div>
+      <textarea class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+     <a href="#">Add another reason for refusal</a>
+   </div>
+
+
+    <div class="govuk-form-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Save and continue
+      </button>
+    </div>
+    <input type="hidden" name="sense-check" value="{{ data['appeal-confirmation'] }}">
+    <input type="hidden" name="appeal-statement-completed" value="govuk-tag app-task-list__tag">
+    <input type="hidden" name="appeal-statement-completed-text" value="Completed">
+  </form>
+</div>
+{% endblock %}
