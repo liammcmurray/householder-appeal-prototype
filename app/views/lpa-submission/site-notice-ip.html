@@ -1,4 +1,4 @@
-{% extends "layout-lpa.html" %}
+\{% extends "layout-lpa.html" %}
 
 {% set headerTitle = "Appellant stuff" %}
   
@@ -10,44 +10,39 @@
 {% block content %}
 
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="correspondence" method="post" novalidate>
+    <form action="/site-notice-ip-post" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
-
-            <h1 class="govuk-heading-l">
-              Telling interested parties about the application
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="interested-parties-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Did you notify interested parties?
             </h1>
-         
-          <p>If applicable, upload the letter/site notice you used to notify interested parties, and a list of their addresses.</p>
-
-      {% set uploadHtml %}
-            {{ govukFileUpload({
-              id: "site-notice-ip",
-              name: "site-notice-ip",
-              classes: 'moj-multi-file-upload__input',
-              label: {
-                text: "Upload files",
-                classes: 'govuk-label--m'
-              },
-              attributes: { multiple: '' },
-              errorMessage: errorMessage
-            }) }}
-
-            {{govukButton({
-              text: 'Upload file',
-              classes: 'govuk-button--secondary moj-multi-file-upload__button'
-            })}}
-          {% endset %}
-
-          {{ mojMultiFileUpload({
-            uploadedFiles: {
-              heading: { text: 'Files added' },
-              items: data.uploadedFiles | filesByFieldName("site-notice-ip")
-            },
-            uploadHtml: uploadHtml
-          }) }}
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            
+      
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interested-parties-2" name="interested-parties" type="radio" value="true" data-aria-controls="interested-parties-2">
+              <label class="govuk-label govuk-radios__label" for="interested-parties-2">
+                Yes
+              </label>
+            </div>
 
 
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="interested-parties" name="interested-parties" type="radio" value="false" data-aria-controls="interested-parties">
+              <label class="govuk-label govuk-radios__label" for="interested-parties">
+                No
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
@@ -57,18 +52,3 @@
   </div>
 
 {% endblock %}
-
-{% block pageScripts %}
-<script>
-if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
-
-  new MOJFrontend.MultiFileUpload({
-    container: $('.moj-multi-file-upload'),
-    uploadUrl: '/ajax-site-notice-ip',
-    deleteUrl: '/ajax-site-notice-ip-delete',
-    fieldName: 'site-notice-ip'
-    });
-  }
-</script>
-{% endblock %}
-

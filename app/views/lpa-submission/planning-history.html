@@ -10,44 +10,39 @@
 {% block content %}
 
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="lpa-task-list" method="post" novalidate>
+    <form action="/planning-history-post" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
       
             <h1 class="govuk-heading-l">
-              Planning history
-            </h1>
-      
-          <p>If applicable, upload the planning history (for example, previous planning permissions) and the documents used when considering the application.</p>
-        {% set uploadHtml %}
-            {{ govukFileUpload({
-              id: "planning-history",
-              name: "planning-history",
-              classes: 'moj-multi-file-upload__input',
-              label: {
-                text: "Upload files",
-                classes: 'govuk-label--m'
-              },
-              attributes: { multiple: '' },
-              errorMessage: errorMessage
-            }) }}
-
-            {{govukButton({
-              text: 'Upload file',
-              classes: 'govuk-button--secondary moj-multi-file-upload__button'
-            })}}
-          {% endset %}
-
-          {{ mojMultiFileUpload({
-            uploadedFiles: {
-              heading: { text: 'Files added' },
-              items: data.uploadedFiles | filesByFieldName("planning-history")
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "planning-history",
+            name: "planning-history",
+            fieldset: {
+              legend: {
+                text: "Is there any relevant planning history?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
             },
-            uploadHtml: uploadHtml
+            hint: {
+              text: "For example, previous planning permissions."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no",
+                text: "No"
+              }
+            ]
           }) }}
 
-      <input type="hidden" name="planning-history-completed" value="govuk-tag app-task-list__task-completed">
-      <input type="hidden" name="planning-history-completedText" value="Completed">
+
+      
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue

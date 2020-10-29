@@ -78,9 +78,38 @@ router.post('/site-notice-post', function (req, res) {
   if (publicised == "true") {
     res.redirect('/lpa-submission/site-notice-documents')
   } else {
+    req.session.data['site-notice-completed'] = "govuk-tag app-task-list__task-completed";
+    req.session.data['site-notice-completedText'] = "Completed";
+
     res.redirect('/lpa-submission/lpa-task-list')
   }
 })
+
+router.post('/site-notice-ip-post', function (req, res) {
+
+  if (req.session.data['interested-parties'] == "true") {
+    res.redirect('/lpa-submission/site-notice-ip-documents')
+  } else {
+
+    req.session.data['interested-parties-completed'] = "govuk-tag app-task-list__task-completed";
+    req.session.data['interested-parties-completedText'] = "Completed";
+
+    res.redirect('/lpa-submission/site-notice')
+  }
+})
+
+router.post('/planning-history-post', function (req, res) {
+
+  if (req.session.data['planning-history'] == "true") {
+    res.redirect('/lpa-submission/site-notice-ip-documents')
+  } else {
+    req.session.data['planning-history-completed'] = "govuk-tag app-task-list__task-completed";
+    req.session.data['planning-history-completedText'] = "Completed";
+
+    res.redirect('/lpa-submission/lpa-task-list')
+  }
+})
+
 
 
 //autocomplete

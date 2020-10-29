@@ -10,17 +10,20 @@
 {% block content %}
 
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="lpa-task-list" method="post" novalidate>
+    <form action="site-notice" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
+
             <h1 class="govuk-heading-l">
-              Upload the site notice and/or local advertisement
+              Upload the letter/site notice you used to notify interested parties, and a list of their addresses
             </h1>
+         
+          
 
           {% set uploadHtml %}
             {{ govukFileUpload({
-              id: "site-notice",
-              name: "site-notice",
+              id: "site-notice-ip",
+              name: "site-notice-ip",
               classes: 'moj-multi-file-upload__input',
               label: {
                 text: "Upload files",
@@ -39,12 +42,13 @@
           {{ mojMultiFileUpload({
             uploadedFiles: {
               heading: { text: 'Files added' },
-              items: data.uploadedFiles | filesByFieldName("site-notice")
+              items: data.uploadedFiles | filesByFieldName("site-notice-ip")
             },
             uploadHtml: uploadHtml
           }) }}
-      <input type="hidden" name="site-notice-completed" value="govuk-tag app-task-list__task-completed">
-      <input type="hidden" name="site-notice-completedText" value="Completed">
+
+      <input type="hidden" name="interested-parties-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="interested-parties-completedText" value="Completed">
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
@@ -61,9 +65,9 @@ if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
 
   new MOJFrontend.MultiFileUpload({
     container: $('.moj-multi-file-upload'),
-    uploadUrl: '/ajax-site-notice',
-    deleteUrl: '/ajax-site-notice-delete',
-    fieldName: 'site-notice'
+    uploadUrl: '/ajax-site-notice-ip',
+    deleteUrl: '/ajax-site-notice-ip-delete',
+    fieldName: 'site-notice-ip'
     });
   }
 </script>
