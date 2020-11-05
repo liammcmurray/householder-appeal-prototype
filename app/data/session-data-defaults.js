@@ -19,6 +19,8 @@ Example usage:
 
 module.exports = {
 
+  cases: [],
+
   // Insert values here
 
   user: {

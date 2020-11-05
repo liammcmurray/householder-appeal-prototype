@@ -81,6 +81,39 @@ module.exports = function (env) {
     }
   }
 
+  filters.formatIdoxDecisionDate = function(dateString){
+    let date = moment(dateString, "ddd DD MMM YYYY");
+
+    if(date.isValid()){
+      return date.format("D MMMM YYYY")
+    } else {
+      return ""
+    }
+
+  }
+
+  filters.formatIdoxDeadlineDate = function(dateString){
+    let date = moment(dateString, "ddd DD MMM YYYY");
+
+    if(date.isValid()){
+      return date.add(12, "weeks").format("D MMMM YYYY")
+    } else {
+      return ""
+    }
+
+  }
+
+  filters.formatIdoxDateIsWithinDeadline = function(dateString){
+    let date = moment(dateString, "ddd DD MMM YYYY");
+
+    if(date.isValid()){
+      return date.add(12, "weeks").isAfter(moment(), "day")
+    } else {
+      return ""
+    }
+
+  }
+
 
 
   return filters

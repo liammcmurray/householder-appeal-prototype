@@ -172,20 +172,6 @@ router.all('/eligibility/planning-department', function(req,res,next){
   
 }); 
 
-router.post('/eligibility/planning-department-post', function(req, res, next){
-  let dept = req.body['planning-department'];
-  console.log(dept)
-  if(dept === 'ESX' || dept === 'WSX' || dept === 'KEN' || dept === 'SGC') {
-    req.session.data.planningError = false;
-    res.redirect('/submit-appeal/planning-number')
-  } else if (dept === ""){
-    req.session.data.planningError = true;
-    res.redirect('/eligibility/planning-department')
-  } else {
-    req.session.data.planningError = false;
-    res.redirect('/eligibility/planning-department-out')
-  }
-})
 
 router.post('/eligibility/listed-building-post', function (req, res) {
   let haslisted = req.session.data['listed-building']
@@ -200,18 +186,50 @@ router.post('/eligibility/listed-building-post', function (req, res) {
 })
 
 router.post("/submit-appeal/planning-number-post", function(req, res, next){
-  console.log(req.body.reference);
-  let reference = req.body.reference.toUpperCase();
-  if(!reference){
-    res.redirect("/submit-appeal/reference-number-error")
-  } else if(reference.startsWith("9")){
-    res.redirect("/submit-appeal/reference-number-not-found")
-  } else if(reference.startsWith("8")){
-    req.session.data.pastDeadline = true;
-    res.redirect("/submit-appeal/postcode")
+
+  let caseref = encodeURIComponent(req.body.caseref)
+
+  if(!req.session.data.cases){
+    req.session.data.cases = [];
+  }
+  console.log(caseref)
+  request("http://localhost/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
+
+    console.error('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
+    console.log('body:', body); // Print the HTML for the Google homepage.
+
+
+
+    if(error || response.statusCode === 500){
+      req.session.data.cases[caseref] =  {
+        "error": error
+      }
+      res.send(JSON.parse(error));
+      
+    } else if(response.statusCode === 200){
+      req.session.data.planningDetails = JSON.parse(body);
+      res.send(JSON.parse(body));
+    }
+    
+  });
+
+  
+})
+
+
+router.post('/eligibility/planning-department-post', function(req, res, next){
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'SGC') {
+    req.session.data.planningError = false;
+    res.redirect('/submit-appeal/planning-number')
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/eligibility/planning-department')
   } else {
-    req.session.data.pastDeadline = false;
-    res.redirect("/submit-appeal/postcode")
+    req.session.data.planningError = false;
+    res.redirect('/eligibility/planning-department-out')
   }
 })
 
