@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <form action="/check-statement" method="post" novalidate>
     <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
@@ -132,4 +133,5 @@
     <input type="hidden" name="appeal-statement-completed-text" value="Completed">
   </form>
 </div>
+  </div>
 {% endblock %}
