@@ -205,7 +205,8 @@ router.post("/submit-appeal/planning-number-post", function(req, res, next){
       req.session.data.cases[caseref] =  {
         "error": error
       }
-      res.send(JSON.parse(error));
+      res.status(500)
+      res.send("error");
       
     } else if(response.statusCode === 200){
       req.session.data.planningDetails = JSON.parse(body);
