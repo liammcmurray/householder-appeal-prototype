@@ -136,12 +136,13 @@ $govuk-assets-path: '/govuk/assets/';
 	}
 
 	&__spinner {
-		border: 12px solid govuk-colour("mid-grey");
+		border: 12px solid govuk-colour("white");
 		border-radius: 50%;
 		border-top-color: govuk-colour("blue");
+		border-bottom-color: govuk-colour("blue");
 		width: 80px;
 		height: 80px;
-		animation: spin 1s linear infinite;
+		animation: spin 1.3s ease-in-out infinite;
 		margin-bottom: govuk-spacing(3);
 
 	}
