@@ -6,29 +6,81 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="planning-number-post" method="post" novalidate>
-        
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
-              What is your original planning application number?
-            </label>
-          </h1>
-          <div id="application-number-hint" class="govuk-hint">
-            You can find this on the decision letter from your local planning department
-          </div>
-          <input class="govuk-input govuk-input--width-10" id="reference" name="reference" type="text">
+<div class="govuk-grid-row" id="form-html">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="planning-number-post" method="post" novalidate id="planing-number-submit">
+      
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
+            What is your original planning application number?
+          </label>
+        </h1>
+        <div id="application-number-hint" class="govuk-hint">
+          You can find this on the decision letter from your local planning department
         </div>
+        <input class="govuk-input govuk-input--width-10" id="caseref" name="caseref" type="text">
+      </div>
 
 
-        <div class="govuk-form-group">
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-        </div>
-      </form>
-    </div>
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+    </form>
   </div>
+</div>
 
+<div class="govuk-grid-row govuk-!-display-none" id="waiting-html">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ loadingPage({
+        heading: "Searching for your planning application",
+        description: "We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser.",
+        loadingText: "Loading"
+      }) }}
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script> 
+
+
+
+$(document).on("submit", "#planing-number-submit", function(event){
+  event.preventDefault();
+  console.log(event);
+
+  $("#form-html").hide();
+  $("#waiting-html").removeClass("govuk-!-display-none");
+
+  
+  let caseref = $("#caseref").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/submit-appeal/planning-number-post",
+    data: {
+      "caseref": caseref 
+    },
+    success: function(data, status){
+      let url = window.location.origin + "/submit-appeal/appeal-details";
+      window.location = url
+    },
+    error: function(data, status){
+      let url = window.location.origin + "/submit-appeal/reference-number-not-found";
+      window.location = url
+    }
+  });
+
+
+  
+})
+
+
+</script>
 {% endblock %}

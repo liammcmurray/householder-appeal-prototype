@@ -44,18 +44,47 @@
         <h3 class="govuk-heading-m">User journey for LPA/Idox integration</h3>
         <p>Full user journey for proposed beta, from start page through to appeal submit.</p>
         <ul class="govuk-list govuk-list--bullet">
-               <li>Enter a reference beginning with 9 to show planning reference number not found.</li>
-               <li>Enter a reference beginning with 8 to show planning application older than 12 weeks.</li>
-               <li>Enter any other reference to show eligible plannning application.</li>
-             </ul>
-        <p><a class="govuk-button" href="/eligibility/start-your-appeal">
-          View  prototype
-        </a> </p>
+            <li>Select South Gloucestershire Council</li>
+            <li>PK17/5462/F - Approved with condition. Out of time to appeal. Postcode BS16 6LQ.</li>
+            <li>P20/17532/F - Approved with conditions 3 Novermber 2020. Postcode BS34 8PP.</li>
+          </ul>
+
+        <form action="/eligibility/start-your-appeal" method="post" accept-charset="utf-8">
+          {{ govukRadios({
+            classes: "govuk-radios--small",
+            idPrefix: "idox-prototype-version",
+            name: "idox-prototype-url",
+            fieldset: {
+              legend: {
+                text: "Select version",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                text: "Planning reference only",
+                value: "planning-number",
+                attributes: {
+                  required: true  
+                }
+              },
+              {
+                text: "Planning reference with postcode validation",
+                value: "planning-number-2"
+              }
+            ]
+          }) }}
+        <div class="govuk=form-group">
+          <button class="govuk-button" href="/eligibility/start-your-appeal">View prototype</button>
+           </div>
+        </form>
+
       </dt>
     </div>
     <div class="govuk-grid-column-one-half">
       <h4 class="govuk-heading-s">Current version</h4>
-      <p>Last updated: Sprint 0</p>
+      <p>Last updated: Sprint 2</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>User journey created based on proof of concept for idox integration.</li>
       </ul>

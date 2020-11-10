@@ -19,6 +19,10 @@ const multiFileUploadRoutes = require('./app/multi-file-upload');
 // Run before other code to make sure variables from .env are available
 dotenv.config()
 
+console.log("env:")
+
+console.log(process.env.IDOX_SCRAPER_URL)
+
 // Local dependencies
 const middleware = [
   require('./lib/middleware/authentication/authentication.js'),

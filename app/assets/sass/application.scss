@@ -124,3 +124,33 @@ $govuk-assets-path: '/govuk/assets/';
 		}
 	}
 }
+
+.loading {
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: govuk-spacing(3);
+	}
+
+	&__spinner {
+		border: 12px solid govuk-colour("white");
+		border-radius: 50%;
+		border-top-color: govuk-colour("blue");
+		border-bottom-color: govuk-colour("blue");
+		width: 80px;
+		height: 80px;
+		animation: spin 1.3s ease-in-out infinite;
+		margin-bottom: govuk-spacing(3);
+
+	}
+}
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

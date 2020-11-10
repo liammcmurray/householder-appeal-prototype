@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row" id="waiting-html">
+    <div class="govuk-grid-column-two-thirds">
+		{{ loadingPage({
+			heading: "Searching for your planning application",
+			description: "We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser.",
+			loadingText: "Loading"
+		}) }}
+
+		
+
+	</div>
+</div>
+
+{% endblock %}

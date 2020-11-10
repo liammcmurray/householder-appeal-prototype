@@ -13,7 +13,7 @@
 
       <h1 class="govuk-heading-xl">
         Your planning details
-        <span class="govuk-caption-xl">Planning reference: PK17/5462/F</span>
+        <span class="govuk-caption-xl">Planning reference: {{ data.planningDetails.Reference }}</span>
       </h1>
 
       
@@ -27,16 +27,7 @@
             Appeal Site location
           </dt>
           <dd class="govuk-summary-list__value">
-            55 Queensholm Drive Downend Bristol South Gloucestershire BS16 6LQ
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Local Council
-          </dt>
-          <dd class="govuk-summary-list__value">
-            South Gloucestershire Council
+            {{ data.planningDetails.Address }}
           </dd>
         </div>
 
@@ -45,7 +36,7 @@
             Date of decision
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ 14 | daysAgo }}
+            {{ data.planningDetails['Decision Issued Date'] | formatIdoxDecisionDate }}
           </dd>
         </div>
 
@@ -54,7 +45,8 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-              Erection of two storey side extension and single storey rear extension to form additional living accommodation and creation of new vehicular access.
+            {{ data.planningDetails['Proposal'] }}
+              
           </dd>
         </div>
 
@@ -63,11 +55,12 @@
             Decision
           </dt>
           <dd class="govuk-summary-list__value">
-              Approved, with conditions
+            {{ data.planningDetails.Decision }}
+              
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
+        <!-- <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Decision letter
           </dt>
@@ -83,15 +76,23 @@
           <dd class="govuk-summary-list__value">
             <a href="/public/images/PK17_5462_F-APPLICATION_FORM.pdf" download>View application form (PDF download)</a>
           </dd>
-        </div>
+        </div> -->
 
       </dl>      
 
+      {% if data.planningDetails['Decision Issued Date'] | formatIdoxDateIsWithinDeadline %}
       <div class="govuk-inset-text">
-        The deadline for appeal is {{ 70 | daysInFuture }}
+        The deadline for appeal is {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}
       </div>
-
       <a class="govuk-button" href="grounds-of-appeal">Appeal this planning decision</a>
+
+      {% else %}
+        <div class="govuk-inset-text">
+        <p>The deadline for appeal was {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}.</p>
+        <p>You might still be able to appeal under certain circumstances. Contact the planning inspectorate to find out more. </p>      
+      </div>
+      {% endif %}
+
       <p><a class="govuk-link" href="/eligibility/planning-department">Search for another planning application</a></p>
       
   </div>
