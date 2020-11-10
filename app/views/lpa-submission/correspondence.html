@@ -10,7 +10,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="representations" method="post" novalidate>
+    <form action="lpa-task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
 
 
@@ -44,7 +44,8 @@
             },
             uploadHtml: uploadHtml
           }) }}
-
+      <input type="hidden" name="interested-parties2-completed" value="govuk-tag app-task-list__task-completed">
+      <input type="hidden" name="interested-parties2-completedText" value="Completed">
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
