@@ -1,10 +1,11 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-  Upload the decision notice
+  Upload the decision notice | Appeal a householder planning decision
 {% endblock %}
 
 {% block content %}
+  <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <form action="task-list" method="post" novalidate>
     <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Required documents</span>
@@ -44,4 +45,5 @@
     <input type="hidden" name="decision-notice-completed-text" value="Completed">
   </form>
 </div>
+  </div>
 {% endblock %}

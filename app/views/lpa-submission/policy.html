@@ -1,4 +1,4 @@
-{% extends "layout-lpa.html" %}
+{% extends "layout.html" %}
 
 {% set headerTitle = "Appellant stuff" %}
   
@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
     <form action="lpa-task-list" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
@@ -54,6 +54,29 @@
     </form>
   </div>
 
+   <div class="govuk-grid-column-one-third"> 
+    <table class="govuk-table">
+      <caption class="govuk-table__caption">Appeal details</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Planning application number</th>
+          <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--turquoise">
+      20/500818/FULL
+    </strong></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Site address</th>
+          <td class="govuk-table__cell">22 Argyll Street, Maidstone</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Appellant Name</th>
+          <td class="govuk-table__cell">Manish Sharma</td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+  
+</div>
 {% endblock %}
 
 
