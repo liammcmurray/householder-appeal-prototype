@@ -10,7 +10,7 @@ const request = require('request');
 const moment = require("moment");
 
 const axios = require("axios");
-
+const idoxScraperUrl = process.env.IDOX_SCRAPER_URL;
 
 // Add your routes here - above the module.exports line
 
@@ -208,7 +208,7 @@ router.post("/submit-appeal/planning-number-post", function(req, res, next){
   let caseref = encodeURIComponent(req.body.caseref)
 
   console.log(caseref)
-  request("https://idocsscraper.azurewebsites.net/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
+  request(idoxScraperUrl + "/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
 
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
@@ -240,7 +240,7 @@ router.post("/submit-appeal/planning-number-post-2", function(req, res, next){
 
   planningDetails = undefined;
 
-  axios.get('https://idocsscraper.azurewebsites.net/api/v1/lpalookup', {
+  axios.get(idoxScraperUrl + '/api/v1/lpalookup', {
     params: {
       caseref: req.body.caseref
     }
