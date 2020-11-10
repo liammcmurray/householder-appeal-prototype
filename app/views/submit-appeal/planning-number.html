@@ -18,7 +18,7 @@
         <div id="application-number-hint" class="govuk-hint">
           You can find this on the decision letter from your local planning department
         </div>
-        <input class="govuk-input govuk-input--width-10" id="caseref" name="reference" type="text">
+        <input class="govuk-input govuk-input--width-10" id="caseref" name="caseref" type="text">
       </div>
 
 
@@ -34,13 +34,11 @@
 <div class="govuk-grid-row govuk-!-display-none" id="waiting-html">
     <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">Searching for your planning application</h1>
-
-      <div class="loading__container">
-        <div class="loading__spinner"></div>
-        <div class="loading__text govuk-body">Loading</div>
-      </div>
-      <p>We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser. </p>
+      {{ loadingPage({
+        heading: "Searching for your planning application",
+        description: "We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser.",
+        loadingText: "Loading"
+      }) }}
 
   </div>
 </div>

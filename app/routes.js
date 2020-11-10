@@ -9,6 +9,8 @@ const request = require('request');
 
 const moment = require("moment");
 
+const axios = require("axios");
+
 
 // Add your routes here - above the module.exports line
 
@@ -185,15 +187,28 @@ router.post('/eligibility/listed-building-post', function (req, res) {
   }
 })
 
+router.post('/eligibility/planning-department-post', function(req, res, next){
+  let redirectUrl = req.session.data["idox-prototype-url"];
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'SGC') {
+    req.session.data.planningError = false;
+    res.redirect('/submit-appeal/' + redirectUrl)
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/eligibility/planning-department')
+  } else {
+    req.session.data.planningError = false;
+    res.redirect('/eligibility/planning-department-out')
+  }
+})
+
 router.post("/submit-appeal/planning-number-post", function(req, res, next){
 
   let caseref = encodeURIComponent(req.body.caseref)
 
-  if(!req.session.data.cases){
-    req.session.data.cases = [];
-  }
   console.log(caseref)
-  request("http://localhost/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
+  request("https://idocsscraper.azurewebsites.net/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
 
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
@@ -219,27 +234,125 @@ router.post("/submit-appeal/planning-number-post", function(req, res, next){
 })
 
 
-router.post('/eligibility/planning-department-post', function(req, res, next){
-  let dept = req.body['planning-department'];
-  console.log(dept)
-  if(dept === 'SGC') {
-    req.session.data.planningError = false;
-    res.redirect('/submit-appeal/planning-number')
-  } else if (dept === ""){
-    req.session.data.planningError = true;
-    res.redirect('/eligibility/planning-department')
-  } else {
-    req.session.data.planningError = false;
-    res.redirect('/eligibility/planning-department-out')
-  }
+let planningDetails;
+
+router.post("/submit-appeal/planning-number-post-2", function(req, res, next){
+
+  planningDetails = undefined;
+
+  axios.get('https://idocsscraper.azurewebsites.net/api/v1/lpalookup', {
+    params: {
+      caseref: req.body.caseref
+    }
+  })
+  .then(function (response) {
+    // handle success
+    planningDetails = response.data;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+    planningDetails = {
+      error: error
+    }
+  })
+
+  res.redirect('/submit-appeal/postcode')
+
+  
 })
 
-router.post("/submit-appeal/postcode-post", function(req, res, next){
-  if(req.session.data.pastDeadline){
-      res.redirect("/submit-appeal/appeal-after-deadline")
-  } else {
-      res.redirect("/submit-appeal/appeal-details")
+router.post("/submit-appeal/postcode-post-ajax", function(req, res, next){
+  //BS34 8PP
+  var timesRun = 0;
+  let checkResponse = function(){
+    console.log(planningDetails);
+
+    try{
+      if(planningDetails.error){
+        clearInterval(interval);
+        res.send({
+          redirect: "/submit-appeal/reference-number-not-found"
+        });
+      } 
+
+      if(planningDetails) {
+        clearInterval(interval);
+        req.session.data.planningDetails = planningDetails;
+        let postcode = req.body.postcode.replace(/\s/g,'').toUpperCase();
+        let address = planningDetails.Address.replace(/\s/g,'').toUpperCase();
+
+        if(address.search(postcode) > -1){
+          res.send({
+            redirect: "/submit-appeal/appeal-details"
+          });
+        } else {
+          res.send({
+            redirect: "/submit-appeal/postcode-incorrect"
+          });
+        }
+      }
+    } catch(error){
+      console.log(error)
+      timesRun += 1;
+      console.log(timesRun)
+      if(timesRun === 60){
+          clearInterval(interval);
+          res.send({
+            redirect: "/submit-appeal/no-response"
+          });
+      }
+    }
   }
+  
+  checkResponse();
+  
+  var interval = setInterval(checkResponse, 1000);
+  
+
+})
+
+
+router.post("/submit-appeal/postcode-post", function(req, res, next){
+  //BS34 8PP
+  var timesRun = 0;
+  let checkResponse = function(){
+    console.log(planningDetails);
+
+    try{
+      if(planningDetails.error){
+        clearInterval(interval);
+        res.redirect("/submit-appeal/reference-number-not-found");
+      } 
+
+      if(planningDetails) {
+        clearInterval(interval);
+        req.session.data.planningDetails = planningDetails;
+        let postcode = req.body.postcode.replace(/\s/g,'').toUpperCase();
+        let address = planningDetails.Address.replace(/\s/g,'').toUpperCase();
+
+        if(address.search(postcode) > -1){
+          res.redirect("/submit-appeal/appeal-details");
+        } else {
+          res.redirect("/submit-appeal/postcode-incorrect");
+        }
+      }
+    } catch(error){
+      console.log(error)
+      timesRun += 1;
+      console.log(timesRun)
+      if(timesRun === 60){
+          clearInterval(interval);
+          res.redirect("/submit-appeal/no-response");
+      }
+    }
+  }
+  
+  checkResponse();
+  
+  var interval = setInterval(checkResponse, 1000);
+  
+
 })
 
 

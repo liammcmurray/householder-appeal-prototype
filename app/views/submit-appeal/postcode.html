@@ -6,25 +6,79 @@
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <form action="postcode-post" method="post" novalidate>
-        
-        <div class="govuk-form-group">
-	  		<label class="govuk-label govuk-label--l" for="postcode">
-			    What is the postcode of the appeal site?
-			</label>
-    <p class="govuk-hint">The appeal site is the area of property or land that your original planning application relates to.</p>
+<div class="govuk-grid-row" id="form-html">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="postcode-post" method="post" novalidate id="postcode-submit">
+      
+      <div class="govuk-form-group">
+  		<label class="govuk-label govuk-label--l" for="postcode">
+		    What is the postcode of the appeal site?
+		</label>
+  <p class="govuk-hint">The appeal site is the area of property or land that your original planning application relates to.</p>
 
-  			<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
-		</div>
-        <div class="govuk-form-group">
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
-          </button>
-        </div>
-      </form>
-    </div>
+			<input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
+	</div>
+      <div class="govuk-form-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+    </form>
   </div>
+</div>
 
+
+<div class="govuk-grid-row govuk-!-display-none" id="waiting-html">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ loadingPage({
+      heading: "Searching for your planning application",
+      description: "We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser.",
+      loadingText: "Loading"
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+<script> 
+
+
+
+$(document).on("submit", "#postcode-submit", function(event){
+  event.preventDefault();
+  console.log(event);
+
+  $("#form-html").hide();
+  $("#waiting-html").removeClass("govuk-!-display-none");
+
+  
+  let postcode = $("#postcode").val();
+
+  $.ajax({
+    type: "POST",
+    url: "/submit-appeal/postcode-post-ajax",
+    data: {
+      "postcode": postcode 
+    },
+    success: function(data, status){
+      let url = window.location.origin + data.redirect;
+      window.location = url
+      
+    },
+    error: function(data, status){
+      let url = window.location.origin + "/submit-appeal/reference-number-not-found";
+      window.location = url
+    }
+  });
+
+
+  
+})
+
+
+</script>
 {% endblock %}
