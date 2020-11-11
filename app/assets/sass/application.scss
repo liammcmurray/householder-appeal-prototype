@@ -154,3 +154,8 @@ $govuk-assets-path: '/govuk/assets/';
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+
+.govuk-radios__conditional--error {
+	border-left-color:  $govuk-error-colour
+}
