@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="/who-are-you-post" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
+
+        {{ govukRadios({
+          classes: "",
+          idPrefix: "who-are-you",
+          name: "who-are-you",
+          fieldset: {
+            legend: {
+              text: "Are you the original applicant on the planning application form?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If you are not the applicant, you must be have their permission to submit an appeal on their behalf."
+          },
+          items: [
+            {
+              value: "applicant",
+              text: "Yes"
+            },
+            {
+              value: "agent",
+              text: "No - I am appealing on behalf of the applicant and have their permission"
+            }
+          ]
+        }) }}
+
+
+        <button class= "govuk-button" value="">Save and continue</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- 
+    <input type="hidden" name="sections-completed" value="1">
+        <input type="hidden" name="your-details-completed" value="govuk-tag app-task-list__tag">
+        <input type="hidden" name="your-details-completed-text" value="Completed">
+
+      -->
+{% endblock %}
+
+

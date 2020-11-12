@@ -15,26 +15,15 @@
         
           
         <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="finder-postcode">
-                What is the postcode of the appeal site?
+                What is the address of the appeal site?
               </label>
             </h1>
         <p>The appeal site is the area of property or land that your original planning application relates to.</p>
-        
-          <div id="hint-finder-postcode" class="gem-c-hint govuk-hint govuk-!-margin-bottom-3">
-            For example SW1A 2AA
-          </div>
-          <input  value="{{ data['finder-postcode'] }}" name="What is the postcode of the appeal site?" class="govuk-input govuk-input--width-10" id="finder-postcode" type="text" aria-describedby="hint-finder-postcode">
-        
-      
-        <button class="govuk-button" type="submit">Find</button>
+
 
     </form>
       <div class="govuk-form-group">
-        <details class="govuk-details" data-module="govuk-details">
-          <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">Enter address manually</span>
-          </summary>
-          <div class="govuk-details__text">
+      
             <fieldset class="govuk-fieldset">
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-line-1">
@@ -78,13 +67,11 @@
                   <input type="hidden" name="site-address-completed" value="govuk-tag app-task-list__task-completed">
                   <input type="hidden" name="site-address-completed-text" value="Completed">
                 </form>
-              </div>
-            </fieldset>
-
-          </div>
-        </details>
+            </div>
+          </fieldset>
+        </div>
       </div>
     </div>
+    
 
-  </div>
 {% endblock %}

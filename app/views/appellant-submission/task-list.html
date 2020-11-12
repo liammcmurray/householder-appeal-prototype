@@ -24,12 +24,23 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="your-details" aria-describedby="your-details-status">
+                <a href="who-are-you" aria-describedby="your-details-status">
                   Your details
                 </a>
               </span>
               <strong class="{{data['your-details-completed']}}" id="your-details-status">{{data['your-details-completed-text']}}</strong>
             </li>
+
+            {% if data['who-are-you'] == 'agent' %}
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="applicant-name" aria-describedby="applicant-name-status">
+                  Applicant name
+                </a>
+              </span>
+              <strong class="{{data['applicant-name-completed']}}" id="your-details-status">{{data['applicant-name-completed-text']}}</strong>
+            </li>
+            {% endif %}
           </ul>
         </li>
 
@@ -103,14 +114,7 @@
               </span>
               <strong name="site-location-status" class="{{data['site-location-completed']}}" >{{data['site-location-completed-text']}}</strong>
             </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="site-ownership">
-                  Ownership of the appeal site
-                </a>
-              </span>
-              <strong name="site-ownership-status" class="{{data['site-ownership-completed']}}" >{{data['site-ownership-completed-text']}}</strong>
-            </li>
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="site-access">

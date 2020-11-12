@@ -50,6 +50,17 @@ router.post('/check-submission', function (req, res) {
 
 
 
+router.post('/who-are-you-post', function (req, res) {
+  let user = req.session.data['who-are-you']
+
+  if (user == "agent" || user == "applicant") {
+    res.redirect('/appellant-submission/your-details')
+  } else {
+    res.redirect('/appellant-submission/who-are-you')
+  }
+})
+
+
 
 ///////////////////////////////////////////////////////////////
 
@@ -166,13 +177,50 @@ router.post('/eligibility/decision-date-post', function (req, res) {
   
 })
 
+router.post('/appellant-submission/decision-date-post', function (req, res) {
+  let day = req.session.data['decision-date-day'],
+      month = req.session.data['decision-date-month'],
+      year = req.session.data['decision-date-year'];
+   if(!day || !month  || !year) {
+     res.redirect('/appellant-submission/decision-date-error')
+   }
+
+  let date = moment(`${year}-${month}-${day}`, "Y-M-D", true);
+
+  console.log(date.isValid());
+
+  if(date.isValid() === false){
+    res.redirect('/appellant-submission/decision-date-error')
+  } else{
+    let checkDate = date.add(12, "weeks");
+    let today = moment();
+    if(checkDate.isBefore(today, "days")){
+
+      req.session.data.deadlineDate = checkDate.format("D MMMM YYYY");
+      res.redirect('/appellant-submission/decision-date-out')
+    } else {
+      res.redirect('/appellant-submission/planning-department')
+    }
+  } 
+
+  
+})
+
 router.all('/eligibility/planning-department', function(req,res,next){
   
   res.locals.councils = localCouncils.sort(sortByProperty("name"));
   
   next()
   
-}); 
+});
+
+router.all('/appellant-submission/planning-department', function(req,res,next){
+  
+  res.locals.councils = localCouncils.sort(sortByProperty("name"));
+  
+  next()
+  
+});  
 
 
 router.post('/eligibility/listed-building-post', function (req, res) {
@@ -187,6 +235,19 @@ router.post('/eligibility/listed-building-post', function (req, res) {
   }
 })
 
+router.post('/appellant-submission/listed-building-post', function (req, res) {
+  let haslisted = req.session.data['listed-building']
+
+  if (haslisted === 'no') {
+    res.redirect('/appellant-submission/task-list')
+  } else if (haslisted === 'yes') {
+    res.redirect('/appellant-submission/listed-out')
+  } else {
+    res.redirect('/appellant-submission/listed-building')
+  }
+})
+
+
 router.post('/eligibility/planning-department-post', function(req, res, next){
   let redirectUrl = req.session.data["idox-prototype-url"];
   let dept = req.body['planning-department'];
@@ -200,6 +261,22 @@ router.post('/eligibility/planning-department-post', function(req, res, next){
   } else {
     req.session.data.planningError = false;
     res.redirect('/eligibility/planning-department-out')
+  }
+})
+
+router.post('/appellant-submission/planning-department-post', function(req, res, next){
+  let redirectUrl = req.session.data["idox-prototype-url"];
+  let dept = req.body['planning-department'];
+  console.log(dept)
+  if(dept === 'KEN') {
+    req.session.data.planningError = false;
+    res.redirect('/appellant-submission/listed-building')
+  } else if (dept === ""){
+    req.session.data.planningError = true;
+    res.redirect('/appellant-submission/planning-department')
+  } else {
+    req.session.data.planningError = false;
+    res.redirect('/appellant-submission/planning-department-out')
   }
 })
 

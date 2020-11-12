@@ -44,6 +44,22 @@
             </a>
           </dd>
         </div>
+
+        {% if data['who-are-you'] == 'agent' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applicant name
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>{{ data['applicant-name'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="applicant-name">
+              Change<span class="govuk-visually-hidden"> applicant name</span>
+            </a>
+          </dd>
+        </div>    
+        {% endif %}
       </dl>
 
       <h2 class="govuk-heading-m">Required documents</h2>
@@ -140,11 +156,6 @@
           </dt>
           <dd class="govuk-summary-list__value">
             yes
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="site-ownership">
-              Change<span class="govuk-visually-hidden"> site ownership</span>
-            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
