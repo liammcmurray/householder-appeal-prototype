@@ -51,6 +51,15 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
+                <a href="application-number">
+                  Planning application number
+                </a>
+              </span>
+              <strong name="application-number-status" class="{{data['application-number-completed']}}" >{{data['application-number-completed-text']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
                 <a href="upload-application">
                   Upload the original planning application form
                 </a>
@@ -66,6 +75,7 @@
               </span>
               <strong name="decision-notice-status" class="{{data['decision-notice-completed']}}" >{{data['decision-notice-completed-text']}}</strong>
             </li>
+            
           </ul>
         </li>
 
@@ -106,6 +116,19 @@
             <span class="app-task-list__section-number">4. </span> Visiting the appeal site
           </h2>
           <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-ownership">
+                  Ownership of the appeal site
+                </a>
+              </span>
+              <strong name="site-ownership-status" class="{{data['site-ownership-completed']}}" >{{data['site-ownership-completed-text']}}</strong>
+            </li>
+
+
+
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="site-location">
@@ -114,6 +137,7 @@
               </span>
               <strong name="site-location-status" class="{{data['site-location-completed']}}" >{{data['site-location-completed-text']}}</strong>
             </li>
+                </a>
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
