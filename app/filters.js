@@ -114,6 +114,19 @@ module.exports = function (env) {
 
   }
 
+  filters.formatAsList = function (list){
+    console.log(list)
+    let html = ""
+
+    
+    list.forEach(function(item){
+      html =  `${html}\n<li>${item}</li>`
+    })    
+
+    return html;
+    
+  }
+
 
 
   return filters

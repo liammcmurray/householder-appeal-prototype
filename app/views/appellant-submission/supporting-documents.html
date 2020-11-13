@@ -14,7 +14,16 @@
     </h1>
     <p>If you have referred to any documents in your appeal statement, for example photographs, upload them here.​</p>
     <p>You do not need to upload the plans from your original planning application.</p>
-    <div class="govuk-inset-text">Individual file sizes should be no more than 1.21GB</div>
+
+        <div class="govuk-inset-text">Individual file sizes should be no more than 1.21GB</div>
+
+        {% if data['file-upload-docs'] %}
+        <h2 class="govuk-heading-m">Files added:</h2>
+        <ul class="govuk-list">
+          {{ data['file-upload-docs'] | formatAsList |safe }}
+        </ul>
+        {% endif %}
+
     <div class="govuk-form-group">
       <label class="govuk-heading-m" for="file-upload-docs">
         Upload files (optional)
