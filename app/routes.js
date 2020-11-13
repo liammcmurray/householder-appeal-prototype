@@ -239,7 +239,7 @@ router.post('/appellant-submission/listed-building-post', function (req, res) {
   let haslisted = req.session.data['listed-building']
 
   if (haslisted === 'no') {
-    res.redirect('/appellant-submission/task-list')
+    res.redirect('/appellant-submission/appeal-statement-info')
   } else if (haslisted === 'yes') {
     res.redirect('/appellant-submission/listed-out')
   } else {
