@@ -66,6 +66,19 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
+            Planning application number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ data['application-number'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="upload-application">
+              Change<span class="govuk-visually-hidden"> uploaded application form</span>
+            </a>
+          </dd>
+        </div>  
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
             Planning application form
           </dt>
           <dd class="govuk-summary-list__value">
@@ -156,6 +169,11 @@
           </dt>
           <dd class="govuk-summary-list__value">
             yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-ownership">
+              Change<span class="govuk-visually-hidden"> site ownership</span>
+            </a>
           </dd>
         </div>
         <div class="govuk-summary-list__row">
