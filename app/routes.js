@@ -446,7 +446,7 @@ router.post("/submit-appeal/contact-details-post", function(req, res, next){
 router.all("/submit-appeal/reference-number-not-found", function(req, res, next){
   let council = localCouncils.filter(council => council.key === req.session.data['planning-department']);
 
-  res.locals.councilName = council[0]['official-name'];
+  //res.locals.councilName = council[0]['official-name'];
   next()
 })
 
