@@ -24,7 +24,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Appeal Site location
+            Appeal site location
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data.planningDetails.Address }}
@@ -82,7 +82,7 @@
 
       {% if data.planningDetails['Decision Issued Date'] | formatIdoxDateIsWithinDeadline %}
       <div class="govuk-inset-text">
-        The deadline for appeal is {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}
+        The deadline for appealing is {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}
       </div>
       <a class="govuk-button" href="grounds-of-appeal">Appeal this planning decision</a>
 
@@ -93,7 +93,9 @@
       </div>
       {% endif %}
 
-      <p><a class="govuk-link" href="/eligibility/planning-department">Search for another planning application</a></p>
+      <h2 class="govuk-heading-m">Not your planning application?</h2>
+
+      <p>If this is not the correct planning application, you can <a class="govuk-link" href="/eligibility/planning-department">search again</a>.</p>
       
   </div>
 

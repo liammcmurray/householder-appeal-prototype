@@ -12,7 +12,7 @@
       <h1 class="govuk-heading-xl">
         Check your answers
       </h1>
-      <p>Before you submit your appeal, take a moment to make sure you're happy with the answers you've provided.</p>
+      <p>Before you submit your appeal, check that the information you've provided is correct.</p>
 
       <h2 class="govuk-heading-m">The planning application you are appealing</h2>
       <p><a href="/eligibility/planning-department">Change planning application</a></p>
@@ -21,10 +21,10 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Appeal Site location
+            Appeal site location
           </dt>
           <dd class="govuk-summary-list__value">
-            55 Queensholm Drive Downend Bristol South Gloucestershire BS16 6LQ
+            {{ data.planningDetails.Address }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -46,7 +46,7 @@
             Date of decision
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ 14 | daysAgo }}
+            {{ data.planningDetails['Decision Issued Date'] | formatIdoxDecisionDate }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -57,7 +57,7 @@
             Description
           </dt>
           <dd class="govuk-summary-list__value">
-              Erection of two storey side extension and single storey rear extension to form additional living accommodation and creation of new vehicular access.
+              {{ data.planningDetails['Proposal'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -68,7 +68,7 @@
             Decision
           </dt>
           <dd class="govuk-summary-list__value">
-              Approved, with conditions
+              {{ data.planningDetails.Decision }}
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
@@ -87,10 +87,10 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Application form
+            Plannign application form
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="/public/images/PK17_5462_F-APPLICATION_FORM.pdf" download>View application form (PDF download)</a>
+            <a href="/public/images/PK17_5462_F-APPLICATION_FORM.pdf" download>View planning application form (PDF download)</a>
           </dd>
           <dd class="govuk-summary-list__actions">
           </dd>
