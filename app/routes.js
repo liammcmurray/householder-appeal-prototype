@@ -283,7 +283,8 @@ router.post('/appellant-submission/planning-department-post', function(req, res,
 
 router.post("/submit-appeal/planning-number-post", function(req, res, next){
 
-  let caseref = req.body.caseref.toUpperCase();
+  let caseref = req.body.caseref.replace(/\s/g, '').toUpperCase();
+
 
   if(planningApplications.some(item => item.Reference.toUpperCase() === caseref)){
     req.session.data.planningDetails = planningApplications.find(item => item.Reference.toUpperCase() === caseref);
