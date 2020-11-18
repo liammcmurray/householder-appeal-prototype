@@ -269,7 +269,7 @@ router.post('/appellant-submission/planning-department-post', function(req, res,
   let redirectUrl = req.session.data["idox-prototype-url"];
   let dept = req.body['planning-department'];
   console.log(dept)
-  if(dept === 'KEN') {
+  if(dept === 'SGC') {
     req.session.data.planningError = false;
     res.redirect('/appellant-submission/listed-building')
   } else if (dept === ""){
