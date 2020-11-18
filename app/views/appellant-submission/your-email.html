@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Your details | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="task-list" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
+        <div class="govuk-form-group">
+
+        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="appellant-email">
+             What is your email address?
+            </label>
+          </h1>
+        <p>We ask for your email address so we can contact you about your appeal.</p>
+
+        
+          <input class="govuk-input" id="appellant-email" name="appellant-email" value="{{ data['appellant-email'] }}" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+
+        <input type="hidden" name="sections-completed" value="1">
+        <input type="hidden" name="email-completed" value="govuk-tag app-task-list__tag">
+        <input type="hidden" name="email-completed-text" value="Completed">
+      </form>
+    </div>
+
+  </div>
+{% endblock %}
