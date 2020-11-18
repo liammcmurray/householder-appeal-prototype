@@ -15,9 +15,23 @@
       <p>Before you submit your appeal, check that the information you've provided is correct.</p>
 
       <h2 class="govuk-heading-m">The planning application you are appealing</h2>
-      <p><a href="/eligibility/planning-department">Change planning application</a></p>
 
       <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails.Reference }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/eligibility/planning-department">
+              Change<span class="govuk-visually-hidden"> Planning application</span>
+            </a>
+          </dd>
+        </div>
+
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
