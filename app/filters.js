@@ -115,15 +115,19 @@ module.exports = function (env) {
   }
 
   filters.formatAsList = function (list){
-    console.log(list)
-    let html = ""
 
-    
-    list.forEach(function(item){
-      html =  `${html}\n<li>${item}</li>`
-    })    
+   if (typeof list === "object"){
+      let html = ""
 
-    return html;
+      
+      list.forEach(function(item){
+        html =  `${html}\n<li>${item}</li>`
+      })    
+
+      return html;
+    } else {
+      return list;
+    }
     
   }
 
