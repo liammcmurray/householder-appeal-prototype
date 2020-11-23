@@ -1,0 +1,186 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+ 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        Appeal a householder planning decision
+      </h1>
+      <p>A householder appeal must be received by the Planning Inspectorate within 12 weeks of the decision date.</p>
+      <p>If you do not submit it in time, you will lose your right to appeal.</p>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">{{data.taskListStatus['sections-completed-text']}}</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed {{data.taskListStatus['sections-completed']}} of 4 sections.</p>
+
+      <ol class="app-task-list">
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> About you
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="who-are-you" aria-describedby="your-details-status">
+                  Your details
+                </a>
+              </span>
+              <strong class="{{data.taskListStatus['your-details-completed']}}" id="your-details-status">{{data.taskListStatus['your-details-completed-text']}}</strong>
+            </li>
+
+            {% if data.taskListStatus['who-are-you'] == 'agent' %}
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="applicant-name" aria-describedby="applicant-name-status">
+                  Applicant name
+                </a>
+              </span>
+              <strong class="{{data.taskListStatus['applicant-name-completed']}}" id="your-details-status">{{data.taskListStatus['applicant-name-completed-text']}}</strong>
+            </li>
+            {% endif %}
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Required documents
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="application-number">
+                  Planning application number
+                </a>
+              </span>
+              <strong name="application-number-status" class="{{data.taskListStatus['application-number-completed']}}" >{{data.taskListStatus['application-number-completed-text']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="upload-application">
+                  Upload the original planning application form
+                </a>
+              </span>
+              <strong name="application-upload-status" class="{{data.taskListStatus['application-upload-completed']}}" >{{data.taskListStatus['application-upload-completed-text']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="upload-decision">
+                  Upload the decision letter
+                </a>
+              </span>
+              <strong name="decision-notice-status" class="{{data.taskListStatus['decision-notice-completed']}}" >{{data.taskListStatus['decision-notice-completed-text']}}</strong>
+            </li>
+            
+          </ul>
+        </li>
+
+         <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Your appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="appeal-statement" aria-describedby="appeal-statement-status">
+                  Your appeal statement
+                </a>
+              </span>
+              <strong name="appeal-statement-status" class="{{data.taskListStatus['appeal-statement-completed']}}" >{{data.taskListStatus['appeal-statement-completed-text']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="supporting-documents">
+                 Any other documents to support your appeal​
+                </a>
+              </span>
+              <strong name="supporting-documents-status" class="{{data.taskListStatus['upload-appeal-docs-completed']}}" >{{data.taskListStatus['upload-appeal-docs-completed-text']}}</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="other-appeals">
+                  Other relevant appeals
+                </a>
+              </span>
+              <strong name="other-appeals-status" class="{{data.taskListStatus['other-appeal-completed']}}" >{{data.taskListStatus['other-appeal-completed-text']}}</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Visiting the appeal site
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-location">
+                  Address of the appeal site
+                </a>
+              </span>
+              <strong name="site-location-status" class="{{data.taskListStatus['site-location-completed']}}" >{{data.taskListStatus['site-location-completed-text']}}</strong>
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-ownership">
+                  Ownership of the appeal site
+                </a>
+              </span>
+              <strong name="site-ownership-status" class="{{data.taskListStatus['site-ownership-completed']}}" >{{data.taskListStatus['site-ownership-completed-text']}}</strong>
+            </li>
+
+                
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-access">
+                  Access to the appeal site
+                </a>
+              </span>
+              <strong name="site-access-status" class="{{data.taskListStatus['site-access-completed']}}" >{{data.taskListStatus['site-access-completed-text']}}</strong>
+            </li>
+             <!--<li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-access-notes">
+                  Any notes for the Inspector
+                </a>
+              </span>
+              <strong name="site-access-notes" class="{{data.taskListStatus['site-access-notes-completed']}}" >{{data.taskListStatus['site-access-notes-completed-text']}}</strong>
+            </li>-->
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="site-access-safety">
+                  Any health and safety issues
+                </a>
+              </span>
+              <strong name="site-access-status" class="{{data.taskListStatus['safety-access-completed']}}" >{{data.taskListStatus['safety-access-completed-text']}}</strong>
+
+            </li>
+            
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">5. </span> Submit your appeal
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {{data.taskListStatus['application-completed-link']}}
+              </span>
+               <strong name="site-ownership-status" class="{{data.taskListStatus['application-completed']}}" >{{data.taskListStatus['application-completed-text']}}</strong>
+            </li>
+          </ul>
+        </li>
+        
+      </ol>
+    </div>
+  </div>
+{% endblock %}
