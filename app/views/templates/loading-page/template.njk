@@ -4,5 +4,6 @@
 	<div class="loading__spinner"></div>
 		<div class="loading__text govuk-body">{{ params.loadingText }}</div>
 	</div>
-<p>{{ params.description}} </p>
-
+<div class="govuk-body">	
+{{ params.description | safe }} 
+</div>
