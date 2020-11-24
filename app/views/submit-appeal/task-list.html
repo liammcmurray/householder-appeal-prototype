@@ -11,6 +11,9 @@
       <h1 class="govuk-heading-xl">
         Appeal a householder planning decision
       </h1>
+      <div class="govuk-inset-text">
+        The deadline for appealing is {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}
+      </div>
       <p>A householder appeal must be received by the Planning Inspectorate within 12 weeks of the decision date.</p>
       <p>If you do not submit it in time, you will lose your right to appeal.</p>
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">{{data.taskListStatus['sections-completed-text']}}</h2>
@@ -19,7 +22,23 @@
       <ol class="app-task-list">
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> About you
+            <span class="app-task-list__section-number">1. </span> About the original planning application
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="planning-details" aria-describedby="your-details-status">
+                  Your planning application
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="your-details-status">completed</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> About you
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
@@ -47,7 +66,7 @@
 
          <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Your appeal
+            <span class="app-task-list__section-number">3. </span> Your appeal
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">

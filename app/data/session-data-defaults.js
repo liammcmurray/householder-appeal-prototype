@@ -110,6 +110,23 @@ module.exports = {
       "application-completed": "govuk-tag govuk-tag--grey app-task-list__tag",
       "application-completed-link": "Check your answers",
       "application-completed-text": "Cannot start yet",
+    },
+    planningDetails: {
+      "Name": "Manish Sharma",
+      "Address": "Old Orchard 22 Townsend Lane Almondsbury South Gloucestershire BS32 4EQ",
+      "Alternative Reference": "PP-08794252",
+      "Appeal Decision": "Not Available",
+      "Appeal Status": "Unknown",
+      "Application Received": "18 Jun 2020",
+      "Application Validated": "18 Jun 2020",
+      "Decision": "Refusal",
+      "Decision Issued Date": "12 Oct 2020",
+      "Proposal": "Demolition of existing dwelling and outbuildings. Erection of 1 no. dwelling with associated works.",
+      "Reference": "P20/12345/F",
+      "Status": "Decided",
+      "documents": [
+        "downloads/P20-10658-F.zip"
+      ]
     }
 
 }

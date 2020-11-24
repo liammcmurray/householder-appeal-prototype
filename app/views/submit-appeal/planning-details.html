@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+  
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+      <h1 class="govuk-heading-xl">
+        Your planning details
+      </h1>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails.Reference }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Appeal site location
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails.Address }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local planning department
+          </dt>
+          <dd class="govuk-summary-list__value">
+            South Gloucestershire Council
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of decision
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails['Decision Issued Date'] | formatIdoxDecisionDate }}
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Description
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails['Proposal'] }}
+              
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data.planningDetails.Decision }}
+              
+          </dd>
+        </div>
+
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Decision letter
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="/public/images/PK17_5462_F-DECISION-5689953.pdf" download>View decision letter (PDF download)</a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Application form
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="/public/images/PK17_5462_F-APPLICATION_FORM.pdf" download>View application form (PDF download)</a>
+          </dd>
+        </div> -->
+
+      </dl>      
+
+      <div class="govuk-inset-text">
+        The deadline for appealing is {{ data.planningDetails['Decision Issued Date'] | formatIdoxDeadlineDate }}
+      </div>
+      
+
+
+
+      <h2 class="govuk-heading-m">Not your planning application?</h2>
+
+      <p>If this is not the correct planning application, you can <a class="govuk-link" href="/eligibility/planning-department">search again</a>.</p>
+      
+  </div>
+
+{% endblock %}
