@@ -439,4 +439,17 @@ router.all("/submit-appeal/reference-number-not-found", function(req, res, next)
   next()
 })
 
+
+router.post('/submit-appeal/householder-appeal-post', function (req, res) {
+  let hasconsent = req.session.data['householder']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/submit-appeal/task-list')
+  } else if (hasconsent === 'no') {
+    res.redirect('/submit-appeal/householder-out')
+  } else {
+    res.redirect('/submit-appeal/householder-appeal')
+  }
+})
+
 module.exports = router

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Site ownership | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="site-access" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Visiting the appeal site</span>      
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Do you own the whole appeal site?
+                </h1>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name" name="site-owner-names" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="changed-name">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="changed-name-2" name="site-owner-names" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+        <input type="hidden" name="sections-completed" value="4">
+        <input type="hidden" name="sections-completed-text" value="Application complete">
+        <input type="hidden" name="site-ownership" value="{{ data['site-owner-names'] }}">
+        <input type="hidden" name="site-ownership-completed" value="govuk-tag app-task-list__tag">
+        <input type="hidden" name="site-ownership-completed-text" value="Completed">
+      </form>
+    </div>
+
+  </div>
+{% endblock %}
