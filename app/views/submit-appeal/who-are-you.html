@@ -8,8 +8,19 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-      <form action="/who-are-you-post" method="post" novalidate>
+      <form action="your-details" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
+
+        {% set nameHtml %}
+          {{ govukInput({
+            id: "applicant-name",
+            name: "applicant-name",
+            type: "text",
+            label: {
+              text: "Name on the original planning application"
+            }
+          }) }}
+        {% endset %}
 
         {{ govukRadios({
           classes: "",
@@ -28,15 +39,22 @@
           items: [
             {
               value: "applicant",
-              text: "Yes"
+              checked: checked("who-are-you", "applicant"),
+              text: "Yes, the original application was made in my name​"
             },
             {
               value: "agent",
-              text: "No - I am appealing on behalf of the applicant and have their permission"
+              checked: checked("who-are-you", "agent"),
+              text: "No, I'm appealing on behalf of the original applicant and have their permission",
+              conditional: {
+                  html: nameHtml
+              }
             }
           ]
         }) }}
 
+        <input type="hidden" name="alt-your-details-completed-text" value="In progress">
+        <input type="hidden" name="alt-your-details-completed" value="govuk-tag--blue">
 
         <button class= "govuk-button" value="">Save and continue</button>
       </form>
@@ -44,12 +62,12 @@
 
   </div>
 
-  <!-- 
-    <input type="hidden" name="sections-completed" value="1">
-        <input type="hidden" name="your-details-completed" value="govuk-tag app-task-list__tag">
-        <input type="hidden" name="your-details-completed-text" value="Completed">
+  
+        
+        
 
-      -->
+      
 {% endblock %}
+
 
 

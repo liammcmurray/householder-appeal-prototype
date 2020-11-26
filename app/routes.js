@@ -421,14 +421,31 @@ router.post("/submit-appeal/postcode-post", function(req, res, next){
 
 })
 
+router.post('/submit-appeal/site-ownership-post', function (req, res) {
+  let owner = req.session.data['site-owner-names']
+
+  if (owner === 'no') {
+    res.redirect('/submit-appeal/site-ownership-certb')
+  } else {
+
+    req.session.data["alt-site-ownership-completed"] = "";
+    req.session.data["alt-site-ownership-completed-text"] = "Completed";
+    res.redirect('/submit-appeal/site-access')
+  }
+})
+
 
 router.post("/submit-appeal/contact-details-post", function(req, res, next){
 
     if (req.body.contact.includes("post")){
+      req.session.data["alt-contact-details-completed"] = "govuk-tag--blue";
+      req.session.data["alt-contact-details-completed-text"] = "In progress";
       res.redirect('/submit-appeal/address')
     }
     
-    res.redirect('/submit-appeal/check-answers')
+    req.session.data["alt-contact-details-completed"] = "";
+    req.session.data["alt-contact-details-completed-text"] = "Completed";
+    res.redirect('/submit-appeal/task-list')
 })
 
 
@@ -450,6 +467,72 @@ router.post('/submit-appeal/householder-appeal-post', function (req, res) {
   } else {
     res.redirect('/submit-appeal/householder-appeal')
   }
+})
+
+router.post('/submit-appeal/who-are-you-post', function (req, res) {
+  let user = req.session.data['who-are-you']
+
+  if (user == "agent" || user == "applicant") {
+    res.redirect('/submit-appeal/your-details')
+  } else {
+    res.redirect('/submit-appeal/who-are-you')
+  }
+})
+
+router.all("/submit-appeal/task-list", function(req, res, next){
+  let sections = [
+    {
+      sections: ["Completed"],
+      complete: true
+    },{
+      sections: [req.session.data["alt-sections-completed-text"]],
+      complete: false,
+    },{
+      sections: [
+        req.session.data["alt-your-details-completed-text"], 
+        req.session.data["alt-contact-details-completed-text"]
+        ],
+      complete: false,
+    },{
+      sections: [
+        req.session.data["alt-appeal-statement-completed-text"], 
+        req.session.data["alt-upload-appeal-docs-completed-text"], 
+        req.session.data["alt-other-appeal-completed-text"]
+        ],
+      complete: false
+    },{
+      sections: [
+        req.session.data["alt-site-ownership-completed-text"],
+        req.session.data["alt-site-access-completed-text"],
+        req.session.data["alt-safety-access-completed-text"]
+      ],
+      complete: false
+    }
+  ];
+
+  sections.map(function(item){
+    console.log(item.sections.filter(obj => obj.toUpperCase() === "COMPLETED") );
+    console.log(item.sections.filter(obj => obj.toUpperCase() === "COMPLETED").length );
+    console.log(item.length)
+
+    if(item.sections.filter(obj => obj.toUpperCase() === "COMPLETED").length === item.sections.length){
+      item.complete = true
+    } else {
+      item.complete = false
+    }
+  })
+
+  res.locals.sectionsComplete = sections.filter(item => item.complete).length;
+
+  if(res.locals.sectionsComplete == 4){
+    req.session.data["alt-application-completed-link"] = `<a href="check-answers">Check your answers</a>`;
+    req.session.data['alt-application-completed-text'] = "Not started";
+  } else {
+    req.session.data["alt-application-completed-link"] = `Check your answers`;
+    req.session.data['alt-application-completed-text'] = "Cannot start yet";
+  }
+
+  next()
 })
 
 module.exports = router

@@ -8,7 +8,7 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-      <form action="task-list-complete" method="post" novalidate>
+      <form action="task-list" method="post" novalidate>
         <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Visiting the appeal site</span>
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset">
@@ -66,9 +66,8 @@
             Save and continue
           </button>
         </div>
-        <input type="hidden" name="health-option" value="{{ data['safety'] }}">
-        <input type="hidden" name="safety-access-completed" value="govuk-tag app-task-list__tag">
-        <input type="hidden" name="safety-access-completed-text" value="Completed">
+        <input type="hidden" name="alt-safety-access-completed" value="">
+        <input type="hidden" name="alt-safety-access-completed-text" value="Completed">
       </form>
     </div>
 

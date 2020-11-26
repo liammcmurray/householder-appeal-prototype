@@ -14,7 +14,8 @@
       <p>This will be used to send your appeal decision to. We may also need to get in touch about your appeal. </p>
       {% endset -%}
 
-
+          <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
+      
       {% set emailHtml %}
       {{ govukInput({
         id: "contact-by-email",
@@ -65,6 +66,7 @@
         items: [
           {
             value: "email",
+            checked: checked("contact", "email"),
             text: "Email",
             conditional: {
               html: emailHtml
@@ -72,6 +74,7 @@
           },
           {
             value: "post",
+            checked: checked("contact", "post"),
             text: "Post"
           }
         ]
@@ -81,8 +84,7 @@
         <button class="govuk-button" data-module="govuk-button">
             Save and continue
           </button>
-          <input type="hidden" name="upload-appeal-docs-completed" value="govuk-tag app-task-list__task-completed">
-          <input type="hidden" name="upload-appeal-docs-completedText" value="Completed">
+        
         </form>
     </div>
   </div>

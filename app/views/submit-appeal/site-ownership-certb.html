@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Site ownership | Appeal a householder planning decision
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <form action="site-access" method="post" novalidate>
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Visiting the appeal site</span>
+            <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                Have you told the other owners that you’re appealing?
+            </legend>
+            <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            If the site has more than one owner, you must tell the other owners that you're appealing.
+          </strong>
+        </div>
+            <div class="govuk-radios govuk-!-padding-bottom-6">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="other-owners" name="inform-other-owner" type="radio" value="Yes, I have already told the other owners​">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                  Yes, I have already told the other owners​
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="other-owners-2" name="inform-other-owner" type="radio" value="No, but I understand that I have to inform them">
+                <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                  No, but I understand that I have to inform them
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+        </div>
+        <input type="hidden" name="alt-site-ownership-completed" value="">
+        <input type="hidden" name="alt-site-ownership-completed-text" value="Completed">
+      </form>
+    </div>
+
+  </div>
+{% endblock %}
