@@ -86,42 +86,31 @@
         </ul>
       </div>
     </details>
-    <div class="govuk-inset-text">File size should be no more than 1.21GB</div>
-    <div class="govuk-form-group">
-      <label class="govuk-heading-m" for="appeal-statement">
-        Upload a file
-      </label>
-      <input value="{{ data['appeal-statement'] }}" class="govuk-file-upload" id="appeal-statement" name="appeal-statement" type="file">
-    </div>
+    {% set uploadHtml %}
+      {{ govukFileUpload({
+        id: "appeal-statement",
+        name: "appeal-statement",
+        classes: 'moj-multi-file-upload__input',
+        label: {
+          text: "Upload a file",
+          classes: 'govuk-label--m'
+        },
+        errorMessage: errorMessage
+      }) }}
 
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help with file formats
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Please upload your statement in one of the following formats:
-        <ul class="govuk-list--bullets">
-          <li>PDF &ndash; <strong>.pdf</strong></li>
-          <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
-          <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
-          <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
-          <li>PNG &ndash; <strong>.png</strong></li>
-        </ul>
-      </div>
-    </details>
+      {{govukButton({
+        text: 'Upload file',
+        classes: 'govuk-button--secondary moj-multi-file-upload__button'
+      })}}
+    {% endset %}
 
-    <div class="govuk-form-group">
-        <div class="govuk-checkboxes">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="sense-check" name="sense-check" value="on" type="checkbox">
-            <label class="govuk-label govuk-checkboxes__label" for="sense-check">
-              I confirm that I have not included sensitive information in my appeal statement.
-            </label>
-          </div>
-        </div>
-    </div>
+    {{ mojMultiFileUpload({
+      uploadedFiles: {
+        heading: { text: 'Files added' },
+        items: data.uploadedFiles | filesByFieldName("appeal-statement")
+      },
+      uploadHtml: uploadHtml
+    }) }}
 
     <div class="govuk-form-group">
       <button class="govuk-button" data-module="govuk-button">
@@ -134,3 +123,18 @@
 </div>
   </div>
 {% endblock %}
+
+
+{% block pageScripts %}
+<script>
+if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+  new MOJFrontend.MultiFileUpload({
+    container: $('.moj-multi-file-upload'),
+    uploadUrl: '/ajax-appeal-statement-',
+    deleteUrl: '/ajax-appeal-statement-delete',
+    fieldName: 'appeal-statement'
+    });
+  }
+</script>
+{% endblock %}
+
