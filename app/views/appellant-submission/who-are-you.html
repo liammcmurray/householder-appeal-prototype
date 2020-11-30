@@ -50,7 +50,7 @@
             },
             {
               value: "agent",
-              text: "No, I'm appealing on behalf of the original applicant and have their permission",
+              text: "No, I'm an agent acting on behalf of the applicant​",
               conditional: {
                 html: agentRep
               }
@@ -61,6 +61,10 @@
 
         <button class= "govuk-button" value="">Save and continue</button>
       </form>
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      {% include "includes/_save.html" %}
     </div>
 
   </div>

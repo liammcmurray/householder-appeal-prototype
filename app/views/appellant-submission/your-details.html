@@ -8,14 +8,25 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-      <form action="your-email" method="post" novalidate>
-        <div class="govuk-form-group">
-        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
-        <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l">What is your name?</label>
-        </h1>
-          <input class="govuk-input" id="appellant-name" name="appellant-name" value="{{ data['appellant-name'] }}" type="text">
-        </div>
 
+      <form action="task-list" method="post" novalidate="">
+        <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About you</span>
+        <h1 class="govuk-heading-l">
+          Your details
+        </h1>
+        <p>We ask for your name and email address so we can contact you about your appeal.</p>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="appellant-name">
+            Your name
+          </label>
+          <input class="govuk-input" id="appellant-name" name="appellant-name" value="" type="text">
+        </div>
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="appellant-email">
+            Your email
+          </label>
+          <input class="govuk-input" id="appellant-email" name="appellant-email" value="" type="text">
+        </div>
         <div class="govuk-form-group">
           <button class="govuk-button" data-module="govuk-button">
             Save and continue
@@ -26,6 +37,13 @@
         <input type="hidden" name="your-details-completed" value="govuk-tag app-task-list__tag">
         <input type="hidden" name="your-details-completed-text" value="Completed">
       </form>
+
+
+    
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      {% include "includes/_save.html" %}
     </div>
 
   </div>

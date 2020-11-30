@@ -10,12 +10,14 @@
   <form action="/check-statement" method="post" novalidate>
     <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Your appeal</span>
     <h1 class="govuk-heading-l">
-      Your appeal statement
+      Upload your appeal statement
     </h1>  
     
-    <p>Upload an appeal statement (also known as a 'grounds for appeal') that explains why you think the Local Planning Authority's decision was incorrect.​</p>
-    <p>It should respond to the LPA's reasons for refusal (these can be found on the decision letter), and include any other information that supports your appeal.</p>
-    <p>If you refer to any documents in your appeal statement, for example photographs, you can upload them in the next step.​</p>
+    <p>Your appeal statement (also known as a 'grounds for appeal') should explain why you think the local planning department's decision to refuse your planning application was incorrect.​</p>
+    <p>You should respond to all the reasons for refusal (you can find these on the decision letter) and include any other information that supports your appeal.​</p>
+    <p>If you mention any other documents in your appeal statement, for example photographs, you can upload those in the next step.​
+
+​</p>
     
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
@@ -133,5 +135,9 @@
     <input type="hidden" name="appeal-statement-completed-text" value="Completed">
   </form>
 </div>
+
+<div class="govuk-grid-column-one-third">
+      {% include "includes/_save.html" %}
+    </div>
   </div>
 {% endblock %}
