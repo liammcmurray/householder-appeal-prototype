@@ -12,7 +12,7 @@
 		<ol class="govuk-breadcrumbs__list">
 			<li class="govuk-breadcrumbs__list-item">
 				<a class="govuk-breadcrumbs__link" href="#">Home</a>
-			</li>§
+			</li>
 			<li class="govuk-breadcrumbs__list-item">
 				<a class="govuk-breadcrumbs__link" href="#">Housing and local services</a>
 			</li>
@@ -25,18 +25,18 @@
 			<div class="govuk-grid-column-two-thirds">
 				<h1 class="govuk-heading-l">Appeal a householder planning decision</h1>
 
-				<h2 class="govuk-heading-m">Before you start</h2>
-				<p class="govuk-body">You'll need:</p>
+				<h2 class="govuk-heading-m">Start your appeal</h2>
+				<p class="govuk-body">You'll need certain documents to complete your appeal:</p>
 
 				<ul class="govuk-list govuk-list--bullet">
-					<li>your planning application number​</li>
-					<li>the name of your local planning department</li>
+					<li>the decision letter from your local planning department</li>
+					<li>your appeal statement</li>
 				</ul>
 				<p>You'll also need your original planning application form, which you can search for on your local planning department's website.​</p>​
 
 				<h2 class="govuk-heading-m">Your appeal statement</h2>
 
-				<p class="govuk-body">You’ll need to write an appeal statement that sets out why you think the local planning department's decision is incorrect. This should respond to all the reasons for refusal (listed on the decision letter) and include any other information that supports your appeal.</p>
+				<p class="govuk-body">You’ll need to write an appeal statement that sets out why you think the local planning department's decision is incorrect. This should respond to all of the reasons for refusal (listed on the decision letter) and include any other information that supports your appeal.</p>
 
 				<form action="/appellant-submission/decision-date" method="post" novalidate>
 					<input type="hidden" name="sections-completed" value="0">
@@ -77,6 +77,9 @@
 
 	        <input type="hidden" name="site-ownership-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
 	        <input type="hidden" name="site-ownership-completed-text" value="Not started">
+
+	        <input type="hidden" name="email-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+	        <input type="hidden" name="email-completed-text" value="Not started">
 
 	        <input type="hidden" name="application-number-completed" value="govuk-tag govuk-tag--grey  app-task-list__tag">
         <input type="hidden" name="application-number-completed-text" value="Not started">
