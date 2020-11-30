@@ -8,16 +8,36 @@
 
 <div class="govuk-grid-row" id="form-html">
   <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-error-summary govuk-!-display-none" id="error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary" data-validation-hidden>
+      <h2 class="govuk-error-summary__title" id="error-summary-title">
+        There is a problem
+      </h2>
+      <div class="govuk-error-summary__body">
+        <ul class="govuk-list govuk-error-summary__list">
+          <li>
+            <a href="#caseref">You need to provide your original planning application number</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
     <form action="planning-number-post" method="post" novalidate id="planing-number-submit">
       
-      <div class="govuk-form-group">
+      <div class="govuk-form-group" id="planning-number-form-group">
         <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--l" for="postcode">
             What is your original planning application number?
           </label>
         </h1>
+
         <div id="application-number-hint" class="govuk-hint">
-          You can find this on the decision letter from your local planning department
+          You can find this on the decision letter from your local planning department.
         </div>
+
+        <span class="govuk-error-message govuk-!-display-none" data-validation-hidden>
+        <span class="govuk-visually-hidden">Error:</span> You need to provide your original planning application number
+      </span>
         <input class="govuk-input govuk-input--width-10" id="caseref" name="caseref" type="text">
       </div>
 
@@ -36,7 +56,7 @@
 
       {{ loadingPage({
         heading: "Searching for your planning application",
-        description: "We are searching for your planning application from South Gloucestershire Council's website. This can take up to 30 seconds. Do not close your browser.",
+        description: "<p>We're searching for your planning application on South Gloucestershire Council's website.</p> <p>This can take up to 30 seconds. Do not close your browser.</p>",
         loadingText: "Loading"
       }) }}
 
@@ -55,27 +75,25 @@ $(document).on("submit", "#planing-number-submit", function(event){
   event.preventDefault();
   console.log(event);
 
-  $("#form-html").hide();
-  $("#waiting-html").removeClass("govuk-!-display-none");
-
   
-  let caseref = $("#caseref").val();
 
-  $.ajax({
-    type: "POST",
-    url: "/submit-appeal/planning-number-post",
-    data: {
-      "caseref": caseref 
-    },
-    success: function(data, status){
-      let url = window.location.origin + "/submit-appeal/appeal-details";
-      window.location = url
-    },
-    error: function(data, status){
-      let url = window.location.origin + "/submit-appeal/reference-number-not-found";
-      window.location = url
-    }
-  });
+  if(!$("#caseref").val()){
+    $("#planning-number-form-group").addClass("govuk-form-group--error");
+    $("[data-validation-hidden]").removeClass("govuk-!-display-none");
+  } else {
+    $("#form-html").hide();
+    $("#waiting-html").removeClass("govuk-!-display-none");
+
+    $("#planning-number-form-group").removeClass("govuk-form-group--error");
+    $("[data-validation-hidden]").addClass("govuk-!-display-none");
+
+    let thisForm = this;
+
+    setTimeout(function(){ 
+      thisForm.submit()
+    }, 30000);
+
+  }
 
 
   

@@ -99,6 +99,7 @@ router.post('/site-notice-post', function (req, res) {
 //autocomplete
 
 const localCouncils = require("./data/local-authority-eng.json");
+const planningApplications = require("./data/planning-applications.json");
 
 
 function sortByProperty(property){
@@ -254,7 +255,7 @@ router.post('/eligibility/planning-department-post', function(req, res, next){
   console.log(dept)
   if(dept === 'SGC') {
     req.session.data.planningError = false;
-    res.redirect('/submit-appeal/' + redirectUrl)
+    res.redirect('/submit-appeal/planning-number')
   } else if (dept === ""){
     req.session.data.planningError = true;
     res.redirect('/eligibility/planning-department')
@@ -282,30 +283,17 @@ router.post('/appellant-submission/planning-department-post', function(req, res,
 
 router.post("/submit-appeal/planning-number-post", function(req, res, next){
 
-  let caseref = encodeURIComponent(req.body.caseref)
-
-  console.log(caseref)
-  request(idoxScraperUrl + "/api/v1/lpalookup/?caseref=" + caseref, function (error, response, body) {
-
-    console.error('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
-    console.log('body:', body); // Print the HTML for the Google homepage.
+  let caseref = req.body.caseref.replace(/\s/g, '').toUpperCase();
 
 
-
-    if(error || response.statusCode === 500){
-      req.session.data.cases[caseref] =  {
-        "error": error
-      }
-      res.status(500)
-      res.send("error");
-      
-    } else if(response.statusCode === 200){
-      req.session.data.planningDetails = JSON.parse(body);
-      res.send(JSON.parse(body));
-    }
-    
-  });
+  if(planningApplications.some(item => item.Reference.toUpperCase() === caseref)){
+    req.session.data.planningDetails = planningApplications.find(item => item.Reference.toUpperCase() === caseref);
+    console.log(req.session.data.planningDetails)
+    res.redirect("/submit-appeal/appeal-details")
+  } else {
+    res.redirect("/submit-appeal/reference-number-not-found")
+  }
+  
 
   
 })
@@ -338,6 +326,7 @@ router.post("/submit-appeal/planning-number-post-2", function(req, res, next){
 
   
 })
+
 
 router.post("/submit-appeal/postcode-post-ajax", function(req, res, next){
   //BS34 8PP
@@ -446,7 +435,7 @@ router.post("/submit-appeal/contact-details-post", function(req, res, next){
 router.all("/submit-appeal/reference-number-not-found", function(req, res, next){
   let council = localCouncils.filter(council => council.key === req.session.data['planning-department']);
 
-  res.locals.councilName = council[0]['official-name'];
+  //res.locals.councilName = council[0]['official-name'];
   next()
 })
 

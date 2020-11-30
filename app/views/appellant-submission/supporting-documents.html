@@ -20,7 +20,7 @@
         {% if data['file-upload-docs'] %}
         <h2 class="govuk-heading-m">Files added:</h2>
         <ul class="govuk-list">
-          {{ data['file-upload-docs'] | formatAsList |safe }}
+          {{ data['file-upload-docs'] | formatAsList | safe }}
         </ul>
         {% endif %}
 

@@ -82,7 +82,7 @@ module.exports = function (env) {
   }
 
   filters.formatIdoxDecisionDate = function(dateString){
-    let date = moment(dateString, "ddd DD MMM YYYY");
+    let date = moment(dateString, "DD MMM YYYY");
 
     if(date.isValid()){
       return date.format("D MMMM YYYY")
@@ -93,7 +93,7 @@ module.exports = function (env) {
   }
 
   filters.formatIdoxDeadlineDate = function(dateString){
-    let date = moment(dateString, "ddd DD MMM YYYY");
+    let date = moment(dateString, "DD MMM YYYY");
 
     if(date.isValid()){
       return date.add(12, "weeks").format("D MMMM YYYY")
@@ -104,7 +104,7 @@ module.exports = function (env) {
   }
 
   filters.formatIdoxDateIsWithinDeadline = function(dateString){
-    let date = moment(dateString, "ddd DD MMM YYYY");
+    let date = moment(dateString, "DD MMM YYYY");
 
     if(date.isValid()){
       return date.add(12, "weeks").isAfter(moment(), "day")
@@ -115,15 +115,19 @@ module.exports = function (env) {
   }
 
   filters.formatAsList = function (list){
-    console.log(list)
-    let html = ""
 
-    
-    list.forEach(function(item){
-      html =  `${html}\n<li>${item}</li>`
-    })    
+   if (typeof list === "object"){
+      let html = ""
 
-    return html;
+      
+      list.forEach(function(item){
+        html =  `${html}\n<li>${item}</li>`
+      })    
+
+      return html;
+    } else {
+      return list;
+    }
     
   }
 

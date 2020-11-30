@@ -37,6 +37,22 @@
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
+              Version 2 - Sprint 2
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>Re-work of submission prototype based on MVP story map. Git tag: "v2"</p>
+            <ul class="govuk-list">
+              <li><a href="https://has-appeal-archive-2.herokuapp.com/appellant-submission/start-your-appeal" target="_blank" class="govuk-link">View prototype</a></li>
+              <li><a href="https://pins-ds.atlassian.net/wiki/spaces/AAPDS/pages/313655361/Sprint+2+UR" target="_blank">User research findings</a></li>
+            </ul>
+          </div>
+        </details>
+
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
               Version 1 - Sprint 1
             </span>
           </summary>
@@ -61,40 +77,11 @@
         <p>Full user journey for proposed beta, from start page through to appeal submit.</p>
         <ul class="govuk-list govuk-list--bullet">
             <li>Select South Gloucestershire Council</li>
-            <li>PK17/5462/F - Approved with condition. Out of time to appeal. Postcode BS16 6LQ.</li>
-            <li>P20/17532/F - Approved with conditions 3 Novermber 2020. Postcode BS34 8PP.</li>
+            <li>P20/12345/F - Refused. Able to appeal</li>
+            <li>P20/56789/F - Refused. Over deadline.</li>
           </ul>
 
-        <form action="/eligibility/start-your-appeal" method="post" accept-charset="utf-8">
-          {{ govukRadios({
-            classes: "govuk-radios--small",
-            idPrefix: "idox-prototype-version",
-            name: "idox-prototype-url",
-            fieldset: {
-              legend: {
-                text: "Select version",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                text: "Planning reference only",
-                value: "planning-number",
-                attributes: {
-                  required: true  
-                }
-              },
-              {
-                text: "Planning reference with postcode validation",
-                value: "planning-number-2"
-              }
-            ]
-          }) }}
-        <div class="govuk=form-group">
-          <button class="govuk-button" href="/eligibility/start-your-appeal">View prototype</button>
-           </div>
-        </form>
+        <a class="govuk-button" href="/eligibility/start-your-appeal">View prototype</a>
 
       </dt>
     </div>
