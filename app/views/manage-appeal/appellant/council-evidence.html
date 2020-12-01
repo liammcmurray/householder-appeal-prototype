@@ -1,0 +1,123 @@
+{% extends "layout-no-back.html" %}
+
+{% set headerTitle = "Evidence from the local planning department" %}
+  
+
+{% block pageTitle %}
+  {{headerTitle}}
+{% endblock %}
+
+{% block content %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Your appeal status",
+      href: "/manage-appeal/appellant/local-council-docs"
+    },
+    {
+      text: "Evidence from local planning department",
+      href: "#"
+    }
+  ]
+}) }}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+    <h1 class="govuk-heading-l">
+      {{headerTitle}}
+    </h1>
+    
+      {% include "../includes/appeal-details.html" %}
+    
+
+  <p>Maidstone Borough Council submitted the following information on {{ 7 | daysInFuture }}. The Inspector will consider this, along with the evidence you submitted, to reach a decision.​</p>
+      <p>This is just for your information. You cannot change your appeal or add any new evidence.</p>
+      
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              About the appeal
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The local planning department agrees that the information you have provided accurately reflects the original application.</li>
+            <li>There are no other open appeals nearby.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Site inspection
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The inspector should be able to see the relevant parts of the appeal site from public land. This means access to the site will not be required for a site inspection</li>
+            <li>Access to a neighbours property will not be needed for a site inspection.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              About the site
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The site is in or near a conservation area. <a href="/public/images/conservation-area.pdf">Download conservation area documents</a></li>
+            <li>The development would affect the setting of a listed building. <a href="/public/images/sample.pdf">Download listed building documents</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Interested parties and consultees
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local planning department notifed interest parties.</p>
+
+          <ul class="govuk-list">
+            <li><a href="/public/images/sample.pdf">View correspondence</a></li>
+            <li><a href="/public/images/sample.pdf">View list of interested parties</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Suggested conditions
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local plannning department have provided a <a href="/public/images/sample.pdf">list of suggested condtions</a> to the development</p>
+        </div>
+      </div>
+
+    </div>
+      
+  </div>
+</div>
+
+{% endblock %}

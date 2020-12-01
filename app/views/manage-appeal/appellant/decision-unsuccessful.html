@@ -1,0 +1,53 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Your appeal status",
+      href: "/manage-appeal/appellant/rejected"
+    },
+    {
+      text: "Evidence from local planning department",
+      href: "#"
+    }
+  ]
+}) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      
+      <h1 class="govuk-heading-l">
+        Your planning appeal was unsuccessful
+      </h1>
+
+      {% include "../includes/appeal-details.html" %}
+      
+
+      <h2 class="govuk-heading-s">Main Issue</h2>
+
+      <p>The main issue is the effect of the development on the character and appearance of the host property and the surrounding area.</p>
+
+      <h2 class="govuk-heading-s">Reasons</h2>
+      <ol class="govuk-list govuk-list--number">
+        <li>The appeal site, No 12 Southon Close (No 12) is a detached bungalow,which due to the sloping land has a lower level facing the highway. No 12 is accessed from the t-junction at the end of Southon Close, which comprises mainly semi-detachedtwo storey dwellingsto one side, and rear gardens and garages of the dwellings located on Mile Oak Roadon the other. Given the location, orientation of the existing dwelling and its overall scale, only the side elevation facing the highway and part of the side elevation of No 12 are visible in the streetscene. In the surrounding area, whilst there are other smaller dormer extensions these are mainly to rear elevations and are less visible or prominent additions to the host properties.</li>
+        <li>The development proposed would increase the height of the existing roof, by constructinga full width dormer, extending over all of the available area of the roofslope. There would be two gable end,box dormer windows facing the highwayand a rooflight between the box dormer windows in the roofspace.</li>
+        <li>Policy QD14 of the Brighton and Hove Local Plan (2005) (LP) and further guidance provided in SPD121states that dormers constructed using the full width of the roof are inappropriate design as they would give the appearance of an additional storey on top of the building. Further, dormers should be kept as small as possible and subordinate additions to the roofslopeand set well away from the sides, ridge and eaves of the roof.</li>
+        <li>Whilst I note that the Council has no concerns with regards No 12 having a first-floorextension, based on my site visit, the proposed full width dormerwould result in the dwelling appearing to have an additional storey. The proposedgable end box dormerwindows would not appear as subservient additionsto the increased height of the roofslope, as they would not be set well back from the sidesof the roof. Instead,the dormer would be full width of the roofslopeand would be full height to the ridge. </li>
+        <li>Due to the sloping topography and siting of No 12 at the end of Southon Closethere would be only limited visibility of the development proposed from the rest of the properties on Southon Close or those located on Mile Oak Road. Nevertheless, the increase in scale and bulkof the proposed full width dormer and two gable end box dormer windows would appear asanincongruous addition to the host property, which would conflict with guidance in the SPD12referred to in footnote 1.</li>
+        <li>I conclude that the development proposed, due to the scale of the proposed dormer would be contrary to Policy CP12 of the City Plan Part One (2016) and Policy QD14 of the LP, which when read together seek to ensure alterations and extensions or alterations to existing buildings, including the formation of a room in the roof,is well designed in relation to the property to be extended and to the surrounding area and the guidance provided in SPD12 with regards alterations to the roofspace.</li>
+
+      </ol>
+
+      <h2 class="govuk-heading-s">Other Matters</h2>
+      
+      <ol class="govuk-list govuk-list--number">
+          <li>I note that the Council has raised no concerns with regardsthe effect of the development on the living conditions of the occupiers of the neighbouring propertiesin Southon Close or Mile OakRoad. Given theareastopography and the distance of neighbouring properties from No 12, based on my site visit, the development proposed would not result in issues due to overlooking and there would be no detrimental effectson the living conditions of the occupiers of neighbouring properties.</li>
+          <li>I note that the appellant has referred to revised plans having been submitted prior to making an application and the dispute between the parties with regards the orientation of the dwelling and that box dormers would be permitted development on side elevations. However, whether or not the development proposedwould bepermitted development under The Town and Country Planning (General Permitted Development) (England)Order 2015 (as amended) is not amatter for consideration in this appeal, and therefore I have not pursued the matter further.</li>
+        </ol>  
+
+{% endblock %}

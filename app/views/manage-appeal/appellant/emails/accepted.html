@@ -1,0 +1,29 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+<p>Subject: Your planning appeal</p>
+<p>From: info@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+    <div class="govuk-grid-column-two-thirds">
+
+
+<p>Dear {{data.user.name.first}} {{data.user.name.last}}</p>
+
+<p>Your planning appeal has been successful. </p>
+<p>The Planning Inspectorate will tell Maidstone Borough Council that your appeal has been successful and you can carry out the proposed work.</p>
+<p><a href="/manage-appeal/appellant/decision-successful" title="">View the full details of the appeal decision</a></p>
+
+<p>Regards<br>
+The Planning Inspectorate</p>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layout-no-back.html" %}
+
+{% block pageTitle %}
+  Your details
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- <span class="govuk-caption-xl"><span class="govuk-visually-hidden"></span>{{data.user.location.street.number}} {{data.user.location.street.name}} </span> -->
+      <h1 class="govuk-heading-l">
+        The status of your planning appeal
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Appellant Name</dt>
+          <dd class="govuk-summary-list__value">{{data.user.name.first}} {{data.user.name.last}}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Site address</dt>
+          <dd class="govuk-summary-list__value">{{data.user.location.street.number}} {{data.user.location.street.name}},
+                {{data.user.location.city}}</dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">Status</dt>
+          <dd class="govuk-summary-list__value">{{govukTag({
+              text: "In progress",
+              classes: "govuk-tag--blue"
+            })}}</dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Appeal progress</h2>
+
+      <ol class="timeline">
+
+        <li class="timeline__entry timeline__entry--complete">
+          <h2 class="timeline__header">Appeal sent </h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 0 | daysAgo }}</span>
+          <p><a href="appeal-details">View your appeal details</a></p>
+        </li>
+
+        <li class="timeline__entry timeline__entry--complete ">
+          <h2 class="timeline__header">TYour local planning department have submitted their case file from the original planning application.</h2>
+          <span class="timeline__sub-header govuk-!-margin-bottom-5">{{ 7 | daysInFuture }}</span>
+
+          <p><a href="council-evidence">View the local planning department's evidence</a>
+        </li>
+
+        <li class="timeline__entry timeline__entry--current">
+          <h2 class="timeline__header">Site visit</h2>
+          <p>A planning inspector may need to view the appeal site. We will contact you to confirm a date and time.</p>
+        </li>
+
+        <li class="timeline__entry">
+          <h2 class="timeline__header">Decision</h2>
+          <p>The Inspector will consider all the evidence to make their decision. </p>
+        </li>
+      </ol>
+
+
+    </div>
+  </div>
+
+{% endblock %}
