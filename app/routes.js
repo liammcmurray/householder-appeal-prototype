@@ -91,7 +91,7 @@ router.post('/site-notice-post', function (req, res) {
   if (publicised == "true") {
     res.redirect('/lpa-submission/site-notice-documents')
   } else {
-    res.redirect('/lpa-submission/lpa-task-list')
+    res.redirect('/lpa-submission/lpa-task-list-complete')
   }
 })
 
