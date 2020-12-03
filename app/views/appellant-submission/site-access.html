@@ -18,7 +18,7 @@
             <p id="inspector-hint">The Inspector needs to see the whole of the appeal site. This is the area of property or land that your original planning application relates to.</p>
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input value="{{ data['site-access'] }}" class="govuk-radios__input" id="how-contacted-conditional" name="site-access" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
+                <input class="govuk-radios__input" id="how-contacted-conditional" name="site-access" type="radio" value="yes" {{ checked('site-access', 'yes')}} data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes, they can see the appeal site
                 </label>
@@ -26,7 +26,7 @@
               
               <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input value="{{ data['site-access'] }}" class="govuk-radios__input" id="site-access-conditional" name="site-access" type="radio" value="no" data-aria-controls="conditional-site-access-conditional">
+                  <input class="govuk-radios__input" id="site-access-conditional" name="site-access" type="radio" value="no" {{ checked('site-access', 'no')}} data-aria-controls="conditional-site-access-conditional">
                   <label class="govuk-label govuk-radios__label" for="site-access-conditional">
                     No, I would need to give them access
                   </label>
@@ -36,7 +36,7 @@
                     <label id="site-access-conditional-hint" class="govuk-label" for="more-detail">
                       Tell us how access is restricted.
                     </label>
-                    <textarea value="{{ data['site-access-more-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                    <textarea class="govuk-textarea" id="more-detail" name="site-access-more-detail" rows="5" aria-describedby="more-detail-hint">{{ data['site-access-more-detail'] }}</textarea>
                   </div>
 
                 </div>

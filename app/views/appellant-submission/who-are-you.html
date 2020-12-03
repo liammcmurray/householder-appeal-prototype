@@ -18,9 +18,10 @@
  
         {% set agentRep %}
         {{ govukInput({
-          id: "appellant-name",
-          name: "appellant-name",
+          id: "applicant-name",
+          name: "applicant-name",
           type: "",
+          value: data['applicant-name'],
           classes: "",
           label: {
             text: "Name of applicant"
@@ -46,11 +47,13 @@
           items: [
             {
                value: "applicant",
-              text: "Yes, the original application was made in my name​"
+              text: "Yes, the original application was made in my name​",
+              checked: checked("who-are-you", "applicant")
             },
             {
               value: "agent",
               text: "No, I'm an agent acting on behalf of the applicant​",
+              checked: checked("who-are-you", "agent"),
               conditional: {
                 html: agentRep
               }

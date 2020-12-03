@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-print.html" %}
 
 {% block pageTitle %}
   Check answers | Appeal a householder planning decision
@@ -10,11 +10,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       
-      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Submit your appeal</span>
       <h1 class="govuk-heading-l">
-        Check your answers
+        Householder planning appeal
       </h1>
-      <p>Before you submit your appeal, check that the information you've provided is correct.</p>
+      <p>Submitted to the Planning Inspectorate on {{ 0 |daysAgo }}</p>
 
 
       <h2 class="govuk-heading-m">Before you start</h2>
@@ -161,7 +160,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data['other-appeals'] === 'yes' %}
-              <div class="user-inout-text">{{ data['other-appeals-detail'] }}</div>
+              <div class="user-inout-text">{{ data['other-appealss-detail'] }}</div>
             {% else %}
             <p>Yes</p>
             {% endif %}
@@ -238,64 +237,29 @@
         </div>
       </dl>
 
-      <form action="submission" method="post" novalidate>
-        <button class="govuk-button" data-module="govuk-button">
-            Save and continue
-        </button>
-      </form>
+
     </div>
 
     
   </div>
+  
+
+
+<style>
+@media print {
+
+  .govuk-summary-list__row {
+    page-break-inside: avoid;
+  }
+
+}
+
+.govuk-link {
+  display: none;
+}
+
+</style>
 
 {% endblock %}
 
 
-
-
-{% block footer %}
-    {{ govukFooter({
-  navigation: [
-    {
-      title: "Contact the Planning Inspectorate",
-      columns: 2,
-      items: [
-        {
-          href: "tel:03034445000",
-          text: "Customer Support: England 0303 444 5000"
-        },
-        {
-          href: "mailto:enquiries@planninginspectorate.gov.uk",
-          text: "enquiries@planninginspectorate.gov.uk"
-        }
-      ]
-    },
-    {
-      title: "Service information",
-      items: [
-        {
-          href: "#1",
-          text: "Terms and conditions"
-        },
-        {
-          href: "#2",
-          text: "Privacy and cookies"
-        },
-        {
-          href: "#3",
-          text: "Accessibility"
-        },
-        {
-          href: "/prototype-admin/clear-data",
-          text: "Clear data"
-          },
-        {
-          href: "/appellant-submission/check-answers-print",
-          text: "Check answers printable"
-          }
-      ]
-    }
-  ]
-}) }}
-
-  {% endblock %}

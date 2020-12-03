@@ -38,22 +38,22 @@
             </details>
             <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional" name="safety" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
+                <input class="govuk-radios__input" id="how-contacted-conditional" name="safety" {{ checked('safety', 'yes') }} type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
                   Yes
                 </label>
               </div>
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
                 <div class="govuk-form-group">
-                  <label class="govuk-label" for="contact-by-email">
+                  <label class="govuk-label" for="safety-detail">
                     Tell us about any health and safety concerns
                   </label>
-                  <textarea value="{{ data['safety-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></textarea>
+                  <textarea value="{{ data['safety-detail'] }}" class="govuk-textarea" id="safety-detail" name="safety-detail" rows="5" aria-describedby="more-detail-hint">{{ data['safety-detail'] }}</textarea>
                 </div>
               </div>
               
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="safety" type="radio" value="no">
+                <input class="govuk-radios__input" id="how-contacted-conditional-2" name="safety" {{ checked('safety', 'no') }} type="radio" value="no">
                 <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
                   No
                 </label>
