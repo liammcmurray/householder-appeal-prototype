@@ -534,4 +534,15 @@ router.all("/submit-appeal/task-list", function(req, res, next){
   next()
 })
 
+router.get("/get-session-data", function(req, res, next){
+  res.send(req.session.data)
+})
+
+
+router.get("/complete-appeal-task-list", function(req, res, next){
+  req.session.data = require("./data/complete-appeal.js");
+  
+  res.redirect("/submit-appeal/task-list")
+})
+
 module.exports = router

@@ -185,7 +185,9 @@
             Your appeal statement
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['appeal-statement'] }}</p>
+            {{ multiFileDisplay({
+                uploadedFiles: data.uploadedFiles | filesByFieldName("appeal-statement")
+              }) }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="appeal-statement">
@@ -199,7 +201,9 @@
           </dt>
           <dd class="govuk-summary-list__value">
             <ul class="govuk-list">
-              {{ data['file-upload-docs'] | formatAsList |safe}}
+              {{ multiFileDisplay({
+                uploadedFiles: data.uploadedFiles | filesByFieldName("supporting-docs")
+              }) }}
             </ul>
             
           </dd>
