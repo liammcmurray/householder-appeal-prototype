@@ -111,8 +111,74 @@
         </div>
 
       </dl>  
+<h2 class="govuk-heading-m">About you</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-      <h2 class="govuk-heading-m">Your appeal</h2>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Was the original planning application made in your name?
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>
+             {{ "yes" if data['who-are-you'] == 'applicant'}}
+             {{ "no" if data['who-are-you'] == 'agent'}}
+            </p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="who-are-you">
+              Change<span class="govuk-visually-hidden"> if the application was made in your name</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['who-are-you'] == 'agent' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applicant name
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>{{ data['applicant-name'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="who-are-you">
+              Change<span class="govuk-visually-hidden"> applicant name</span>
+            </a>
+          </dd>
+        </div>    
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your name
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>{{ data['appellant-name'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="your-details">
+              Change<span class="govuk-visually-hidden"> your name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your email
+          </dt>
+          <dd class="govuk-summary-list__value">
+             <p>{{ data['appellant-email'] }}</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="your-details">
+              Change<span class="govuk-visually-hidden"> your email</span>
+            </a>
+          </dd>
+        </div>
+
+        
+      </dl>
+
+
+      <h2 class="govuk-heading-m">About your appeal</h2>
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -122,47 +188,97 @@
             <p>{{ data['appeal-statement'] }}</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="grounds-of-appeal">
+            <a class="govuk-link" href="appeal-statement">
               Change<span class="govuk-visually-hidden"> appeal statement</span>
             </a>
           </dd>
         </div>
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your email 
+            Documents to support your appeal
           </dt>
           <dd class="govuk-summary-list__value">
-            <p>{{ data['contact-by-email'] }}</p>
+            <ul class="govuk-list">
+              {{ data['file-upload-docs'] | formatAsList |safe}}
+            </ul>
+            
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="grounds-of-appeal">
-              Change<span class="govuk-visually-hidden"> email</span>
+            <a class="govuk-link" href="supporting-documents">
+              Change<span class="govuk-visually-hidden"> other documents to support your appeal</span>
             </a>
           </dd>
         </div>
-
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your address
+            Other relevant appeals
           </dt>
           <dd class="govuk-summary-list__value">
-            <p> {{ data['address-line-1'] }}
-                {{ data['address-line-2'] }}<br>
-                {{ data['address-line-town'] }}<br>
-                {{ data['address-line-county'] }}<br>
-                {{ data['address-line-postcode'] }}<br>
-            </p>
+            {% if data['other-appeals'] === 'yes' %}
+              <div class="user-input-text">{{ data['other-appeals-detail'] }}</div>
+            {% else %}
+            <p>No</p>
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="grounds-of-appeal">
-              Change<span class="govuk-visually-hidden"> email</span>
+            <a class="govuk-link" href="other-appeals">
+              Change<span class="govuk-visually-hidden"> other appeals at this address</span>
             </a>
           </dd>
         </div>
-
       </dl>
 
+
+      <h2 class="govuk-heading-m">Visiting the appeal site</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you own the whole appeal site?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-ownership">
+              Change<span class="govuk-visually-hidden"> site ownership</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can the Inspector see the whole of the appeal site from a public road?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['site-access'] === 'no' %}
+              <div class="user-input-text">{{ data['site-access-more-detail'] }}</div>
+            {% else %}
+            <p>Yes</p>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-access">
+              Change<span class="govuk-visually-hidden"> public visibility of site</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Any health and safety issues?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['safety'] === 'yes' %}
+              <div class="user-input-text">{{ data['safety-more-detail'] }}</div>
+            {% else %}
+            <p>No</p>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="site-access-safety">
+              Change<span class="govuk-visually-hidden"> health and safety concerns of site</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
 
       <form action="submission" method="post" novalidate>
         <button class="govuk-button" data-module="govuk-button">

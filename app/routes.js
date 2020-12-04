@@ -489,8 +489,7 @@ router.all("/submit-appeal/task-list", function(req, res, next){
       complete: false,
     },{
       sections: [
-        req.session.data["alt-your-details-completed-text"], 
-        req.session.data["alt-contact-details-completed-text"]
+        req.session.data["alt-your-details-completed-text"]
         ],
       complete: false,
     },{

@@ -15,25 +15,25 @@
         <h1 class="govuk-fieldset__heading">Do you have any other active appeals at this address?</h1></legend>
         <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="how-contacted-conditional" name="other-appeals" type="radio" value="yes" data-aria-controls="conditional-how-contacted-conditional">
+            <input class="govuk-radios__input" id="how-contacted-conditional" name="other-appeals" type="radio" value="yes" {{ checked("other-appeals", "yes") }}  data-aria-controls="conditional-how-contacted-conditional">
           <label class="govuk-label govuk-radios__label" for="how-contacted-conditional">
             Yes
           </label>
           </div>
           <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-how-contacted-conditional">
             <div class="govuk-form-group">
-              <label class="govuk-label" for="more-detail">
+              <label class="govuk-label" for="other-appeals-detail">
                 Enter appeal reference numbers
               </label>
-              <span id="more-detail-hint" class="govuk-hint">
+              <span id="other-appeals-detail-hint" class="govuk-hint">
                 You can add multiple reference numbers separated by commas
               </span>
-              <input value="{{ data['other-appeals-detail'] }}" class="govuk-textarea" id="more-detail" name="more-detail" rows="5" aria-describedby="more-detail-hint"></input>
+              <input value="{{ data['other-appeals-detail'] }}" class="govuk-textarea" id="other-appeals-detail" name="other-appeals-detail" rows="5" aria-describedby="other-appeals-detail-hint"></input>
             </div>
           </div>
         
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="other-appeals" type="radio" value="no">
+            <input class="govuk-radios__input" id="how-contacted-conditional-2" name="other-appeals" type="radio" value="no" {{ checked("other-appeals", "no") }} >
             <label class="govuk-label govuk-radios__label" for="how-contacted-conditional-2">
               No
             </label>
