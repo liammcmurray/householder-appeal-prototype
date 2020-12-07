@@ -11,11 +11,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
     <form action="lpa-task-list-complete" method="post" novalidate>
-      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Supporting documents</span>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Optional supporting documents</span>
 
             <h1 class="govuk-heading-l">
-              Upload the site notice and/or local advertisement.
+              Upload the site notice and/or local advertisement
             </h1>
+            <p>If you’ve already uploaded this in a previous question you don’t need to do it again.</p>
 
           {% set uploadHtml %}
             {{ govukFileUpload({

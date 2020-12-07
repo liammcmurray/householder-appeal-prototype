@@ -96,6 +96,17 @@ router.post('/site-notice-post', function (req, res) {
 })
 
 
+router.post('/check-conservation', function (req, res) {
+  let conservationupload = req.session.data['is-accurate']
+
+  if (conservationupload == "yes") {
+    res.redirect('/lpa-submission/conservation-publicity-upload')
+  } else {
+    res.redirect('/lpa-submission/lpa-task-list')
+  }
+})
+
+
 //autocomplete
 
 const localCouncils = require("./data/local-authority-eng.json");
