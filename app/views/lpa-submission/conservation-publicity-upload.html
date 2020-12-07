@@ -11,16 +11,17 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
     <form action="lpa-task-list-complete" method="post" novalidate>
-      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Optional supporting documents</span>
+      <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>About the appeal site</span>
 
+            <h1 class="govuk-heading-l">
+              Upload the site notice and/or local advertisement
+            </h1>
+            <p>If you’ve already uploaded this in a previous question you don’t need to do it again.</p>
 
-          <h1 class="govuk-heading-l">
-            Statutory development plan policy
-          </h1>
           {% set uploadHtml %}
             {{ govukFileUpload({
-              id: "statutory",
-              name: "statutory",
+              id: "site-notice",
+              name: "site-notice",
               classes: 'moj-multi-file-upload__input',
               label: {
                 text: "Upload files",
@@ -39,12 +40,11 @@
           {{ mojMultiFileUpload({
             uploadedFiles: {
               heading: { text: 'Files added' },
-              items: data.uploadedFiles | filesByFieldName("statutory")
+              items: data.uploadedFiles | filesByFieldName("site-notice")
             },
             uploadHtml: uploadHtml
           }) }}
-      <input type="hidden" name="statutory-completed" value="govuk-tag app-task-list__task-completed">
-      <input type="hidden" name="statutory-completed-text" value="Completed">
+
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
@@ -84,10 +84,11 @@ if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
 
   new MOJFrontend.MultiFileUpload({
     container: $('.moj-multi-file-upload'),
-    uploadUrl: '/ajax-statutory',
-    deleteUrl: '/ajax-statutory-delete',
-    fieldName: 'statutory'
+    uploadUrl: '/ajax-site-notice',
+    deleteUrl: '/ajax-site-notice-delete',
+    fieldName: 'site-notice'
     });
   }
 </script>
 {% endblock %}
+

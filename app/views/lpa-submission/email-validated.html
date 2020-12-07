@@ -1,0 +1,85 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  New householder planning appeal
+{% endblock %}
+
+{% block content %}
+<p>Subject: 22 Argyll Street, XM26 7YS – householder appeal validated</p>
+<p>From: appeals@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Householder planning appeal PI123456</p>
+    <p>Dear Maidstone Borough Council</p>
+
+    <p>The householder appeal against the refusal of planning application <strong>20/500818/FULL</strong> has been checked and is valid.</p>
+
+    <p><strong>Appeal site:</strong><br>
+    22 Argyll Street<br>
+    Maidstone<br>
+    XM26 7YS</p>
+
+    <p>This will be decided by written representations.</p>
+    <p>You need to submit your questionnaire and other documents for the appeal by {{ 7 | daysInFuture }}.​</p>
+
+    <form action="lpa-task-list" method="post" novalidate>
+      <input type="hidden" name="sections-completed" value="0">
+      <input type="hidden" name="sections-completed-text" value="Application incomplete">
+      <!-- accuracy -->
+      <input type="hidden" name="appellant-submission-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="appellant-submission-completed-text" value="Not started">
+      <input type="hidden" name="conditions-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="conditions-completed-text" value="Not started">
+      <input type="hidden" name="other-appeals-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="other-appeals-completed-text" value="Not started">
+      <!-- about appeal site -->
+      <input type="hidden" name="section2-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="section2-completed-text" value="Not started">
+      <!-- required documents -->
+      <input type="hidden" name="case-file-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="case-file-completed-text" value="Not started">
+      <input type="hidden" name="officers-report-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="officers-report-completed-text" value="Not started">
+      <!-- supporting documents -->
+      <input type="hidden" name="interested-parties-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="interested-parties-completed-text" value="Not started">
+      <input type="hidden" name="interested-parties2-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="interested-parties2-completed-text" value="Not started">
+      <input type="hidden" name="interested-parties3-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="interested-parties3-completed-text" value="Not started">
+      <input type="hidden" name="site-notice-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="site-notice-completed-text" value="Not started">
+      <input type="hidden" name="planning-history-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="planning-history-completed-text" value="Not started">
+      <input type="hidden" name="statutory-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="statutory-completed-text" value="Not started">
+      <input type="hidden" name="policies-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="policies-completed-text" value="Not started">
+      <input type="hidden" name="supplementary-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="supplementary-completed-text" value="Not started">
+      <input type="hidden" name="dpd-completed" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="dpd-completed-text" value="Not started">
+      <!-- submission -->
+      <input type="hidden" name="check-answers" value="govuk-tag govuk-tag--grey app-task-list__tag">
+      <input type="hidden" name="check-answers-link" value="Check your answers">
+      <input type="hidden" name="check-answers-text" value="Cannot start yet">
+      <button class="govuk-button" data-module="govuk-button">
+        Start now
+      </button>
+    </form>
+
+    <p><strong>Contacting the appellant</strong><br>
+    You need to email a copy of the questionnaire to the appellant at: <a href="mailto:">[email address]</a></p>
+<!-- <p>[AD route] The appellant has asked to be contacted by post. You need to send a copy of the questionnaire to them at [the address above/insert different address].</p> -->
+<br>
+    <p>Regards​<br />The Planning Inspectorate​
+      <br/><a href="mailto:appeals@planninginspectorate.gov.uk">appeals@planninginspectorate.gov.uk</a>
+    </p>
+
+​
+  </div>
+</div>
+{% endblock %}

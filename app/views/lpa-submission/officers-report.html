@@ -10,7 +10,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
-    <form action="lpa-task-list" method="post" novalidate>
+    <form action="lpa-task-list-complete" method="post" novalidate>
       <span class="govuk-caption-l"><span class="govuk-visually-hidden">Section. </span>Required documents</span>
 
             <h1 class="govuk-heading-l">
@@ -50,8 +50,8 @@
 
       
       <input type="hidden" name="officers-report-completed" value="govuk-tag app-task-list__task-completed">
-      <input type="hidden" name="officers-report-completedText" value="Completed">
-
+      <input type="hidden" name="officers-report-completed-text" value="Completed">
+      <input type="hidden" name="check-answers-text" value="Not started">
       <div class="govuk-form-group">
         <button class="govuk-button" data-module="govuk-button">
           Save and continue
