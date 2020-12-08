@@ -534,8 +534,9 @@ router.all("/submit-appeal/task-list", function(req, res, next){
   next()
 })
 
-router.get("/get-session-data", function(req, res, next){
-  res.send(req.session.data)
+router.get("/get-session-data.json", function(req, res, next){
+  res.setHeader('Content-Type', 'application/json');
+  res.send(JSON.stringify(req.session.data, null, 3));
 })
 
 
