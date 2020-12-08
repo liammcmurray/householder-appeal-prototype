@@ -247,11 +247,24 @@ router.post('/eligibility/listed-building-post', function (req, res) {
   }
 })
 
+
+router.post('/consent-eligibility-v4', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/appellant-submission/appeal-statement-info')
+  } else if (hasconsent === 'no') {
+    res.redirect('/appellant-submission/consent-out')
+  } else {
+    res.redirect('/appellant-submission/consent')
+  }
+})
+
 router.post('/appellant-submission/listed-building-post', function (req, res) {
   let haslisted = req.session.data['listed-building']
 
   if (haslisted === 'no') {
-    res.redirect('/appellant-submission/appeal-statement-info')
+    res.redirect('/appellant-submission/consent')
   } else if (haslisted === 'yes') {
     res.redirect('/appellant-submission/listed-out')
   } else {
