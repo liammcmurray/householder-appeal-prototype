@@ -240,14 +240,10 @@ let uploads = [{
   deleteUrl: '/ajax-correspondence-delete',
   fieldName: 'correspondence'
 },{
-  uploadUrl: '/ajax-appeal-statement-',
-  deleteUrl: '/ajax-appeal-statement-delete',
-  fieldName: 'appeal-statement'
-},{
-  uploadUrl: '/ajax-supporting-docs-',
+  uploadUrl: '/ajax-supporting-docs',
   deleteUrl: '/ajax-supporting-docs-delete',
   fieldName: 'supporting-docs'
-}]
+},]
 
 
 uploads.forEach(function(item, index, array){

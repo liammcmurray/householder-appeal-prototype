@@ -145,9 +145,9 @@
             Documents to support your appeal
           </dt>
           <dd class="govuk-summary-list__value">
-            <ul class="govuk-list">
-              {{ data['file-upload-docs'] | formatAsList |safe}}
-            </ul>
+            {{ multiFileDisplay({
+                uploadedFiles: data.uploadedFiles | filesByFieldName("supporting-docs")
+              }) }}
             
           </dd>
           <dd class="govuk-summary-list__actions">

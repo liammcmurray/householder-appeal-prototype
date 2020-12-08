@@ -15,39 +15,34 @@
     <p>If you have referred to any documents in your appeal statement, for example photographs, upload them here.​</p>
     <p>You do not need to upload the plans from your original planning application.</p>
 
-        <div class="govuk-inset-text">Individual file sizes should be no more than 1.21GB</div>
 
-        {% if data['file-upload-docs'] %}
-        <h2 class="govuk-heading-m">Files added:</h2>
-        <ul class="govuk-list">
-          {{ data['file-upload-docs'] | formatAsList | safe }}
-        </ul>
-        {% endif %}
+{% set uploadHtml %}
+    {{ govukFileUpload({
+      id: "supporting-docs",
+      name: "supporting-docs",
+      classes: 'moj-multi-file-upload__input',
+      label: {
+        text: "Upload files (optional)",
+        classes: 'govuk-label--m'
+      },
+      attributes: { multiple: '' },
+      errorMessage: errorMessage
+    }) }}
 
-    <div class="govuk-form-group">
-      <label class="govuk-heading-m" for="file-upload-docs">
-        Upload files (optional)
-      </label>
-      <input value="{{ data['file-upload-docs'] }}" class="govuk-file-upload" id="file-upload-docs" name="file-upload-docs" type="file" multiple>
-    </div>
-    
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Help with file formats
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Please upload your statement in one of the following formats:
-        <ul class="govuk-list--bullets">
-          <li>PDF &ndash; <strong>.pdf</strong></li>
-          <li>Microsoft Word &ndash; <strong>.doc</strong> or <strong>.docx</strong></li>
-          <li>TIF &ndash; <strong>.tif</strong> or <strong>.tiff</strong></li>
-          <li>JPEG &ndash; <strong>.jpg</strong> or <strong>.jpeg</strong></li>
-          <li>PNG &ndash; <strong>.png</strong></li>
-        </ul>
-      </div>
-    </details>
+    {{govukButton({
+      text: 'Upload file',
+      classes: 'govuk-button--secondary moj-multi-file-upload__button'
+    })}}
+  {% endset %}
+
+  {{ mojMultiFileUpload({
+    uploadedFiles: {
+      heading: { text: 'Files added' },
+      items: data.uploadedFiles | filesByFieldName("supporting-docs")
+    },
+    uploadHtml: uploadHtml
+  }) }}
+
 
     <div class="govuk-form-group">
       <button class="govuk-button" data-module="govuk-button">
@@ -63,4 +58,18 @@
       {% include "includes/_save.html" %}
     </div>
   </div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+if(typeof MOJFrontend.MultiFileUpload !== 'undefined') {
+  new MOJFrontend.MultiFileUpload({
+    container: $('.moj-multi-file-upload'),
+    uploadUrl: '/ajax-supporting-docs',
+    deleteUrl: '/ajax-supporting-docs-delete',
+    fieldName: 'supporting-docs'
+    });
+  }
+</script>
 {% endblock %}
