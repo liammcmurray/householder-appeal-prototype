@@ -1,0 +1,34 @@
+{% extends "layout-email.html" %}
+
+{% block pageTitle %}
+  New householder planning appeal
+{% endblock %}
+
+{% block content %}
+<p>Subject: 22 Argyll Street, XM26 7YS – householder appeal received</p>
+<p>From: appeals@planninginspectorate.gov.uk</p>
+
+<img src="{{ asset_path }}images/pi-logo.png" width="150"/>
+
+<div class="govuk-grid-row govuk-!-margin-top-5">
+  <div class="govuk-grid-column-two-thirds">
+    <p>Dear Maidstone Borough Council</p>
+
+    <p>We’ve received a householder planning appeal against the refusal of planning application <strong>20/500818/FULL</strong>.</p>
+    <p><strong>Appeal site:</strong><br>
+    22 Argyll Street<br>
+    Maidstone<br>
+    XM26 7YS</p>
+
+    <p>We attach a copy of the appellant’s submission.</p>
+
+    <p>We’ll be back in touch when we start the appeal.</p>
+
+    <p>Regards​<br />The Planning Inspectorate​
+      <br/><a href="mailto:appeals@planninginspectorate.gov.uk">appeals@planninginspectorate.gov.uk</a>
+    </p>
+
+​
+  </div>
+</div>
+{% endblock %}

@@ -91,6 +91,17 @@ router.post('/site-notice-post', function (req, res) {
   if (publicised == "true") {
     res.redirect('/lpa-submission/site-notice-documents')
   } else {
+    res.redirect('/lpa-submission/lpa-task-list-complete')
+  }
+})
+
+
+router.post('/check-conservation', function (req, res) {
+  let conservationupload = req.session.data['is-accurate']
+
+  if (conservationupload == "yes") {
+    res.redirect('/lpa-submission/conservation-publicity-upload')
+  } else {
     res.redirect('/lpa-submission/lpa-task-list')
   }
 })
