@@ -247,6 +247,19 @@ router.post('/eligibility/listed-building-post', function (req, res) {
   }
 })
 
+
+router.post('/consent-eligibility-v4', function (req, res) {
+  let hasconsent = req.session.data['how-contacted']
+
+  if (hasconsent === 'yes') {
+    res.redirect('/appellant-submission/listed-building')
+  } else if (hasconsent === 'no') {
+    res.redirect('/appellant-submission/consent-out')
+  } else {
+    res.redirect('/appellant-submission/consent')
+  }
+})
+
 router.post('/appellant-submission/listed-building-post', function (req, res) {
   let haslisted = req.session.data['listed-building']
 
@@ -282,7 +295,7 @@ router.post('/appellant-submission/planning-department-post', function(req, res,
   console.log(dept)
   if(dept === 'SGC') {
     req.session.data.planningError = false;
-    res.redirect('/appellant-submission/listed-building')
+    res.redirect('/appellant-submission/consent')
   } else if (dept === ""){
     req.session.data.planningError = true;
     res.redirect('/appellant-submission/planning-department')
