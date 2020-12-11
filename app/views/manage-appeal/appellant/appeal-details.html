@@ -17,9 +17,9 @@
 
       <p>You submitted the following information on {{ 0 | daysAgo }}.</p>
 
-      <dl class="govuk-summary-list">
+    <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <dt class="govuk-summary-list__key ">
             Your name
           </dt>
           <dd class="govuk-summary-list__value">
@@ -35,6 +35,17 @@
             {{data.user.email}}
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">{{ data.user.completeAppeal['application-number'] }}</p>
+          </dd>
+          
+        </div> 
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Appeal site
@@ -47,47 +58,166 @@
         </div>
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--no-border">
             Local planning department
           </dt>
-          <dd class="govuk-summary-list__value">
+          <dd class="govuk-summary-list__value govuk-summary-list__value--no-border">
             {{data.user.location.city}} Borough Council
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Decision letter
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a href="/public/images/Decision_Notice.pdf">Download decision letter</a> 
-          </dd>
-        </div>
+      </dl>
+
+
+      {% set planningAppHtml %}
+
+      <dl class="govuk-summary-list">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Appeal statement
+            Planning application form
           </dt>
           <dd class="govuk-summary-list__value">
-            <a href="/public/images/appeal-statement.pdf">Download appeal statement</a> 
+            {{ multiFileDisplay({
+                uploadedFiles: data.user.completeAppeal.uploadedFiles | filesByFieldName("planning-application")
+              }) }}
           </dd>
+          
+        </div>     
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--no-border">
+            Decision letter
+          </dt>
+          <dd class="govuk-summary-list__value govuk-summary-list__value--no-border">
+            {{ multiFileDisplay({
+                uploadedFiles: data.user.completeAppeal.uploadedFiles | filesByFieldName("decision-letter")
+              }) }}
+          </dd>
+          
         </div>
       </dl>
 
-      <!--<dl class="govuk-summary-list">
+      {% endset %}
 
-        {% for question in questions %}
+      {% set appealHtml %}
+
+      <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            {{ question.text }}
+          <dt class="govuk-summary-list__key">
+            Your appeal statement
           </dt>
-          <dd class="govuk-summary-list__value govuk-!-width-one-half">
-            {{ question.answer }}
+          <dd class="govuk-summary-list__value">
+            {{ multiFileDisplay({
+                uploadedFiles: data.user.completeAppeal.uploadedFiles | filesByFieldName("appeal-statement")
+              }) }}
           </dd>
+          
         </div>
-        {% endfor %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Documents to support your appeal
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ multiFileDisplay({
+                uploadedFiles: data.user.completeAppeal.uploadedFiles | filesByFieldName("supporting-docs")
+              }) }}
+            
+          </dd>
+          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--no-border">
+            Other relevant appeals
+          </dt>
+          <dd class="govuk-summary-list__value govuk-summary-list__value--no-border">
+            {% if data.user.completeAppeal['other-appeals'] === 'yes' %}
+              <div class="user-inout-text">{{ data.user.completeAppeal['other-appealss-detail'] }}</div>
+            {% else %}
+            <p>Yes</p>
+            {% endif %}
+          </dd>
+          
+        </div>
+      </dl>
+
+      {% endset %}
+
+
+      {% set appealSiteHtml %}
+
+      <dl class="govuk-summary-list">
         
-      </dl>-->
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Do you own the whole appeal site?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            yes
+          </dd>
+          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Can the Inspector see the whole of the appeal site from a public road?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data.user.completeAppeal['site-access'] === 'no' %}
+              <div class="user-inout-text">{{ data.user.completeAppeal['site-access-more-detail'] }}</div>
+            {% else %}
+            <p>Yes</p>
+            {% endif %}
+          </dd>
+          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-summary-list__key--no-border">
+            Any health and safety issues?
+          </dt>
+          <dd class="govuk-summary-list__value govuk-summary-list__value--no-border">
+            {% if data.user.completeAppeal['safety'] === 'yes' %}
+              <div class="user-inout-text">{{ data.user.completeAppeal['safety-detail'] }}</div>
+            {% else %}
+            <p>No</p>
+            {% endif %}
+          </dd>
+          
+        </div>
+      </dl>
+
+      {% endset %}
+
+      {{ govukAccordion({
+        id: "accordion-default",
+        items: [
+          {
+            heading: {
+              text: "About the original planning application"
+            },
+            content: {
+              html: planningAppHtml
+            }
+          },{
+            heading: {
+              text: "About your appeal"
+            },
+            content: {
+              html: appealHtml
+            }
+          },{
+            heading: {
+              text: "Visiting the appeal site"
+            },
+            content: {
+              html: appealSiteHtml
+            }
+          }
+          
+          
+        ]
+      }) }}
+
+
+      
       
   </div>
 

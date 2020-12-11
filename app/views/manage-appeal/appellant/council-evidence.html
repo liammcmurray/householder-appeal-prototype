@@ -1,6 +1,6 @@
-{% extends "layout-no-back.html" %}
+{% extends "layout.html" %}
 
-{% set headerTitle = "Evidence from the local planning department" %}
+{% set headerTitle = "Case file from the local planning department" %}
   
 
 {% block pageTitle %}
@@ -9,18 +9,6 @@
 
 {% block content %}
 
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Your appeal status",
-      href: "/manage-appeal/appellant/local-council-docs"
-    },
-    {
-      text: "Evidence from local planning department",
-      href: "#"
-    }
-  ]
-}) }}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds"> 
@@ -30,11 +18,9 @@
     
       {% include "../includes/appeal-details.html" %}
     
-
-  <p>Maidstone Borough Council submitted the following information on {{ 7 | daysInFuture }}. The Inspector will consider this, along with the evidence you submitted, to reach a decision.​</p>
-      <p>This is just for your information. You cannot change your appeal or add any new evidence.</p>
-      
-
+  <p>South Gloucestershire Council have submitted the case file from the original planning application.​</p>
+  <p>This is just for reference, and does not contain any new information.​</p>
+  <p>You do not need to respond to this, and you cannot change your appeal at this stage.</p>
     <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
       <div class="govuk-accordion__section ">
         <div class="govuk-accordion__section-header">
@@ -45,9 +31,11 @@
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local planning department have told us:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>The local planning department agrees that the information you have provided accurately reflects the original application.</li>
             <li>There are no other open appeals nearby.</li>
+            <li>There are no extra conditions that would be applied to a successful appeal.</li>
           </ul>
         </div>
       </div>
@@ -56,15 +44,18 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Site inspection
+              About a possible site inspection
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local planning department have told us:</p>
           <ul class="govuk-list govuk-list--bullet">
-            <li>The inspector should be able to see the relevant parts of the appeal site from public land. This means access to the site will not be required for a site inspection</li>
+            <li>The inspector should be able to see the relevant parts of the appeal site from public land.</li>
+            <li>The inspector would need to enter the appeal site.</li>
             <li>Access to a neighbours property will not be needed for a site inspection.</li>
           </ul>
+          <p>This will infrom the planning inspectorate about the tyoe of site visit they will need to perform.</p>
         </div>
       </div>
 
@@ -72,12 +63,14 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              About the site
+              About the surrounding area:
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local planning department have told us:</p>
           <ul class="govuk-list govuk-list--bullet">
+            <li>The site is not in a green belt.</li>
             <li>The site is in or near a conservation area. <a href="/public/images/conservation-area.pdf">Download conservation area documents</a></li>
             <li>The development would affect the setting of a listed building. <a href="/public/images/sample.pdf">Download listed building documents</a></li>
           </ul>
@@ -88,17 +81,27 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Interested parties and consultees
+              Plans used to make the decision
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-          <p>The local planning department notifed interest parties.</p>
+          <p>These are the plans you submitted with your planning application.</p> 
 
-          <ul class="govuk-list">
-            <li><a href="/public/images/sample.pdf">View correspondence</a></li>
-            <li><a href="/public/images/sample.pdf">View list of interested parties</a></li>
-          </ul>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                3 documents
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list">
+                <li><a href="/public/images/blank.pdf">existing-site-drawings.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">proposed-site-drawings.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">plan-description.doc</a></li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
 
@@ -106,14 +109,90 @@
         <div class="govuk-accordion__section-header">
           <h2 class="govuk-accordion__section-heading">
             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-              Suggested conditions
+              The planning officer's report
             </span>
           </h2>
         </div>
         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-          <p>The local plannning department have provided a <a href="/public/images/sample.pdf">list of suggested condtions</a> to the development</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                1 document
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list">
+                <li><a href="/public/images/blank.pdf">officers-report.doc</a></li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+      </div>
+      <div class="govuk-accordion__section ">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Supporting documents
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+          <p>The local planning department sent these additional documents:</p>
+          
+          <h3 class="govuk-heading-s">Interested parties</h3>
+          <p>This is information about how the local planning department notified interested parties</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                1 document
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list">
+                <li><a href="/public/images/blank.pdf">site-notice.doc</a></li>
+              </ul>
+            </div>
+          </details>
+          
+
+          <h3 class="govuk-heading-s">Representations from interested parties</h3>
+          <p>These are the comments on the proposed development from interested parties. For example, neighbours.</p>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                4 documents
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list">
+                <li><a href="/public/images/blank.pdf">Letter from interested party 1.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">Letter from interested party 2.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">Letter from interested party 3.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">Letter from interested party 4.pdf</a></li>
+              </ul>
+            </div>
+          </details>
+
+
+          <h3 class="govuk-heading-s">Development Plan Document or Neighbourhood Plan</h3>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                2 documents
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <ul class="govuk-list">
+                <li><a href="/public/images/blank.pdf">Development plan.pdf</a></li>
+                <li><a href="/public/images/blank.pdf">Neighbourhood plan.pdf</a></li>
+              </ul>
+            </div>
+          </details>
         </div>
       </div>
+
 
     </div>
       
