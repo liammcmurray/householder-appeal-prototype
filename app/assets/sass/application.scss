@@ -27,7 +27,7 @@ $govuk-assets-path: '/govuk/assets/';
 	font-family: "nta", Arial, sans-serif;
 }
 
-.govuk-summary-list__key--no-border{
+.govuk-summary-list__key--no-border, .govuk-summary-list__value--no-border{
 	border-bottom: none;
 }
 

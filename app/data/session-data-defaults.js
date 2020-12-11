@@ -77,6 +77,161 @@ module.exports = {
       "registered": {
         "age": 6,
         "date": "2014-05-20T20:54:39.692Z"
+      },
+      completeAppeal: {
+        "address-county": "United Kingdom",
+        "address-line-1": "9617 The Avenue",
+        "address-line-2": "",
+        "address-postcode": "XM26 7YS",
+        "address-town": "Maidstone",
+        "appeal-statement": "appeal statement.pdf",
+        "appellant-email": "manish.sharma@somewhere.com",
+        "appellant-name": "Manish Sharma",
+        "applicant-name": "",
+        "application-number": "P20/12345/F",
+        "application-upload": "planning application.pdf",
+        "cases": [],
+        "check-answers": "govuk-tag govuk-tag--grey app-task-list__tag",
+        "check-answers-link": "Check your answers",
+        "check-answers-text": "Cannot start yet",
+        "decision-date-day": "1",
+        "decision-date-month": "11",
+        "decision-date-year": "2020",
+        "decision-notice": "decision letter.pdf",
+        "health-option": "",
+        "how-contacted": "yes",
+        "listed-building": "no",
+        "other-appeals": "no",
+        "other-appeals-detail": "",
+        "planning-department": "SGC",
+        "planningDetails": {
+          "Address": "Old Orchard 22 Townsend Lane Almondsbury South Gloucestershire BS32 4EQ",
+          "Alternative Reference": "PP-08794252",
+          "Appeal Decision": "Not Available",
+          "Appeal Status": "Unknown",
+          "Application Received": "18 Jun 2020",
+          "Application Validated": "18 Jun 2020",
+          "Decision": "Refusal",
+          "Decision Issued Date": "12 Oct 2020",
+          "Name": "Manish Sharma",
+          "Proposal": "Demolition of existing dwelling and outbuildings. Erection of 1 no. dwelling with associated works.",
+          "Reference": "P20/12345/F",
+          "Status": "Decided",
+          "documents": [
+            "downloads/P20-10658-F.zip"
+          ]
+        },
+        "planningError": false,
+        "safety": "yes",
+        "safety-detail": "I am currently building an extension.",
+        "sense-check": [
+          "on",
+          ""
+        ],
+        "site-access": "no",
+        "site-access-more-detail": "There is a large hedge blocking the view from the road. ",
+        "site-owner-names": "yes",
+        "site-ownership": "",
+        "supporting-docs": "",
+        "uploadedFiles": [
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "supporting-docs",
+            "filename": "ecff862153b5db42052d190d0d2276684079.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/ecff862153b5db42052d190d0d2276684079.pdf\" download class=\"govuk-link\"> other documents 1.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "other documents 1.pdf",
+            "path": "public/images/other documents 1.pdf",
+            "size": 13264
+          },
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "supporting-docs",
+            "filename": "45282c8a86f407449a615fd34311c19cd09b.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/45282c8a86f407449a615fd34311c19cd09b.pdf\" download class=\"govuk-link\"> other documents 2.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "other documents 2.pdf",
+            "path": "public/images/other documents 2.pdf",
+            "size": 13264
+          },
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "supporting-docs",
+            "filename": "a679fffe1894215bb97d1958bb6fc8b8fad4.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/a679fffe1894215bb97d1958bb6fc8b8fad4.pdf\" download class=\"govuk-link\"> other documents 3.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "other documents 3.pdf",
+            "path": "public/images/other documents 3.pdf",
+            "size": 13264
+          },
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "planning-application",
+            "filename": "a679fffe1894215bb97d1958bb6fc8b8fad4.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/a679fffe1894215bb97d1958bb6fc8b8fad4.pdf\" download class=\"govuk-link\"> other documents 3.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "planning application.pdf",
+            "path": "public/images/planning application.pdf",
+            "size": 13264
+          },
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "decision-letter",
+            "filename": "a679fffe1894215bb97d1958bb6fc8b8fad4.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/a679fffe1894215bb97d1958bb6fc8b8fad4.pdf\" download class=\"govuk-link\"> other documents 3.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "decision letter.pdf",
+            "path": "public/images/decision letter.pdf",
+            "size": 13264
+          },
+          {
+            "deleteButton": {
+              "text": "Delete"
+            },
+            "destination": "./public/uploads",
+            "encoding": "7bit",
+            "fieldname": "appeal-statement",
+            "filename": "a679fffe1894215bb97d1958bb6fc8b8fad4.pdf",
+            "message": {
+              "html": "<span class=\"moj-multi-file-upload__success\"> <svg class=\"moj-banner__icon\" fill=\"currentColor\" role=\"presentation\" focusable=\"false\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 25 25\" height=\"25\" width=\"25\"><path d=\"M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z\"></path></svg> <a href=\"/public/uploads/a679fffe1894215bb97d1958bb6fc8b8fad4.pdf\" download class=\"govuk-link\"> other documents 3.pdf</a> has been uploaded</span>"
+            },
+            "mimetype": "application/pdf",
+            "originalname": "appeal statement.pdf",
+            "path": "public/images/appeal statement.pdf",
+            "size": 13264
+          }
+        ],
+        "who-are-you": "applicant",
       }
     },
     "alt-sections-completed-text": "Application incomplete",
